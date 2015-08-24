@@ -1,7 +1,6 @@
-package cn.net.idear.main;
+package cn.idear.algorithm.main;
 
-import cn.net.idear.util.ListNode;
-import cn.net.idear.two_sum.Solution;
+import cn.idear.algorithm.util.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -140,7 +139,7 @@ public class Main {
 
     private static  String twoSum(int[] nums , int target){
         StringBuilder sb = new StringBuilder();
-        Solution solution = new Solution();
+        cn.idear.algorithm.two_sum.Solution solution = new cn.idear.algorithm.two_sum.Solution();
         int[] rst = solution.twoSum(nums, target);
         for(int i = 0; i < rst.length; i++)
             sb.append(rst[i] + " ");
@@ -151,7 +150,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         ListNode n1 = createList(l1);
         ListNode n2 = createList(l2);
-        cn.net.idear.add_two_numbers.Solution solution = new cn.net.idear.add_two_numbers.Solution();
+        cn.idear.algorithm.add_two_numbers.Solution solution = new cn.idear.algorithm.add_two_numbers.Solution();
         ListNode rst = solution.addTwoNumbers(n1, n2);
         for(ListNode n = rst; n != null; n = n.next) {
             sb.append(n.val + " ");
@@ -169,17 +168,17 @@ public class Main {
     }
 
     private static String addBinary(String a, String b){
-        cn.net.idear.add_binary.Solution solution = new cn.net.idear.add_binary.Solution();
+        cn.idear.algorithm.add_binary.Solution solution = new cn.idear.algorithm.add_binary.Solution();
         return solution.addBinary(a,b);
     }
 
     private String multiplyString(String num1, String num2) {
-        cn.net.idear.multiply_string.Solution solution = new cn.net.idear.multiply_string.Solution();
+        cn.idear.algorithm.multiply_string.Solution solution = new cn.idear.algorithm.multiply_string.Solution();
         return solution.multiply(num1,num2);
     }
 
     private String plusOne(int[] digits) {
-        cn.net.idear.plus_one.Solution solution = new cn.net.idear.plus_one.Solution();
+        cn.idear.algorithm.plus_one.Solution solution = new cn.idear.algorithm.plus_one.Solution();
         int[] rst = solution.plusOne(digits);
         String str = "";
         for(int i = 0; i < rst.length; i++)
@@ -188,26 +187,26 @@ public class Main {
     }
 
     private int longestSubstringWithoutRepeatingCharacters(String s) {
-        cn.net.idear.longest_substring_without_repeating_characters.Solution solution =
-                new cn.net.idear.longest_substring_without_repeating_characters.Solution();
+        cn.idear.algorithm.longest_substring_without_repeating_characters.Solution solution =
+                new cn.idear.algorithm.longest_substring_without_repeating_characters.Solution();
         return solution.lengthOfLongestSubstring(s);
     }
 
     private double medianOfTwoSortedArrays(int[] nums1, int[] nums2) {
-        cn.net.idear.median_of_two_sorted_arrays.Solution solution =
-                new cn.net.idear.median_of_two_sorted_arrays.Solution();
+        cn.idear.algorithm.median_of_two_sorted_arrays.Solution solution =
+                new cn.idear.algorithm.median_of_two_sorted_arrays.Solution();
         return solution.findMedianSortedArrays(nums1,nums2);
     }
 
     private void mergeSortedArray(int[] ints, int m, int[] ints1, int n) {
-        cn.net.idear.merge_sorted_array.Solution solution = new cn.net.idear.merge_sorted_array.Solution();
+        cn.idear.algorithm.merge_sorted_array.Solution solution = new cn.idear.algorithm.merge_sorted_array.Solution();
         solution.merge(ints, m, ints1, n);
     }
 
     private ListNode mergeTwoSortedList(int[] nums1, int[] nums2) {
         ListNode l1 = ListNode.createListByVal(nums1);
         ListNode l2 = ListNode.createListByVal(nums2);
-        cn.net.idear.merge_two_sorted_lists.Solution solution = new cn.net.idear.merge_two_sorted_lists.Solution();
+        cn.idear.algorithm.merge_two_sorted_lists.Solution solution = new cn.idear.algorithm.merge_two_sorted_lists.Solution();
         return solution.mergeTwoLists(l1, l2);
     }
 
@@ -215,12 +214,12 @@ public class Main {
         ListNode[] list = new ListNode[ints.length];
         for(int i = 0; i < ints.length; i++)
             list[i] = ListNode.createListByVal(ints[i]);
-        cn.net.idear.merge_k_sorted_lists.Solution solution = new cn.net.idear.merge_k_sorted_lists.Solution();
+        cn.idear.algorithm.merge_k_sorted_lists.Solution solution = new cn.idear.algorithm.merge_k_sorted_lists.Solution();
         return solution.mergeKLists(list);
     }
 
     private boolean isUgly(int num){
-        cn.net.idear.ugly_number.Solution solution = new cn.net.idear.ugly_number.Solution();
+        cn.idear.algorithm.ugly_number.Solution solution = new cn.idear.algorithm.ugly_number.Solution();
         return solution.isUgly(num);
     }
 }

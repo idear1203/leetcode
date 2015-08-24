@@ -1,4 +1,4 @@
-package cn.net.idear.plus_one;
+package cn.idear.algorithm.plus_one;
 
 import java.util.Arrays;
 

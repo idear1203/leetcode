@@ -1,4 +1,4 @@
-package cn.net.idear.ugly_number;
+package cn.idear.algorithm.ugly_number;
 
 /**
  * Created by wangdongwei on 8/24/15.

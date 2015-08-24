@@ -1,6 +1,6 @@
-package cn.net.idear.merge_two_sorted_lists;
+package cn.idear.algorithm.merge_two_sorted_lists;
 
-import cn.net.idear.util.ListNode;
+import cn.idear.algorithm.util.ListNode;
 
 /**
  * Created by wangdongwei on 8/24/15.

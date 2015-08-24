@@ -1,4 +1,4 @@
-package cn.net.idear.longest_substring_without_repeating_characters;
+package cn.idear.algorithm.longest_substring_without_repeating_characters;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package cn.net.idear.util;
+package cn.idear.algorithm.util;
 
 /**
  * Created by wangdongwei on 8/23/15.

@@ -1,4 +1,4 @@
-package cn.net.idear.two_sum;
+package cn.idear.algorithm.two_sum;
 
 import java.util.HashMap;
 

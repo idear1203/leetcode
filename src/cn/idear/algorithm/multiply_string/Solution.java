@@ -1,4 +1,4 @@
-package cn.net.idear.multiply_string;
+package cn.idear.algorithm.multiply_string;
 
 import java.util.ArrayList;
 import java.util.List;

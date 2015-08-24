@@ -1,4 +1,4 @@
-package cn.net.idear.merge_sorted_array;
+package cn.idear.algorithm.merge_sorted_array;
 
 /**
  * Created by wangdongwei on 8/24/15.

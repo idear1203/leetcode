@@ -1,6 +1,6 @@
-package cn.net.idear.merge_k_sorted_lists;
+package cn.idear.algorithm.merge_k_sorted_lists;
 
-import cn.net.idear.util.ListNode;
+import cn.idear.algorithm.util.ListNode;
 
 import java.util.Arrays;
 

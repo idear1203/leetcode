@@ -1,4 +1,4 @@
-package cn.net.idear.add_binary;
+package cn.idear.algorithm.add_binary;
 
 import java.math.BigInteger;
 

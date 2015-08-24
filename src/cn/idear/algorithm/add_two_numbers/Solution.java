@@ -1,10 +1,10 @@
-package cn.net.idear.add_two_numbers;
+package cn.idear.algorithm.add_two_numbers;
 
 /**
  * Created by wangdongwei on 8/23/15.
  */
 
-import cn.net.idear.util.ListNode;
+import cn.idear.algorithm.util.ListNode;
 
 /**
  You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
