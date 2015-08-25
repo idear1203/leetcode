@@ -10,6 +10,27 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testRemoveNthNodeFromEndofList(){
+        ListNode origin;
+        ListNode expect;
+
+        origin = ListNode.createListByVal(new int[]{1, 2, 3});
+        expect = ListNode.createListByVal(new int[]{1, 2});
+        Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 1));
+
+        origin = ListNode.createListByVal(new int[]{1, 2, 3});
+        expect = ListNode.createListByVal(new int[]{1, 3});
+        Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 2));
+
+        origin = ListNode.createListByVal(new int[]{1, 2, 3});
+        expect = ListNode.createListByVal(new int[]{2, 3});
+        Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 3));
+
+        origin = ListNode.createListByVal(new int[]{1});
+        Assert.assertEquals(null, removeNthNodeFromEndofList(origin, 1));
+    }
+
+    @Test
     public void testLongestCommonPrefix(){
         String[] strs = new String[]{"abcdefhijk", "abcm", "ab","abcde"};
         Assert.assertEquals("ab", longestCommonPrefix(strs));
@@ -433,5 +454,11 @@ public class Main {
         cn.idear.algorithm.longest_common_prefix.Solution solution =
                 new cn.idear.algorithm.longest_common_prefix.Solution();
         return solution.longestCommonPrefix(strs);
+    }
+
+    private ListNode removeNthNodeFromEndofList(ListNode origin, int n) {
+        cn.idear.algorithm.remove_nth_node_from_end_of_list.Solution solution =
+                new cn.idear.algorithm.remove_nth_node_from_end_of_list.Solution();
+        return solution.removeNthFromEnd(origin, n);
     }
 }
