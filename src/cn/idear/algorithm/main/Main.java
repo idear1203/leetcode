@@ -10,6 +10,13 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testContainerWithMostWater(){
+        int rst;
+        rst = containerWithMostWater(new int[]{3, 4, 2, 1});
+        Assert.assertTrue(4 == rst);
+    }
+
+    @Test
     public void testReverseLinkedList(){
         ListNode expect = ListNode.createListByVal(new int[]{1, 2});
         ListNode actual = reverseLinkedList(new int[]{2, 1});
@@ -378,5 +385,11 @@ public class Main {
         cn.idear.algorithm.reverse_linked_list.Solution solution =
                 new cn.idear.algorithm.reverse_linked_list.Solution();
         return solution.reverseList(ListNode.createListByVal(nums));
+    }
+
+    private int containerWithMostWater(int[] nums) {
+        cn.idear.algorithm.container_with_most_water.Solution solution =
+                new cn.idear.algorithm.container_with_most_water.Solution();
+        return solution.maxArea(nums);
     }
 }
