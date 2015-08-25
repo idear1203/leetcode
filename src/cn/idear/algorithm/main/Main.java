@@ -10,6 +10,18 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testStringToInteger(){
+        Assert.assertTrue(10 == stringtointeger("   010"));
+        Assert.assertTrue(0 == stringtointeger(""));
+        Assert.assertTrue(-12 == stringtointeger("-12u"));
+        Assert.assertTrue(Integer.MAX_VALUE == stringtointeger(Integer.MAX_VALUE + "4"));
+        Assert.assertTrue(Integer.MIN_VALUE == stringtointeger(Integer.MIN_VALUE + "4"));
+        Assert.assertTrue(Integer.MIN_VALUE == stringtointeger(Integer.MIN_VALUE + ""));
+        Assert.assertTrue(0 == stringtointeger(" b11228552307"));
+        Assert.assertTrue(0 == stringtointeger("+-2"));
+    }
+
+    @Test
     public void testReverseInteger(){
         Assert.assertTrue(321 == reverseInteger(123));
         Assert.assertTrue(-321 == reverseInteger(-123));
@@ -308,5 +320,10 @@ public class Main {
         cn.idear.algorithm.reverse_integer.Solution solution =
                 new cn.idear.algorithm.reverse_integer.Solution();
         return solution.reverse(num);
+    }
+
+    private int stringtointeger(String s) {
+        cn.idear.algorithm.string_to_integer.Solution solution = new cn.idear.algorithm.string_to_integer.Solution();
+        return solution.myAtoi(s);
     }
 }
