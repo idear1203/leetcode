@@ -15,14 +15,18 @@ public class Solution {
      * f(i,j) = true, j == i
      *          s[i] == s[j], j == i + 1
      *          s[i] = s[j] && f(i + 1, j - 1), j > i + 1
+     *  Accepted. 88/88 test case. 456ms.
      * @param s
      * @return
      */
     public String longestPalindrome(String s) {
+        if(s.equals(""))
+            return s;
         int maxLen = 1;
         int start = 0;
         boolean [][]f = new boolean[MAX_LENGTH][MAX_LENGTH];
-        Arrays.fill(f,false);
+        for(int i = 0; i < f.length; i++)
+            Arrays.fill(f[i],false);
         /**
          * 第一步，初始化f(i,i) = true.
          */
@@ -45,8 +49,13 @@ public class Solution {
             for(int i = 0; i < j - 1; i++){
                 if(s.charAt(i) == s.charAt(j) && f[i+1][j-1]){
                     f[i][j] = true;
-                    start = i;
-                    maxLen = j - i + 1;
+                    /**
+                     * 第一次提交，aaaa返回了aaa。原因是没有比较当前长度与maxLen。导致真正的maxLen被覆盖掉了。
+                     */
+                    if(j - i + 1 > maxLen) {
+                        start = i;
+                        maxLen = j - i + 1;
+                    }
                 }
             }
         }

@@ -29,6 +29,9 @@ public class Main {
 
         rst = longestPalindromicSubstring("dabace");
         Assert.assertEquals("aba",rst);
+
+        rst = longestPalindromicSubstring("aaaa");
+        Assert.assertEquals("aaaa",rst);
     }
 
     @Test
