@@ -10,6 +10,12 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testRomainToInteger(){
+        Assert.assertEquals(3943, romainToInteger("MMMCMXLIII"));
+        Assert.assertEquals(86, romainToInteger("LXXXVI"));
+    }
+
+    @Test
     public void testIntegerToRomain(){
         Assert.assertEquals("MMMCMXLIII", integerToRomain(3943));
         Assert.assertEquals("LXXXVI", integerToRomain(86));
@@ -403,5 +409,11 @@ public class Main {
         cn.idear.algorithm.integer_to_roman.Solution solution =
                 new cn.idear.algorithm.integer_to_roman.Solution();
         return solution.intToRoman(num);
+    }
+
+    private int romainToInteger(String romain) {
+        cn.idear.algorithm.roman_to_integer.Solution solution =
+                new cn.idear.algorithm.roman_to_integer.Solution();
+        return solution.romanToInt(romain);
     }
 }
