@@ -10,6 +10,18 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testLongestCommonPrefix(){
+        String[] strs = new String[]{"abcdefhijk", "abcm", "ab","abcde"};
+        Assert.assertEquals("ab", longestCommonPrefix(strs));
+
+        strs = new String[]{};
+        Assert.assertEquals("", longestCommonPrefix(strs));
+
+        strs = new String[]{"abc"};
+        Assert.assertEquals("abc",longestCommonPrefix(strs));
+    }
+
+    @Test
     public void testRomainToInteger(){
         Assert.assertEquals(3943, romainToInteger("MMMCMXLIII"));
         Assert.assertEquals(86, romainToInteger("LXXXVI"));
@@ -415,5 +427,11 @@ public class Main {
         cn.idear.algorithm.roman_to_integer.Solution solution =
                 new cn.idear.algorithm.roman_to_integer.Solution();
         return solution.romanToInt(romain);
+    }
+
+    private String longestCommonPrefix(String[] strs) {
+        cn.idear.algorithm.longest_common_prefix.Solution solution =
+                new cn.idear.algorithm.longest_common_prefix.Solution();
+        return solution.longestCommonPrefix(strs);
     }
 }
