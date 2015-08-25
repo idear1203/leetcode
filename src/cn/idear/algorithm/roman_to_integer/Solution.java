@@ -17,7 +17,7 @@ import java.util.Map;
  M	1,000
  */
 public class Solution {
-    public int romanToInt(String s) {
+    public int romanToInt1(String s) {
         Map<Character, Integer> map = new HashMap<Character, Integer>();
         map.put('M', 1000);
         map.put('D', 500);
@@ -44,7 +44,7 @@ public class Solution {
         return rst;
     }
 
-    public int romanToInt1(String s) {
+    public int romanToInt(String s) {
         Map<Character, Integer> map = new HashMap<Character, Integer>();
         map.put('M', 1000);
         map.put('D', 500);
@@ -54,20 +54,18 @@ public class Solution {
         map.put('V', 5);
         map.put('I', 1);
         int rst = 0;
-        for(int i = 0; i < s.length(); ){
+        for(int i = 0; i < s.length(); i++){
             char cur = s.charAt(i);
             int v1 = map.get(cur);
+            rst += v1;
             if(i < s.length() - 1){
                 char next = s.charAt(i + 1);
                 int v2 = map.get(next);
                 if(v1 < v2) {
-                    rst += v2 - v1;
-                    i += 2;
-                    continue;
+                    rst += v2 - 2 * v1;
+                    i++;
                 }
             }
-            rst += v1;
-            i++;
         }
         return rst;
     }
