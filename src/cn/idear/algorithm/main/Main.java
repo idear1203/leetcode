@@ -1,5 +1,6 @@
 package cn.idear.algorithm.main;
 
+import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.util.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,6 +9,49 @@ import org.junit.Test;
  * Created by wangdongwei on 8/23/15.
  */
 public class Main {
+    @Test
+    public void testLongestPalindromicSubstring(){
+       String rst;
+        rst = longestPalindromicSubstring("");
+        Assert.assertEquals("",rst);
+
+        rst = longestPalindromicSubstring("a");
+        Assert.assertEquals("a",rst);
+
+        rst = longestPalindromicSubstring("aa");
+        Assert.assertEquals("aa",rst);
+
+        rst = longestPalindromicSubstring("ab");
+        Assert.assertEquals("a",rst);
+
+        rst = longestPalindromicSubstring("abad");
+        Assert.assertEquals("aba",rst);
+
+        rst = longestPalindromicSubstring("dabace");
+        Assert.assertEquals("aba",rst);
+    }
+
+    @Test
+    public void testZigZagConversation(){
+        String rst;
+        rst = zigZagConversation("PAYPALISHIRING", 3);
+        Assert.assertEquals("PAHNAPLSIIGYIR", rst);
+
+        rst = zigZagConversation("PAYPALISHIRING", 1);
+        Assert.assertEquals("PAYPALISHIRING", rst);
+    }
+
+    @Test
+    public void testAddDigit(){
+        Assert.assertTrue(2 == addDigit(38));
+        Assert.assertTrue(0 == addDigit(0));
+        Assert.assertTrue(9 == addDigit(9));
+    }
+
+    @Test
+    public void testHappyNumber(){
+        Assert.assertTrue(isHappy(19));
+    }
 
     @Test
     public void testUglyNumber(){
@@ -137,7 +181,7 @@ public class Main {
         Assert.assertEquals("7001",rst);
     }
 
-    private static  String twoSum(int[] nums , int target){
+    private   String twoSum(int[] nums , int target){
         StringBuilder sb = new StringBuilder();
         cn.idear.algorithm.two_sum.Solution solution = new cn.idear.algorithm.two_sum.Solution();
         int[] rst = solution.twoSum(nums, target);
@@ -146,7 +190,7 @@ public class Main {
         return sb.toString();
     }
 
-    private static String addTwoNumbers(int[] l1, int[] l2){
+    private  String addTwoNumbers(int[] l1, int[] l2){
         StringBuilder sb = new StringBuilder();
         ListNode n1 = createList(l1);
         ListNode n2 = createList(l2);
@@ -158,7 +202,7 @@ public class Main {
         return sb.toString();
     }
 
-    private static ListNode createList(int [] list){
+    private  ListNode createList(int [] list){
         ListNode dummy = new ListNode(-1);
         ListNode l = dummy;
         for(int i = 0; i < list.length; i++, l = l.next){
@@ -167,7 +211,7 @@ public class Main {
         return dummy.next;
     }
 
-    private static String addBinary(String a, String b){
+    private  String addBinary(String a, String b){
         cn.idear.algorithm.add_binary.Solution solution = new cn.idear.algorithm.add_binary.Solution();
         return solution.addBinary(a,b);
     }
@@ -214,12 +258,35 @@ public class Main {
         ListNode[] list = new ListNode[ints.length];
         for(int i = 0; i < ints.length; i++)
             list[i] = ListNode.createListByVal(ints[i]);
-        cn.idear.algorithm.merge_k_sorted_lists.Solution solution = new cn.idear.algorithm.merge_k_sorted_lists.Solution();
+        cn.idear.algorithm.merge_k_sorted_lists.Solution solution =
+                new cn.idear.algorithm.merge_k_sorted_lists.Solution();
         return solution.mergeKLists(list);
     }
 
     private boolean isUgly(int num){
         cn.idear.algorithm.ugly_number.Solution solution = new cn.idear.algorithm.ugly_number.Solution();
         return solution.isUgly(num);
+    }
+
+    private boolean isHappy(int n) {
+        Solution solution = new Solution();
+        return solution.isHappy(n);
+    }
+
+    private int addDigit(int num) {
+        cn.idear.algorithm.add_digits.Solution solution = new cn.idear.algorithm.add_digits.Solution();
+        return solution.addDigits(num);
+    }
+
+    private String zigZagConversation(String s, int numRows) {
+        cn.idear.algorithm.zigzag_conversation.Solution solution =
+                new cn.idear.algorithm.zigzag_conversation.Solution();
+        return solution.convert(s,numRows);
+    }
+
+    private String longestPalindromicSubstring(String s) {
+        cn.idear.algorithm.longest_palindromic_substring.Solution solution =
+                new cn.idear.algorithm.longest_palindromic_substring.Solution();
+        return solution.longestPalindrome(s);
     }
 }
