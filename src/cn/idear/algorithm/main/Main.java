@@ -10,6 +10,16 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testValidParentheses(){
+        Assert.assertTrue(validParentheses(""));
+        Assert.assertFalse(validParentheses("]"));
+        Assert.assertTrue(validParentheses("{([])}"));
+        Assert.assertFalse(validParentheses("(()"));
+        Assert.assertFalse(validParentheses("(]"));
+        Assert.assertFalse(validParentheses("([)]"));
+    }
+
+    @Test
     public void testRemoveNthNodeFromEndofList(){
         ListNode origin;
         ListNode expect;
@@ -460,5 +470,11 @@ public class Main {
         cn.idear.algorithm.remove_nth_node_from_end_of_list.Solution solution =
                 new cn.idear.algorithm.remove_nth_node_from_end_of_list.Solution();
         return solution.removeNthFromEnd(origin, n);
+    }
+
+    private boolean validParentheses(String s) {
+        cn.idear.algorithm.valid_parentheses.Solution solution =
+                new cn.idear.algorithm.valid_parentheses.Solution();
+        return solution.isValid(s);
     }
 }
