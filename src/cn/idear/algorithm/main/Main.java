@@ -10,6 +10,14 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testPalindromeNumber(){
+        Assert.assertFalse(palindromeNumber(-1));
+        Assert.assertFalse(palindromeNumber(-12));
+        Assert.assertFalse(palindromeNumber(Integer.MIN_VALUE));
+        Assert.assertTrue(palindromeNumber(2442));
+    }
+
+    @Test
     public void testValidNumber(){
         Assert.assertFalse(validNumber("959440.94f"));
         Assert.assertTrue(validNumber("3."));
@@ -337,5 +345,10 @@ public class Main {
     private boolean validNumber(String s) {
         cn.idear.algorithm.valid_number.Solution solution = new cn.idear.algorithm.valid_number.Solution();
         return solution.isNumber(s);
+    }
+
+    private boolean palindromeNumber(int x) {
+        cn.idear.algorithm.palindrome_number.Solution solution = new cn.idear.algorithm.palindrome_number.Solution();
+        return solution.isPalindrome(x);
     }
 }
