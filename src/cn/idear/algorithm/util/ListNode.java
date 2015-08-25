@@ -37,4 +37,9 @@ public class ListNode {
         }
         return dummy.next;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(val);
+    }
 }

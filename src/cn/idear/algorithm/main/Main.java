@@ -10,6 +10,21 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testReverseLinkedList(){
+        ListNode expect = ListNode.createListByVal(new int[]{1, 2});
+        ListNode actual = reverseLinkedList(new int[]{2, 1});
+        Assert.assertEquals(expect,actual);
+    }
+
+    @Test
+    public void testPalindromeLinkedList(){
+        Assert.assertTrue(palindromeLinkedList(new int[]{1}));
+        Assert.assertTrue(palindromeLinkedList(new int[]{1, 2, 1}));
+        Assert.assertTrue(palindromeLinkedList(new int[]{1, 2, 2, 1}));
+        Assert.assertFalse(palindromeLinkedList(new int[]{1, 2, 3, 1, 1}));
+    }
+
+    @Test
     public void testPalindromeNumber(){
         Assert.assertFalse(palindromeNumber(-1));
         Assert.assertFalse(palindromeNumber(-12));
@@ -350,5 +365,18 @@ public class Main {
     private boolean palindromeNumber(int x) {
         cn.idear.algorithm.palindrome_number.Solution solution = new cn.idear.algorithm.palindrome_number.Solution();
         return solution.isPalindrome(x);
+    }
+
+    private boolean palindromeLinkedList(int[] nums) {
+        cn.idear.algorithm.palindrome_linked_list.Solution solution =
+                new cn.idear.algorithm.palindrome_linked_list.Solution();
+        ListNode head = ListNode.createListByVal(nums);
+        return solution.isPalindrome(head);
+    }
+
+    private ListNode reverseLinkedList(int[] nums) {
+        cn.idear.algorithm.reverse_linked_list.Solution solution =
+                new cn.idear.algorithm.reverse_linked_list.Solution();
+        return solution.reverseList(ListNode.createListByVal(nums));
     }
 }

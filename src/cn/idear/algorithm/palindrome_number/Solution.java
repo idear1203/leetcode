@@ -2,6 +2,7 @@ package cn.idear.algorithm.palindrome_number;
 
 /**
  * Created by wangdongwei on 8/25/15.
+ * Determine whether an integer is a palindrome. Do this without extra space.
  */
 public class Solution {
     public boolean isPalindrome(int x) {
@@ -49,7 +50,7 @@ public class Solution {
             int base = (int)Math.pow(10, length - 1);
             int highestDigit = x / base;
             int lowestDigit = x % 10;
-            return lowestDigit == highestDigit && isPalindrome((x - highestDigit * base) / 10, length - 2);
+            return lowestDigit == highestDigit && isPalindrome((x % base) / 10, length - 2);
         }
     }
 }
