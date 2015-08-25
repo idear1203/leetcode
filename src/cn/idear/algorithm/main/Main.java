@@ -10,8 +10,19 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testReverseInteger(){
+        Assert.assertTrue(321 == reverseInteger(123));
+        Assert.assertTrue(-321 == reverseInteger(-123));
+        Assert.assertTrue(-1 == reverseInteger(-1));
+        Assert.assertTrue(0 == reverseInteger(0));
+        Assert.assertTrue(0 == reverseInteger(Integer.MAX_VALUE));
+        Assert.assertTrue(0 == reverseInteger(Integer.MIN_VALUE));
+        Assert.assertTrue(1 == reverseInteger(100));
+    }
+
+    @Test
     public void testLongestPalindromicSubstring(){
-       String rst;
+        String rst;
         rst = longestPalindromicSubstring("");
         Assert.assertEquals("",rst);
 
@@ -291,5 +302,11 @@ public class Main {
         cn.idear.algorithm.longest_palindromic_substring.Solution solution =
                 new cn.idear.algorithm.longest_palindromic_substring.Solution();
         return solution.longestPalindrome(s);
+    }
+
+    private int reverseInteger(int num) {
+        cn.idear.algorithm.reverse_integer.Solution solution =
+                new cn.idear.algorithm.reverse_integer.Solution();
+        return solution.reverse(num);
     }
 }
