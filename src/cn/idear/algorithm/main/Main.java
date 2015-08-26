@@ -5,15 +5,19 @@ import cn.idear.algorithm.util.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by wangdongwei on 8/23/15.
  */
 public class Main {
+    @Test
+    public void testLetterCombinationsOfAPhoneNumber(){
+        List<String> expect = Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
+        List<String> actual = letterCombinationsOfAPhoneNumber("23");
+        Assert.assertEquals(expect,actual);
+    }
+
     @Test
     public void testThreeSumClosest(){
         Assert.assertEquals(2, threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
@@ -537,5 +541,11 @@ public class Main {
         cn.idear.algorithm.three_sum_closest.Solution solution =
                 new cn.idear.algorithm.three_sum_closest.Solution();
         return solution.threeSumClosest(nums, target);
+    }
+
+    private List<String> letterCombinationsOfAPhoneNumber(String s) {
+        cn.idear.algorithm.letter_combinations_of_a_phone_number.Solution solution =
+                new cn.idear.algorithm.letter_combinations_of_a_phone_number.Solution();
+        return solution.letterCombinations(s);
     }
 }
