@@ -15,6 +15,11 @@ import java.util.Set;
  */
 public class Main {
     @Test
+    public void testThreeSumClosest(){
+        Assert.assertEquals(2, threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
+    }
+
+    @Test
     public void testThreeSum(){
         Set<List<Integer>> expect;
         expect = new HashSet<List<Integer>>();
@@ -526,5 +531,11 @@ public class Main {
         Set<List<Integer>> set = new HashSet<List<Integer>>();
         set.addAll(solution.threeSum(ints));
         return set;
+    }
+
+    private int threeSumClosest(int[] nums, int target) {
+        cn.idear.algorithm.three_sum_closest.Solution solution =
+                new cn.idear.algorithm.three_sum_closest.Solution();
+        return solution.threeSumClosest(nums, target);
     }
 }
