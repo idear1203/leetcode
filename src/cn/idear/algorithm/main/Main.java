@@ -12,6 +12,13 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRemoveDuplicatesFromSortedArray(){
+        Assert.assertEquals(0, removeDuplicatesFromSortedArray(new int[]{}));
+        Assert.assertEquals(1, removeDuplicatesFromSortedArray(new int[]{1}));
+        Assert.assertEquals(2, removeDuplicatesFromSortedArray(new int[]{1, 1, 2}));
+    }
+
+    @Test
     public void testReverseNodesInKGroups(){
         ListNode expect;
         ListNode actual;
@@ -673,5 +680,11 @@ public class Main {
         cn.idear.algorithm.reverse_nodes_in_k_group.Solution solution =
                 new cn.idear.algorithm.reverse_nodes_in_k_group.Solution();
         return solution.reverseKGroup(ListNode.createListByVal(nums), k);
+    }
+
+    private int removeDuplicatesFromSortedArray(int[] nums) {
+        cn.idear.algorithm.remove_duplicates_from_sorted_array.Solution solution
+                = new cn.idear.algorithm.remove_duplicates_from_sorted_array.Solution();
+        return solution.removeDuplicates(nums);
     }
 }
