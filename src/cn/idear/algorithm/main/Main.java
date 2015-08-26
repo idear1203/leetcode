@@ -12,10 +12,28 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRemoveElement(){
+        int[] array;
+        array = new int[]{1, 2, 2};
+        Assert.assertEquals(2, removeElement(array, 1));
+        Assert.assertTrue(Arrays.equals(new int[]{2, 2, 2}, array));
+
+        array = new int[]{1, 2, 2};
+        Assert.assertEquals(1, removeElement(array, 2));
+        Assert.assertTrue(Arrays.equals(new int[]{1, 2, 2}, array));
+
+        array = new int[]{2, 2, 2};
+        Assert.assertEquals(0, removeElement(array, 2));
+        Assert.assertTrue(Arrays.equals(new int[]{2, 2, 2}, array));
+    }
+
+    @Test
     public void testRemoveDuplicatesFromSortedArray(){
         Assert.assertEquals(0, removeDuplicatesFromSortedArray(new int[]{}));
         Assert.assertEquals(1, removeDuplicatesFromSortedArray(new int[]{1}));
-        Assert.assertEquals(2, removeDuplicatesFromSortedArray(new int[]{1, 1, 2}));
+        int[] array = new int[]{1, 1, 2};
+        Assert.assertEquals(2, removeDuplicatesFromSortedArray(array));
+        Assert.assertTrue(Arrays.equals(new int[]{1, 2, 2}, array));
     }
 
     @Test
@@ -686,5 +704,11 @@ public class Main {
         cn.idear.algorithm.remove_duplicates_from_sorted_array.Solution solution
                 = new cn.idear.algorithm.remove_duplicates_from_sorted_array.Solution();
         return solution.removeDuplicates(nums);
+    }
+
+    private int removeElement(int[] array, int num) {
+        cn.idear.algorithm.remove_element.Solution solution =
+                new cn.idear.algorithm.remove_element.Solution();
+        return solution.removeElement(array, num);
     }
 }
