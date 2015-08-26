@@ -12,6 +12,20 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testDivideTwoIntegers(){
+        Assert.assertEquals(3,divideTwoIntegers(12, 4));
+        Assert.assertEquals(3,divideTwoIntegers(13, 4));
+        Assert.assertEquals(Integer.MAX_VALUE,divideTwoIntegers(13, 0));
+        Assert.assertEquals(-3,divideTwoIntegers(-12, 4));
+        Assert.assertEquals(-3,divideTwoIntegers(12, -4));
+        Assert.assertEquals(3,divideTwoIntegers(-12, -4));
+        Assert.assertEquals(10,divideTwoIntegers(10, 1));
+        Assert.assertEquals(Integer.MAX_VALUE - 2,divideTwoIntegers(Integer.MAX_VALUE - 2, 1));
+        Assert.assertEquals(Integer.MAX_VALUE,divideTwoIntegers(Integer.MAX_VALUE, 1));
+        Assert.assertEquals(Integer.MAX_VALUE,divideTwoIntegers(Integer.MIN_VALUE, -1));
+    }
+
+    @Test
     public void testDeleteNodeInALinkedList(){
         ListNode expect = ListNode.createListByVal(new int[]{1, 2, 4});
         ListNode actual = ListNode.createListByVal(new int[]{1, 2, 3, 4});
@@ -744,5 +758,11 @@ public class Main {
         cn.idear.algorithm.delete_node_in_a_linked_list.Solution solution =
                 new cn.idear.algorithm.delete_node_in_a_linked_list.Solution();
         solution.deleteNode(toDelete);
+    }
+
+    private int divideTwoIntegers(int dividend, int divisor) {
+        cn.idear.algorithm.divide_two_integers.Solution solution =
+                new cn.idear.algorithm.divide_two_integers.Solution();
+        return solution.divide(dividend, divisor);
     }
 }
