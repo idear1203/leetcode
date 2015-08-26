@@ -12,11 +12,28 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testFourSum(){
+        Set<List<Integer>>  expect;
+        Set<List<Integer>>  actual;
+        expect = new HashSet<List<Integer>>();
+        expect.add(Arrays.asList(-1, 0, 0, 1));
+        expect.add(Arrays.asList(-2, -1, 1, 2));
+        expect.add(Arrays.asList(-2, 0, 0, 2));
+        actual = fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0);
+        Assert.assertEquals(expect, actual);
+
+        expect = new HashSet<List<Integer>>();
+        expect.add(Arrays.asList(0, 0, 0, 0));
+        actual = fourSum(new int[]{0, 0, 0, 0}, 0);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testCombinationSum(){
         Set<List<Integer>>  expect;
         expect = new HashSet<List<Integer>>();
         expect.add(Arrays.asList(2, 2, 3));
-        expect.add(Arrays.asList(7));
+        expect.add(Collections.singletonList(7));
         Set<List<Integer>> actual;
         actual = combinationSum(new int[]{2, 3, 6, 7}, 7);
         Assert.assertEquals(expect, actual);
@@ -592,6 +609,14 @@ public class Main {
                 new cn.idear.algorithm.combination_sum.Solution();
         Set<List<Integer>> set = new HashSet<List<Integer>>();
         set.addAll(solution.combinationSum(candidates, target));
+        return set;
+    }
+
+    private Set<List<Integer>> fourSum(int[] nums, int target) {
+        cn.idear.algorithm.four_sum.Solution solution =
+                new cn.idear.algorithm.four_sum.Solution();
+        Set<List<Integer>> set = new HashSet<>();
+        set.addAll(solution.fourSum(nums, target));
         return set;
     }
 }
