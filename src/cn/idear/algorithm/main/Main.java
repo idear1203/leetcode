@@ -12,6 +12,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testDeleteNodeInALinkedList(){
+        ListNode expect = ListNode.createListByVal(new int[]{1, 2, 4});
+        ListNode actual = ListNode.createListByVal(new int[]{1, 2, 3, 4});
+        deleteNodeInALinkedList(actual, 3);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testRemoveLinkedListElements(){
         ListNode expect;
         ListNode head;
@@ -727,5 +735,14 @@ public class Main {
         cn.idear.algorithm.remove_linked_list_elements.Solution solution =
                 new cn.idear.algorithm.remove_linked_list_elements.Solution();
         return solution.removeElements(head, val);
+    }
+
+    private void deleteNodeInALinkedList(ListNode head, int k) {
+        ListNode toDelete = head;
+        for(int i = 0; i < k - 1; i++)
+           toDelete = toDelete.next;
+        cn.idear.algorithm.delete_node_in_a_linked_list.Solution solution =
+                new cn.idear.algorithm.delete_node_in_a_linked_list.Solution();
+        solution.deleteNode(toDelete);
     }
 }
