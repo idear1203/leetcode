@@ -5,10 +5,29 @@ import cn.idear.algorithm.util.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by wangdongwei on 8/23/15.
  */
 public class Main {
+    @Test
+    public void testThreeSum(){
+        Set<List<Integer>> expect;
+        expect = new HashSet<List<Integer>>();
+        expect.add(new ArrayList<Integer>() {{
+            add(-1);add(0);add(1);
+        }});
+        expect.add(new ArrayList<Integer>(){{
+            add(-1); add(-1); add(2);
+        }});
+        Set<List<Integer>> actual = threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        Assert.assertEquals(expect,actual);
+    }
+
     @Test
     public void testRegularExpressionMatching(){
         Assert.assertFalse(regularExpressionMatching("aa", "a"));
@@ -500,5 +519,12 @@ public class Main {
         cn.idear.algorithm.regular_expression_matching.Solution solution =
                 new cn.idear.algorithm.regular_expression_matching.Solution();
         return solution.isMatch(s, p);
+    }
+
+    private Set<List<Integer>> threeSum(int[] ints) {
+        cn.idear.algorithm.three_sum.Solution solution = new cn.idear.algorithm.three_sum.Solution();
+        Set<List<Integer>> set = new HashSet<List<Integer>>();
+        set.addAll(solution.threeSum(ints));
+        return set;
     }
 }
