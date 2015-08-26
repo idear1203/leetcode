@@ -12,6 +12,30 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testCombinationSum(){
+        Set<List<Integer>>  expect;
+        expect = new HashSet<List<Integer>>();
+        expect.add(Arrays.asList(2, 2, 3));
+        expect.add(Arrays.asList(7));
+        Set<List<Integer>> actual;
+        actual = combinationSum(new int[]{2, 3, 6, 7}, 7);
+        Assert.assertEquals(expect, actual);
+
+        actual = combinationSum(new int[]{}, 7);
+        Assert.assertTrue(actual.isEmpty());
+
+        actual = combinationSum(new int[]{2, 2}, 7);
+        Assert.assertTrue(actual.isEmpty());
+
+        expect = new HashSet<List<Integer>>();
+        expect.add(Arrays.asList(1,1,1,1));
+        expect.add(Arrays.asList(1,1,2));
+        expect.add(Arrays.asList(2, 2));
+        actual = combinationSum(new int[]{1,1,1,1,2}, 4);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testGenerateParentheses(){
         Assert.assertTrue(generateParentheses(0).size() == 1);
         Assert.assertTrue(generateParentheses(1).size() == 1);
@@ -561,5 +585,13 @@ public class Main {
         cn.idear.algorithm.generate_parentheses.Solution solution =
                 new cn.idear.algorithm.generate_parentheses.Solution();
         return solution.generateParenthesis(num);
+    }
+
+    private Set<List<Integer>> combinationSum(int[] candidates, int target) {
+        cn.idear.algorithm.combination_sum.Solution solution =
+                new cn.idear.algorithm.combination_sum.Solution();
+        Set<List<Integer>> set = new HashSet<List<Integer>>();
+        set.addAll(solution.combinationSum(candidates, target));
+        return set;
     }
 }
