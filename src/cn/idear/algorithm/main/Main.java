@@ -12,6 +12,24 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSwapNodesInPairs(){
+        ListNode expect;
+        ListNode actual;
+
+        expect = ListNode.createListByVal(new int[]{2, 1, 4, 3});
+        actual = swapNodesInPairs(new int[]{1, 2, 3, 4});
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{2, 1, 3});
+        actual = swapNodesInPairs(new int[]{1, 2, 3});
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{2, 1});
+        actual = swapNodesInPairs(new int[]{1, 2});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testFourSum(){
         Set<List<Integer>>  expect;
         Set<List<Integer>>  actual;
@@ -618,5 +636,11 @@ public class Main {
         Set<List<Integer>> set = new HashSet<>();
         set.addAll(solution.fourSum(nums, target));
         return set;
+    }
+
+    private ListNode swapNodesInPairs(int[] nums) {
+        cn.idear.algorithm.swap_nodes_in_pairs.Solution solution =
+                new cn.idear.algorithm.swap_nodes_in_pairs.Solution();
+        return solution.swapPairs(ListNode.createListByVal(nums));
     }
 }
