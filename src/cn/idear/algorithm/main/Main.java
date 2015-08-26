@@ -10,6 +10,24 @@ import org.junit.Test;
  */
 public class Main {
     @Test
+    public void testRegularExpressionMatching(){
+        Assert.assertFalse(regularExpressionMatching("aa", "a"));
+        Assert.assertTrue(regularExpressionMatching("aa", "aa"));
+        Assert.assertFalse(regularExpressionMatching("aaa", "aa"));
+        Assert.assertTrue(regularExpressionMatching("aa", "a*"));
+        Assert.assertTrue(regularExpressionMatching("aa", ".*"));
+        Assert.assertTrue(regularExpressionMatching("ab", ".*"));
+        Assert.assertTrue(regularExpressionMatching("aab", "c*a*b"));
+
+        Assert.assertTrue(regularExpressionMatching("", ""));
+        Assert.assertTrue(regularExpressionMatching("abcdeff", ".*"));
+        Assert.assertTrue(regularExpressionMatching("a", "ab*"));
+        Assert.assertFalse(regularExpressionMatching("bb", ".bab"));
+        Assert.assertFalse(regularExpressionMatching("ab", ".*c"));
+        Assert.assertFalse(regularExpressionMatching("aaba", "ab*a*c*a"));
+    }
+
+    @Test
     public void testValidParentheses(){
         Assert.assertTrue(validParentheses(""));
         Assert.assertFalse(validParentheses("]"));
@@ -476,5 +494,11 @@ public class Main {
         cn.idear.algorithm.valid_parentheses.Solution solution =
                 new cn.idear.algorithm.valid_parentheses.Solution();
         return solution.isValid(s);
+    }
+
+    private boolean regularExpressionMatching(String s, String p) {
+        cn.idear.algorithm.regular_expression_matching.Solution solution =
+                new cn.idear.algorithm.regular_expression_matching.Solution();
+        return solution.isMatch(s, p);
     }
 }
