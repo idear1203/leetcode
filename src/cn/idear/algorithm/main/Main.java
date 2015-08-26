@@ -12,6 +12,17 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRemoveLinkedListElements(){
+        ListNode expect;
+        ListNode head;
+        Assert.assertEquals(null, removeLinkedListElements(null, 6));
+
+        head = ListNode.createListByVal(new int[]{1, 2, 6, 3, 4, 5, 6});
+        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        Assert.assertEquals(expect, removeLinkedListElements(head, 6));
+    }
+
+    @Test
     public void testRemoveElement(){
         int[] array;
         array = new int[]{1, 2, 2};
@@ -710,5 +721,11 @@ public class Main {
         cn.idear.algorithm.remove_element.Solution solution =
                 new cn.idear.algorithm.remove_element.Solution();
         return solution.removeElement(array, num);
+    }
+
+    private ListNode removeLinkedListElements(ListNode head, int val) {
+        cn.idear.algorithm.remove_linked_list_elements.Solution solution =
+                new cn.idear.algorithm.remove_linked_list_elements.Solution();
+        return solution.removeElements(head, val);
     }
 }
