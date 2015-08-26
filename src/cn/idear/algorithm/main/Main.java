@@ -12,6 +12,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testGenerateParentheses(){
+        Assert.assertTrue(generateParentheses(0).size() == 1);
+        Assert.assertTrue(generateParentheses(1).size() == 1);
+        Assert.assertTrue(generateParentheses(2).size() == 2);
+        Assert.assertTrue(generateParentheses(3).size() == 5);
+    }
+
+    @Test
     public void testLetterCombinationsOfAPhoneNumber(){
         List<String> expect = Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf");
         List<String> actual = letterCombinationsOfAPhoneNumber("23");
@@ -547,5 +555,11 @@ public class Main {
         cn.idear.algorithm.letter_combinations_of_a_phone_number.Solution solution =
                 new cn.idear.algorithm.letter_combinations_of_a_phone_number.Solution();
         return solution.letterCombinations(s);
+    }
+
+    private List<String> generateParentheses(int num) {
+        cn.idear.algorithm.generate_parentheses.Solution solution =
+                new cn.idear.algorithm.generate_parentheses.Solution();
+        return solution.generateParenthesis(num);
     }
 }
