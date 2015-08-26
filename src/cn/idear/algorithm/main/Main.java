@@ -12,6 +12,40 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testReverseNodesInKGroups(){
+        ListNode expect;
+        ListNode actual;
+
+        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 0);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 1);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{2, 1, 4, 3, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 2);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{3, 2, 1, 4, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 3);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{4, 3, 2, 1, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 4);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{5, 4, 3, 2, 1});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 5);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 6);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testSwapNodesInPairs(){
         ListNode expect;
         ListNode actual;
@@ -423,23 +457,14 @@ public class Main {
 
     private  String addTwoNumbers(int[] l1, int[] l2){
         StringBuilder sb = new StringBuilder();
-        ListNode n1 = createList(l1);
-        ListNode n2 = createList(l2);
+        ListNode n1 = ListNode.createListByVal(l1);
+        ListNode n2 = ListNode.createListByVal(l2);
         cn.idear.algorithm.add_two_numbers.Solution solution = new cn.idear.algorithm.add_two_numbers.Solution();
         ListNode rst = solution.addTwoNumbers(n1, n2);
         for(ListNode n = rst; n != null; n = n.next) {
             sb.append(n.val + " ");
         }
         return sb.toString();
-    }
-
-    private  ListNode createList(int [] list){
-        ListNode dummy = new ListNode(-1);
-        ListNode l = dummy;
-        for(int i = 0; i < list.length; i++, l = l.next){
-            l.next = new ListNode(list[i]);
-        }
-        return dummy.next;
     }
 
     private  String addBinary(String a, String b){
@@ -642,5 +667,11 @@ public class Main {
         cn.idear.algorithm.swap_nodes_in_pairs.Solution solution =
                 new cn.idear.algorithm.swap_nodes_in_pairs.Solution();
         return solution.swapPairs(ListNode.createListByVal(nums));
+    }
+
+    private ListNode reverseNodesInKGroups(int[] nums, int k) {
+        cn.idear.algorithm.reverse_nodes_in_k_group.Solution solution =
+                new cn.idear.algorithm.reverse_nodes_in_k_group.Solution();
+        return solution.reverseKGroup(ListNode.createListByVal(nums), k);
     }
 }
