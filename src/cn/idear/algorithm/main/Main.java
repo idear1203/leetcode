@@ -12,6 +12,13 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchForARange(){
+        Assert.assertTrue(Arrays.equals(new int[]{-1, -1}, searchForARange(new int[0], 2)));
+        Assert.assertTrue(Arrays.equals(new int[]{3, 4},
+                searchForARange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
+    }
+
+    @Test
     public void testPermutationII(){
         List<List<Integer>> result;
         result = permutationII(new int[]{1, 1, 2});
@@ -893,5 +900,11 @@ public class Main {
         cn.idear.algorithm.permutation_ii.Solution solution =
                 new cn.idear.algorithm.permutation_ii.Solution();
         return solution.permuteUnique(nums);
+    }
+
+    private int[] searchForARange(int[] nums, int target) {
+        cn.idear.algorithm.search_for_a_range.Solution solution =
+                new cn.idear.algorithm.search_for_a_range.Solution();
+        return solution.searchRange(nums, target);
     }
 }
