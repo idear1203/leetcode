@@ -12,6 +12,17 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testNextPermutation(){
+        Assert.assertTrue(Arrays.equals(new int[]{}, nextPermutation(new int[]{})));
+        Assert.assertTrue(Arrays.equals(new int[]{1}, nextPermutation(new int[]{1})));
+        Assert.assertTrue(Arrays.equals(new int[]{1, 3, 2}, nextPermutation(new int[]{1, 2, 3})));
+        Assert.assertTrue(Arrays.equals(new int[]{1, 2, 3}, nextPermutation(new int[]{3, 2, 1})));
+        Assert.assertTrue(Arrays.equals(new int[]{1, 5, 1}, nextPermutation(new int[]{1, 1, 5})));
+        Assert.assertTrue(Arrays.equals(new int[]{0, 0, 1}, nextPermutation(new int[]{1, 0, 0})));
+        Assert.assertTrue(Arrays.equals(new int[]{2, 1, 3}, nextPermutation(new int[]{1, 3, 2})));
+    }
+
+    @Test
     public void testSubstringWithConcentationOfAllWords(){
         List<Integer> expect;
         List<Integer> actual;
@@ -786,5 +797,12 @@ public class Main {
         cn.idear.algorithm.substring_with_concatenation_of_all_words.Solution solution
                 = new cn.idear.algorithm.substring_with_concatenation_of_all_words.Solution();
         return solution.findSubstring(s, dict);
+    }
+
+    private int[] nextPermutation(int[] nums) {
+        cn.idear.algorithm.next_permutation.Solution solution =
+                new cn.idear.algorithm.next_permutation.Solution();
+        solution.nextPermutation(nums);
+        return nums;
     }
 }
