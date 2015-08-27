@@ -12,6 +12,15 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchInsertPosition(){
+        int[] nums = new int[]{1, 3, 5, 6};
+        Assert.assertEquals(2, searchInsertPosition(nums, 5));
+        Assert.assertEquals(1, searchInsertPosition(nums, 2));
+        Assert.assertEquals(4, searchInsertPosition(nums, 7));
+        Assert.assertEquals(0, searchInsertPosition(nums, 0));
+    }
+
+    @Test
     public void testSearchForARange(){
         Assert.assertTrue(Arrays.equals(new int[]{-1, -1}, searchForARange(new int[0], 2)));
         Assert.assertTrue(Arrays.equals(new int[]{3, 4},
@@ -906,5 +915,11 @@ public class Main {
         cn.idear.algorithm.search_for_a_range.Solution solution =
                 new cn.idear.algorithm.search_for_a_range.Solution();
         return solution.searchRange(nums, target);
+    }
+
+    private int searchInsertPosition(int[] nums, int target) {
+        cn.idear.algorithm.search_insert_position.Solution solution =
+                new cn.idear.algorithm.search_insert_position.Solution();
+        return solution.searchInsert(nums, target);
     }
 }
