@@ -10,7 +10,6 @@ public class Solution {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         combineHelper(n, k, 0, 0, result, new ArrayList<Integer>());
-        //System.out.println(result);
         return result;
     }
 
