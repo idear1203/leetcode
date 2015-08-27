@@ -12,6 +12,13 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPermutationII(){
+        List<List<Integer>> result;
+        result = permutationII(new int[]{1, 1, 2});
+        Assert.assertTrue(result.size() == 3);
+    }
+
+    @Test
     public void testCombinations(){
         List<List<Integer>> list;
 
@@ -880,5 +887,11 @@ public class Main {
         cn.idear.algorithm.combinations.Solution solution =
                 new cn.idear.algorithm.combinations.Solution();
         return solution.combine(n, k);
+    }
+
+    private List<List<Integer>> permutationII(int[] nums) {
+        cn.idear.algorithm.permutation_ii.Solution solution =
+                new cn.idear.algorithm.permutation_ii.Solution();
+        return solution.permuteUnique(nums);
     }
 }
