@@ -12,6 +12,26 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testCombinations(){
+        List<List<Integer>> list;
+
+        list = combinations(4, 0);
+        Assert.assertTrue(list.size() == 1);
+
+        list = combinations(4, 1);
+        Assert.assertTrue(list.size() == 4);
+
+        list = combinations(4, 2);
+        Assert.assertTrue(list.size() == 6);
+
+        list = combinations(4, 3);
+        Assert.assertTrue(list.size() == 4);
+
+        list = combinations(4, 4);
+        Assert.assertTrue(list.size() == 1);
+    }
+
+    @Test
     public void testPermutationSequence(){
         Assert.assertEquals("1", permutationSequence(1, 1));
         Assert.assertEquals("123", permutationSequence(3, 1));
@@ -854,5 +874,11 @@ public class Main {
         cn.idear.algorithm.permutation_sequence.Solution solution =
                 new cn.idear.algorithm.permutation_sequence.Solution();
         return solution.getPermutation(n, k);
+    }
+
+    private List<List<Integer>> combinations(int n, int k) {
+        cn.idear.algorithm.combinations.Solution solution =
+                new cn.idear.algorithm.combinations.Solution();
+        return solution.combine(n, k);
     }
 }
