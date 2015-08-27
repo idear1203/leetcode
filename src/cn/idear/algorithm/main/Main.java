@@ -12,6 +12,33 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSudokuSolver(){
+        String[] expect = new String[]{
+                "534678912",
+                "672195348",
+                "198342567",
+                "859761423",
+                "426853791",
+                "713924856",
+                "961537284",
+                "287419635",
+                "345286179"
+        };
+        String[] actual = sudokuSolver(new String[]{
+                "53..7....",
+                "6..195...",
+                ".98....6.",
+                "8...6...3",
+                "4..8.3..1",
+                "7...2...6",
+                ".6....28.",
+                "...419..5",
+                "....8..79"
+        });
+        Assert.assertTrue(Arrays.equals(expect,actual));
+    }
+
+    @Test
     public void testValidSudoku(){
         Assert.assertTrue(validSudoku(new String[]{
                 ".87654321",
@@ -945,5 +972,17 @@ public class Main {
         cn.idear.algorithm.valid_sudoku.Solution solution =
                 new cn.idear.algorithm.valid_sudoku.Solution();
         return solution.isValidSudoku(board);
+    }
+
+    private String[] sudokuSolver(String[] strings) {
+        char[][] board = new char[9][9];
+        for(int i = 0; i < 9; i++)
+            board[i] = strings[i].toCharArray();
+        cn.idear.algorithm.sudoku_solver.Solution solution =
+                new cn.idear.algorithm.sudoku_solver.Solution();
+        solution.solveSudoku(board);
+        for(int i = 0; i < 9; i++)
+            strings[i] = new String(board[i]);
+        return strings;
     }
 }
