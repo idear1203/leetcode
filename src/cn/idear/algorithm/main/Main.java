@@ -12,6 +12,22 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSubstringWithConcentationOfAllWords(){
+        List<Integer> expect;
+        List<Integer> actual;
+
+        expect = Arrays.asList(0, 9);
+        actual = substringWithConcentationOfAllWords("barfoothebarfooman", new String[]{ "foo", "bar" });
+        Assert.assertEquals(expect, actual);
+
+        expect = Collections.singletonList(8);
+        actual = substringWithConcentationOfAllWords("wordgoodgoodgoodbestword", new String[]{
+                "word", "good", "best", "good"
+        });
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testDivideTwoIntegers(){
         Assert.assertEquals(3,divideTwoIntegers(12, 4));
         Assert.assertEquals(3,divideTwoIntegers(13, 4));
@@ -764,5 +780,11 @@ public class Main {
         cn.idear.algorithm.divide_two_integers.Solution solution =
                 new cn.idear.algorithm.divide_two_integers.Solution();
         return solution.divide(dividend, divisor);
+    }
+
+    private List<Integer> substringWithConcentationOfAllWords(String s, String[] dict) {
+        cn.idear.algorithm.substring_with_concatenation_of_all_words.Solution solution
+                = new cn.idear.algorithm.substring_with_concatenation_of_all_words.Solution();
+        return solution.findSubstring(s, dict);
     }
 }
