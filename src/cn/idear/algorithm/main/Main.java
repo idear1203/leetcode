@@ -12,6 +12,30 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPermutation(){
+        List<List<Integer>> result;
+
+        result = permutation(new int[]{});
+        Assert.assertTrue(result.size() == 0);
+
+        result = permutation(new int[]{1});
+        Assert.assertTrue(result.size() == 1);
+
+        result = permutation(new int[]{1, 2});
+        System.out.println(result);
+        Assert.assertTrue(result.size() == 2);
+
+        result = permutation(new int[]{1, 2, 3});
+        Assert.assertTrue(result.size() == 6);
+
+        result = permutation(new int[]{1, 1});
+        Assert.assertTrue(result.size() == 1);
+
+        result = permutation(new int[]{1, 1, 2});
+        Assert.assertTrue(result.size() == 3);
+    }
+
+    @Test
     public void testNextPermutation(){
         Assert.assertTrue(Arrays.equals(new int[]{}, nextPermutation(new int[]{})));
         Assert.assertTrue(Arrays.equals(new int[]{1}, nextPermutation(new int[]{1})));
@@ -804,5 +828,15 @@ public class Main {
                 new cn.idear.algorithm.next_permutation.Solution();
         solution.nextPermutation(nums);
         return nums;
+    }
+
+    private void addAll(Collection collection, Object[] objects){
+        for(int i = 0; i < objects.length; i++)
+            collection.add(objects[i]);
+    }
+
+    private List<List<Integer>> permutation(int[] nums) {
+        cn.idear.algorithm.permutation.Solution solution = new cn.idear.algorithm.permutation.Solution();
+        return solution.permute(nums);
     }
 }
