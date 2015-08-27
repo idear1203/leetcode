@@ -12,6 +12,17 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPermutationSequence(){
+        Assert.assertEquals("1", permutationSequence(1, 1));
+        Assert.assertEquals("123", permutationSequence(3, 1));
+        Assert.assertEquals("132", permutationSequence(3, 2));
+        Assert.assertEquals("213", permutationSequence(3, 3));
+        Assert.assertEquals("231", permutationSequence(3, 4));
+        Assert.assertEquals("312", permutationSequence(3, 5));
+        Assert.assertEquals("321", permutationSequence(3, 6));
+    }
+
+    @Test
     public void testPermutation(){
         List<List<Integer>> result;
 
@@ -22,7 +33,6 @@ public class Main {
         Assert.assertTrue(result.size() == 1);
 
         result = permutation(new int[]{1, 2});
-        System.out.println(result);
         Assert.assertTrue(result.size() == 2);
 
         result = permutation(new int[]{1, 2, 3});
@@ -838,5 +848,11 @@ public class Main {
     private List<List<Integer>> permutation(int[] nums) {
         cn.idear.algorithm.permutation.Solution solution = new cn.idear.algorithm.permutation.Solution();
         return solution.permute(nums);
+    }
+
+    private String permutationSequence(int n, int k) {
+        cn.idear.algorithm.permutation_sequence.Solution solution =
+                new cn.idear.algorithm.permutation_sequence.Solution();
+        return solution.getPermutation(n, k);
     }
 }
