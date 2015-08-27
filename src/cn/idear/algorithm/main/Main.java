@@ -12,6 +12,21 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testValidSudoku(){
+        Assert.assertTrue(validSudoku(new String[]{
+                ".87654321",
+                "2........",
+                "3........",
+                "4........",
+                "5........",
+                "6........",
+                "7........",
+                "8........",
+                "9........"
+        }));
+    }
+
+    @Test
     public void testSearchInsertPosition(){
         int[] nums = new int[]{1, 3, 5, 6};
         Assert.assertEquals(2, searchInsertPosition(nums, 5));
@@ -921,5 +936,14 @@ public class Main {
         cn.idear.algorithm.search_insert_position.Solution solution =
                 new cn.idear.algorithm.search_insert_position.Solution();
         return solution.searchInsert(nums, target);
+    }
+
+    private boolean validSudoku(String[] strings) {
+        char[][] board = new char[9][9];
+        for(int i = 0; i < 9; i++)
+            board[i] = strings[i].toCharArray();
+        cn.idear.algorithm.valid_sudoku.Solution solution =
+                new cn.idear.algorithm.valid_sudoku.Solution();
+        return solution.isValidSudoku(board);
     }
 }
