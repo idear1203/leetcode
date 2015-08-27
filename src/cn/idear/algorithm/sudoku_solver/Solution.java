@@ -1,7 +1,5 @@
 package cn.idear.algorithm.sudoku_solver;
 
-import java.util.Arrays;
-
 /**
  * Created by wangdongwei on 8/27/15.
  * Write a program to solve a Sudoku puzzle by filling the empty cells.
@@ -57,15 +55,6 @@ public class Solution {
         for(int i = 0; i < 9; i++)
             if(array[i] == pivot)
                 cnt ++;
-//        boolean[] isUsed = new boolean[10];
-//        Arrays.fill(isUsed, false);
-//        for(int i = 0; i < 9; i++){
-//           if(Character.isDigit(array[i])) {
-//               if(isUsed[array[i] - '0'])
-//                   return false;
-//               isUsed[array[i] - '0'] = true;
-//           }
-//        }
         return cnt == 1;
     }
 }

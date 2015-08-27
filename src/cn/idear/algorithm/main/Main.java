@@ -12,6 +12,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testCountAndSay(){
+        Assert.assertEquals("1", countAndSay(1));
+        Assert.assertEquals("11", countAndSay(2));
+        Assert.assertEquals("21", countAndSay(3));
+        Assert.assertEquals("1211", countAndSay(4));
+        Assert.assertEquals("111221", countAndSay(5));
+        Assert.assertEquals("312211", countAndSay(6));
+    }
+
+    @Test
     public void testSudokuSolver(){
         String[] expect = new String[]{
                 "534678912",
@@ -35,7 +45,7 @@ public class Main {
                 "...419..5",
                 "....8..79"
         });
-        Assert.assertTrue(Arrays.equals(expect,actual));
+        Assert.assertTrue(Arrays.equals(expect, actual));
     }
 
     @Test
@@ -984,5 +994,11 @@ public class Main {
         for(int i = 0; i < 9; i++)
             strings[i] = new String(board[i]);
         return strings;
+    }
+
+    private String countAndSay(int n) {
+        cn.idear.algorithm.count_and_say.Solution solution =
+                new cn.idear.algorithm.count_and_say.Solution();
+        return solution.countAndSay(n);
     }
 }
