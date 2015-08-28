@@ -14,6 +14,15 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMyPowXN(){
+        Assert.assertEquals(0, Double.compare(4.0, myPowXN(2.0, 2)));
+        Assert.assertEquals(0, Double.compare(8.0, myPowXN(2.0, 3)));
+        Assert.assertEquals(0, Double.compare(4.0, myPowXN(0.5, -2)));
+        //Assert.assertTrue(0.00003 == myPowXN(34.00515, -3));
+        Assert.assertEquals(0, Double.compare(1.00000, myPowXN(-1.00000, Integer.MIN_VALUE)));
+    }
+
+    @Test
     public void testGroupAnagrams(){
         TwoLevelList<String> expect;
         expect = TwoLevelList.make(new String[][]{
@@ -1170,5 +1179,11 @@ public class Main {
         cn.idear.algorithm.group_anagrams.Solution solution =
                 new cn.idear.algorithm.group_anagrams.Solution();
         return TwoLevelList.make(solution.groupAnagrams(strings));
+    }
+
+    private double myPowXN(double x, int n) {
+        cn.idear.algorithm.pow_x_n.Solution solution =
+                new cn.idear.algorithm.pow_x_n.Solution();
+        return solution.myPow(x, n);
     }
 }
