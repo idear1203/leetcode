@@ -9,8 +9,15 @@ import java.util.*;
 
 /**
  * Created by wangdongwei on 8/23/15.
+ * Test Suite.
  */
 public class Main {
+    @Test
+    public void testLongestValidParenthesis(){
+        Assert.assertEquals(4, longestValidParenthesis(")()())"));
+        Assert.assertEquals(6, longestValidParenthesis("()(())"));
+    }
+
     @Test
     public void testCountAndSay(){
         Assert.assertEquals("1", countAndSay(1));
@@ -1000,5 +1007,11 @@ public class Main {
         cn.idear.algorithm.count_and_say.Solution solution =
                 new cn.idear.algorithm.count_and_say.Solution();
         return solution.countAndSay(n);
+    }
+
+    private int longestValidParenthesis(String s) {
+        cn.idear.algorithm.longeset_valid_parenthesis.Solution solution =
+                new cn.idear.algorithm.longeset_valid_parenthesis.Solution();
+        return solution.longestValidParentheses(s);
     }
 }
