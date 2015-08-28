@@ -2,6 +2,7 @@ package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.util.ListNode;
+import cn.idear.algorithm.util.TwoLevelIntegerList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,6 +13,21 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+    @Test
+    public void testCombinationSumII(){
+        TwoLevelIntegerList expect;
+        TwoLevelIntegerList actual;
+        expect = TwoLevelIntegerList.make(new int[][]{{1, 7}, {1, 2, 5}, {2, 6}, {1, 1, 6}});
+        actual = TwoLevelIntegerList.make(combinationSumII(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
+        Assert.assertEquals(expect, actual);
+    }
+
+    private List<List<Integer>> combinationSumII(int[] nums, int target) {
+        cn.idear.algorithm.comibination_sum_ii.Solution solution =
+                new cn.idear.algorithm.comibination_sum_ii.Solution();
+        return solution.combinationSum2(nums, target);
+    }
+
     @Test
     public void testFindMinimusInRotatedSortedArrayII(){
         Assert.assertEquals(0, findMinimusInRotatedSortedArrayII(new int[]{4, 5, 6, 7, 0, 1, 2}));
