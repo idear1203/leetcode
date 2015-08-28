@@ -13,6 +13,23 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchInRotatedSortedArray(){
+        int[] nums = new int[]{4, 5, 6, 7, 0, 1, 2};
+        Assert.assertEquals(0, searchInRotatedSortedArray(nums, 4));
+        Assert.assertEquals(1, searchInRotatedSortedArray(nums, 5));
+        Assert.assertEquals(2, searchInRotatedSortedArray(nums, 6));
+        Assert.assertEquals(3, searchInRotatedSortedArray(nums, 7));
+        Assert.assertEquals(4, searchInRotatedSortedArray(nums, 0));
+        Assert.assertEquals(5, searchInRotatedSortedArray(nums, 1));
+        Assert.assertEquals(6, searchInRotatedSortedArray(nums, 2));
+        Assert.assertEquals(-1, searchInRotatedSortedArray(nums, 3));
+        Assert.assertEquals(1, searchInRotatedSortedArray(new int[]{5, 1, 3}, 1));
+        Assert.assertEquals(0, searchInRotatedSortedArray(new int[]{5, 1, 3}, 5));
+        Assert.assertEquals(4, searchInRotatedSortedArray(new int[]{4, 5, 6, 7, 8, 1, 2, 3}, 8));
+        Assert.assertEquals(1, searchInRotatedSortedArray(new int[]{5, 1, 2, 3, 4}, 1));
+    }
+
+    @Test
     public void testLongestValidParenthesis(){
         Assert.assertEquals(4, longestValidParenthesis(")()())"));
         Assert.assertEquals(6, longestValidParenthesis("()(())"));
@@ -1013,5 +1030,11 @@ public class Main {
         cn.idear.algorithm.longeset_valid_parenthesis.Solution solution =
                 new cn.idear.algorithm.longeset_valid_parenthesis.Solution();
         return solution.longestValidParentheses(s);
+    }
+
+    private int searchInRotatedSortedArray(int[] nums, int target) {
+        cn.idear.algorithm.search_in_rotated_sorted_array.Solution solution =
+                new cn.idear.algorithm.search_in_rotated_sorted_array.Solution();
+        return solution.search(nums, target);
     }
 }
