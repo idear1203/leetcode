@@ -13,6 +13,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchInRotatedSortedArrayII(){
+        int[] nums = new int[]{4, 4, 1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
+        Assert.assertFalse(searchInRotatedSortedArrayII(nums, 0));
+        Assert.assertTrue(searchInRotatedSortedArrayII(nums, 1));
+        Assert.assertTrue(searchInRotatedSortedArrayII(nums, 2));
+        Assert.assertTrue(searchInRotatedSortedArrayII(nums, 3));
+        Assert.assertTrue(searchInRotatedSortedArrayII(nums, 4));
+    }
+
+    @Test
     public void testSearchInRotatedSortedArray(){
         int[] nums = new int[]{4, 5, 6, 7, 0, 1, 2};
         Assert.assertEquals(0, searchInRotatedSortedArray(nums, 4));
@@ -1035,6 +1045,12 @@ public class Main {
     private int searchInRotatedSortedArray(int[] nums, int target) {
         cn.idear.algorithm.search_in_rotated_sorted_array.Solution solution =
                 new cn.idear.algorithm.search_in_rotated_sorted_array.Solution();
+        return solution.search(nums, target);
+    }
+
+    private boolean searchInRotatedSortedArrayII(int[] nums, int target) {
+        cn.idear.algorithm.search_in_rotated_sorted_array_ii.Solution solution =
+                new cn.idear.algorithm.search_in_rotated_sorted_array_ii.Solution();
         return solution.search(nums, target);
     }
 }
