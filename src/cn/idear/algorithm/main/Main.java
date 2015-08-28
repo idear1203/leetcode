@@ -14,6 +14,12 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMissingNumber(){
+        Assert.assertEquals(2, missingNumber(new int[]{0, 1, 3}));
+        Assert.assertEquals(3, missingNumber(new int[]{0, 1, 2}));
+    }
+
+    @Test
     public void testFirstMissingPositive(){
         Assert.assertEquals(3, firstMissingPositive(new int[]{1, 2, 0}));
         Assert.assertEquals(2, firstMissingPositive(new int[]{3, 4, -1, 1}));
@@ -1106,5 +1112,11 @@ public class Main {
         cn.idear.algorithm.first_missing_positive.Solution solution =
                 new cn.idear.algorithm.first_missing_positive.Solution();
         return solution.firstMissingPositive(nums);
+    }
+
+    private int missingNumber(int[] nums) {
+        cn.idear.algorithm.missing_number.Solution solution =
+                new cn.idear.algorithm.missing_number.Solution();
+        return solution.missingNumber(nums);
     }
 }
