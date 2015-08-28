@@ -13,6 +13,13 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testFindMinimusInRotatedSortedArrayII(){
+        Assert.assertEquals(0, findMinimusInRotatedSortedArrayII(new int[]{4, 5, 6, 7, 0, 1, 2}));
+        Assert.assertEquals(4, findMinimusInRotatedSortedArrayII(new int[]{4}));
+        Assert.assertEquals(4, findMinimusInRotatedSortedArrayII(new int[]{4, 5}));
+    }
+
+    @Test
     public void testFindMinimusInRotatedSortedArray(){
         Assert.assertEquals(0, findMinimusInRotatedSortedArray(new int[]{4, 5, 6, 7, 0, 1, 2}));
         Assert.assertEquals(4, findMinimusInRotatedSortedArray(new int[]{4}));
@@ -1064,6 +1071,12 @@ public class Main {
     private int findMinimusInRotatedSortedArray(int[] nums) {
         cn.idear.algorithm.find_minimum_in_rotated_sorted_array.Solution solution =
                 new cn.idear.algorithm.find_minimum_in_rotated_sorted_array.Solution();
+        return solution.findMin(nums);
+    }
+
+    private int findMinimusInRotatedSortedArrayII(int[] nums) {
+        cn.idear.algorithm.find_minimum_in_rotated_sorted_array_ii.Solution solution =
+                new cn.idear.algorithm.find_minimum_in_rotated_sorted_array_ii.Solution();
         return solution.findMin(nums);
     }
 }
