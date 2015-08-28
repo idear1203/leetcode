@@ -1,4 +1,4 @@
-package cn.idear.algorithm.comibination_sum_ii;
+package cn.idear.algorithm.combination_sum_ii;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -14,6 +14,12 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testFirstMissingPositive(){
+        Assert.assertEquals(3, firstMissingPositive(new int[]{1, 2, 0}));
+        Assert.assertEquals(2, firstMissingPositive(new int[]{3, 4, -1, 1}));
+    }
+
+    @Test
     public void testCombinationSumII(){
         TwoLevelIntegerList expect;
         TwoLevelIntegerList actual;
@@ -23,8 +29,8 @@ public class Main {
     }
 
     private List<List<Integer>> combinationSumII(int[] nums, int target) {
-        cn.idear.algorithm.comibination_sum_ii.Solution solution =
-                new cn.idear.algorithm.comibination_sum_ii.Solution();
+        cn.idear.algorithm.combination_sum_ii.Solution solution =
+                new cn.idear.algorithm.combination_sum_ii.Solution();
         return solution.combinationSum2(nums, target);
     }
 
@@ -1094,5 +1100,11 @@ public class Main {
         cn.idear.algorithm.find_minimum_in_rotated_sorted_array_ii.Solution solution =
                 new cn.idear.algorithm.find_minimum_in_rotated_sorted_array_ii.Solution();
         return solution.findMin(nums);
+    }
+
+    private int firstMissingPositive(int[] nums) {
+        cn.idear.algorithm.first_missing_positive.Solution solution =
+                new cn.idear.algorithm.first_missing_positive.Solution();
+        return solution.firstMissingPositive(nums);
     }
 }
