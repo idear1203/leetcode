@@ -5,27 +5,27 @@ import java.util.*;
 /**
  * Created by wangdongwei on 8/28/15.
  */
-public class TwoLevelIntegerList {
+public class TwoLevelList<T> {
 
-    Set<List<Integer>> set;
+    Set<List<T>> set;
 
     int size;
 
-    private TwoLevelIntegerList() {
+    private TwoLevelList() {
         set = new HashSet<>();
     }
 
-    public static TwoLevelIntegerList make(List<List<Integer>> list){
-        TwoLevelIntegerList twoLevelIntegerList = new TwoLevelIntegerList();
-        twoLevelIntegerList.size = list.size();
-        twoLevelIntegerList.set.addAll(list);
-        return twoLevelIntegerList;
+    public static <T> TwoLevelList<T> make(List<List<T>> list){
+        TwoLevelList<T> twoLevelTList = new TwoLevelList<>();
+        twoLevelTList.size = list.size();
+        twoLevelTList.set.addAll(list);
+        return twoLevelTList;
     }
 
-    public static TwoLevelIntegerList make(int[][] nums){
-        List<List<Integer>> ret = new ArrayList<>();
+    public static <T> TwoLevelList<T> make(T[][] nums){
+        List<List<T>> ret = new ArrayList<>();
         for(int i = 0; i < nums.length; i++){
-            List<Integer> list = new ArrayList<>();
+            List<T> list = new ArrayList<>();
             for(int j = 0; j < nums[i].length; j++)
                 list.add(nums[i][j]);
             ret.add(list);
@@ -38,7 +38,7 @@ public class TwoLevelIntegerList {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TwoLevelIntegerList that = (TwoLevelIntegerList) o;
+        TwoLevelList that = (TwoLevelList) o;
 
         if (size != that.size) return false;
         return !(set != null ? !set.equals(that.set) : that.set != null);
@@ -54,7 +54,7 @@ public class TwoLevelIntegerList {
 
     @Override
     public String toString() {
-        return "TwoLevelIntegerList{" +
+        return "TwoLevelList{" +
                 "set=" + set +
                 ", size=" + size +
                 '}';

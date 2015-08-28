@@ -2,7 +2,7 @@ package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.util.ListNode;
-import cn.idear.algorithm.util.TwoLevelIntegerList;
+import cn.idear.algorithm.util.TwoLevelList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,6 +13,58 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+    @Test
+    public void testGroupAnagrams(){
+        TwoLevelList<String> expect;
+        expect = TwoLevelList.make(new String[][]{
+                {"ate", "eat", "tea"},
+                {"nat", "tan"},
+                {"bat"}
+        });
+        TwoLevelList<String> actual = groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testRotateImage(){
+        int[][] expect = new int[][]{
+                {13,  9, 5, 1},
+                {14, 10, 6, 2},
+                {15, 11, 7, 3},
+                {16, 12, 8, 4}
+        };
+        int[][] actual = new int[][]{
+                { 1,  2,  3,  4},
+                { 5,  6,  7,  8},
+                { 9, 10, 11, 12},
+                {13, 14, 15, 16}
+        };
+        rotateImage(actual);
+        for(int i = 0; i < actual.length; i++)
+            Assert.assertTrue(Arrays.equals(expect[i], actual[i]));
+    }
+
+    @Test
+    public void testWildcardMatching(){
+        Assert.assertFalse(wildcardExpressionMatching("aa", "a"));
+        Assert.assertTrue(wildcardExpressionMatching("aa", "aa"));
+        Assert.assertFalse(wildcardExpressionMatching("aaa", "aa"));
+        Assert.assertTrue(wildcardExpressionMatching("aa", "a*"));
+        Assert.assertTrue(wildcardExpressionMatching("aa", "?*"));
+        Assert.assertTrue(wildcardExpressionMatching("ab", "?*"));
+        Assert.assertFalse(wildcardExpressionMatching("aab", "c*a*b"));
+
+        Assert.assertTrue(wildcardExpressionMatching("", ""));
+        Assert.assertTrue(wildcardExpressionMatching("abcdeff", "?*"));
+        Assert.assertFalse(wildcardExpressionMatching("a", "ab*"));
+        Assert.assertFalse(wildcardExpressionMatching("bb", "?bab"));
+        Assert.assertFalse(wildcardExpressionMatching("ab", "?*c"));
+        Assert.assertFalse(wildcardExpressionMatching("aaba", "ab*a*c*a"));
+
+        Assert.assertFalse(wildcardExpressionMatching("aaaabaaaabbbbaabbbaabbaababbabbaaaababaaabbbbbbaabbbabababbaaabaabaaaaaabbaabbbbaababbababaabbbaababbbba", "*****b*aba***babaa*bbaba***a*aaba*b*aa**a*b**ba***a*a*"));
+        Assert.assertFalse(wildcardExpressionMatching("bababbbbabababaabbaabbaababbbbbabaabbaaabababbaaabbbababbbbaaaaaabbbbbbabaaabbbbaababbbaaabaabaaababababaaabbbbbbababbabbbbabaabbabaabbabbbbaaabaabbbaaabaaaababbbbbabbbababbbaababaaaababaaaabbbbbbaaaabbb", "b*a*b*a****b**b*ab**ab*bb*abbb****babb**a*a*b*bb***aa*bb*b***bbba*bb*aa**b*a**b**b***a*bbbaa*bb***b*"));
+    }
+
     @Test
     public void testMissingNumber(){
         Assert.assertEquals(2, missingNumber(new int[]{0, 1, 3}));
@@ -27,10 +79,10 @@ public class Main {
 
     @Test
     public void testCombinationSumII(){
-        TwoLevelIntegerList expect;
-        TwoLevelIntegerList actual;
-        expect = TwoLevelIntegerList.make(new int[][]{{1, 7}, {1, 2, 5}, {2, 6}, {1, 1, 6}});
-        actual = TwoLevelIntegerList.make(combinationSumII(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
+        TwoLevelList<Integer> expect;
+        TwoLevelList<Integer> actual;
+        expect = TwoLevelList.make(new Integer[][]{{1, 7}, {1, 2, 5}, {2, 6}, {1, 1, 6}});
+        actual = TwoLevelList.make(combinationSumII(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
         Assert.assertEquals(expect, actual);
     }
 
@@ -357,14 +409,14 @@ public class Main {
     public void testFourSum(){
         Set<List<Integer>>  expect;
         Set<List<Integer>>  actual;
-        expect = new HashSet<List<Integer>>();
+        expect = new HashSet<>();
         expect.add(Arrays.asList(-1, 0, 0, 1));
         expect.add(Arrays.asList(-2, -1, 1, 2));
         expect.add(Arrays.asList(-2, 0, 0, 2));
         actual = fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0);
         Assert.assertEquals(expect, actual);
 
-        expect = new HashSet<List<Integer>>();
+        expect = new HashSet<>();
         expect.add(Arrays.asList(0, 0, 0, 0));
         actual = fourSum(new int[]{0, 0, 0, 0}, 0);
         Assert.assertEquals(expect, actual);
@@ -373,7 +425,7 @@ public class Main {
     @Test
     public void testCombinationSum(){
         Set<List<Integer>>  expect;
-        expect = new HashSet<List<Integer>>();
+        expect = new HashSet<>();
         expect.add(Arrays.asList(2, 2, 3));
         expect.add(Collections.singletonList(7));
         Set<List<Integer>> actual;
@@ -386,7 +438,7 @@ public class Main {
         actual = combinationSum(new int[]{2, 2}, 7);
         Assert.assertTrue(actual.isEmpty());
 
-        expect = new HashSet<List<Integer>>();
+        expect = new HashSet<>();
         expect.add(Arrays.asList(1,1,1,1));
         expect.add(Arrays.asList(1,1,2));
         expect.add(Arrays.asList(2, 2));
@@ -417,7 +469,7 @@ public class Main {
     @Test
     public void testThreeSum(){
         Set<List<Integer>> expect;
-        expect = new HashSet<List<Integer>>();
+        expect = new HashSet<>();
         expect.add(new ArrayList<Integer>() {{
             add(-1);add(0);add(1);
         }});
@@ -714,47 +766,34 @@ public class Main {
 
     @Test
     public void testTwoSum(){
-        String rst;
+        int[] rst;
         rst = twoSum(new int[]{2, 7, 11, 15}, 9);
-        rst = rst.replaceAll(" ","");
-        Assert.assertEquals("12", rst);
+        Assert.assertTrue(Arrays.equals(new int[]{1, 2}, rst));
     }
 
     @Test
     public void testAddTwoNumbers(){
-        String rst;
+        ListNode rst;
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6, 4});
-        rst = rst.replaceAll(" ","");
-        Assert.assertEquals("708",rst);
+        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 8}),rst);
 
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6});
-        rst = rst.replaceAll(" ","");
-        Assert.assertEquals("704",rst);
+        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 4}),rst);
 
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6, 6});
-        rst = rst.replaceAll(" ","");
-        Assert.assertEquals("7001",rst);
+        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 0, 1}),rst);
     }
 
-    private   String twoSum(int[] nums , int target){
-        StringBuilder sb = new StringBuilder();
+    private  int[] twoSum(int[] nums , int target){
         cn.idear.algorithm.two_sum.Solution solution = new cn.idear.algorithm.two_sum.Solution();
-        int[] rst = solution.twoSum(nums, target);
-        for(int i = 0; i < rst.length; i++)
-            sb.append(rst[i] + " ");
-        return sb.toString();
+        return solution.twoSum(nums, target);
     }
 
-    private  String addTwoNumbers(int[] l1, int[] l2){
-        StringBuilder sb = new StringBuilder();
+    private  ListNode addTwoNumbers(int[] l1, int[] l2){
         ListNode n1 = ListNode.createListByVal(l1);
         ListNode n2 = ListNode.createListByVal(l2);
         cn.idear.algorithm.add_two_numbers.Solution solution = new cn.idear.algorithm.add_two_numbers.Solution();
-        ListNode rst = solution.addTwoNumbers(n1, n2);
-        for(ListNode n = rst; n != null; n = n.next) {
-            sb.append(n.val + " ");
-        }
-        return sb.toString();
+        return  solution.addTwoNumbers(n1, n2);
     }
 
     private  String addBinary(String a, String b){
@@ -771,8 +810,7 @@ public class Main {
         cn.idear.algorithm.plus_one.Solution solution = new cn.idear.algorithm.plus_one.Solution();
         int[] rst = solution.plusOne(digits);
         String str = "";
-        for(int i = 0; i < rst.length; i++)
-            str += rst[i];
+        for (int aRst : rst) str += aRst;
         return str;
     }
 
@@ -914,7 +952,7 @@ public class Main {
 
     private Set<List<Integer>> threeSum(int[] ints) {
         cn.idear.algorithm.three_sum.Solution solution = new cn.idear.algorithm.three_sum.Solution();
-        Set<List<Integer>> set = new HashSet<List<Integer>>();
+        Set<List<Integer>> set = new HashSet<>();
         set.addAll(solution.threeSum(ints));
         return set;
     }
@@ -940,7 +978,7 @@ public class Main {
     private Set<List<Integer>> combinationSum(int[] candidates, int target) {
         cn.idear.algorithm.combination_sum.Solution solution =
                 new cn.idear.algorithm.combination_sum.Solution();
-        Set<List<Integer>> set = new HashSet<List<Integer>>();
+        Set<List<Integer>> set = new HashSet<>();
         set.addAll(solution.combinationSum(candidates, target));
         return set;
     }
@@ -1009,11 +1047,6 @@ public class Main {
                 new cn.idear.algorithm.next_permutation.Solution();
         solution.nextPermutation(nums);
         return nums;
-    }
-
-    private void addAll(Collection collection, Object[] objects){
-        for(int i = 0; i < objects.length; i++)
-            collection.add(objects[i]);
     }
 
     private List<List<Integer>> permutation(int[] nums) {
@@ -1118,5 +1151,24 @@ public class Main {
         cn.idear.algorithm.missing_number.Solution solution =
                 new cn.idear.algorithm.missing_number.Solution();
         return solution.missingNumber(nums);
+    }
+
+    private boolean wildcardExpressionMatching(String s, String p) {
+        cn.idear.algorithm.wildcard_matching.Solution solution =
+                new cn.idear.algorithm.wildcard_matching.Solution();
+        return solution.isMatch(s, p);
+    }
+
+    private int[][] rotateImage(int[][] matrix) {
+        cn.idear.algorithm.rotate_image.Solution solution =
+                new cn.idear.algorithm.rotate_image.Solution();
+        solution.rotate(matrix);
+        return matrix;
+    }
+
+    private TwoLevelList<String> groupAnagrams(String[] strings) {
+        cn.idear.algorithm.group_anagrams.Solution solution =
+                new cn.idear.algorithm.group_anagrams.Solution();
+        return TwoLevelList.make(solution.groupAnagrams(strings));
     }
 }
