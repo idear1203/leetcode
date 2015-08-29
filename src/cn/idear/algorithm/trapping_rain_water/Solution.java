@@ -1,50 +1,29 @@
 package cn.idear.algorithm.trapping_rain_water;
 
-import java.util.Arrays;
-import java.util.Stack;
-
 /**
  * Created by wangdongwei on 8/28/15.
+ * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+ For example,
+ Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
  */
-//TODO:
 public class Solution {
     public int trap(int[] height) {
-        /**
-         * stack用来存当前的左墙高度。
-         */
-        Stack<Integer> stack = new Stack<Integer>();
-        int[] index = new int[height.length];
-        int max = 0;
-        Arrays.fill(index, 0);
-        for(int i = 0; i < height.length; i++){
-            int wall = height[i];
-            if(wall > 0){
-                if (stack.isEmpty()) {
-                    stack.push(wall);
-                    index[stack.size()] = i;
-                }
-                else{
-                    int peek = stack.peek();
-                    if(wall >= peek){
-                        max += (wall - peek) * (i - index[stack.size()] - 1);
-                        stack.pop();
-                        index[stack.size()] = 0;
-                        /**
-                         * 新栈顶 = 新栈顶 - peek高度。
-                         */
-                        while(!stack.isEmpty()){
-                            int newPeek = stack.pop();
-                            if(newPeek <= peek){
-                                index[stack.size() + 1] = 0;
-                            }else{
-                                stack.push(newPeek - peek);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+        int[] maxLeft = new int[height.length];
+        int[] maxRight = new int[height.length];
+        int sum = 0;
+        for(int i = 1; i < height.length; i++){
+            /**
+             * 计算左右最大柱子高度。
+             */
+            maxLeft[i] = Math.max(maxLeft[i - 1], height[i - 1]);
+            maxRight[height.length - 1 - i] = Math.max(maxRight[height.length - i], height[height.length - i]);
         }
-        return max;
+        for(int i = 1; i < height.length; i++) {
+            int h= Math.min(maxLeft[i], maxRight[i]);
+            if(h > height[i])
+            sum += h - height[i];
+        }
+        return sum;
     }
 }

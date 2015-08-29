@@ -5,7 +5,6 @@ import java.util.Arrays;
 /**
  * Created by wangdongwei on 8/28/15.
  */
-//TODO:
 public class Solution {
     public void rotate(int[][] matrix) {
         int n = matrix.length - 1;

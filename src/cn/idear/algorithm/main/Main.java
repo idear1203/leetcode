@@ -14,6 +14,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testTrappingRainWater(){
+        Assert.assertEquals(6, trappingRainWater(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+    }
+
+    @Test
     public void testMyPowXN(){
         Assert.assertEquals(0, Double.compare(4.0, myPowXN(2.0, 2)));
         Assert.assertEquals(0, Double.compare(8.0, myPowXN(2.0, 3)));
@@ -70,7 +75,7 @@ public class Main {
         Assert.assertFalse(wildcardExpressionMatching("ab", "?*c"));
         Assert.assertFalse(wildcardExpressionMatching("aaba", "ab*a*c*a"));
 
-        Assert.assertFalse(wildcardExpressionMatching("aaaabaaaabbbbaabbbaabbaababbabbaaaababaaabbbbbbaabbbabababbaaabaabaaaaaabbaabbbbaababbababaabbbaababbbba", "*****b*aba***babaa*bbaba***a*aaba*b*aa**a*b**ba***a*a*"));
+        Assert.assertTrue(wildcardExpressionMatching("aaaabaaaabbbbaabbbaabbaababbabbaaaababaaabbbbbbaabbbabababbaaabaabaaaaaabbaabbbbaababbababaabbbaababbbba", "*****b*aba***babaa*bbaba***a*aaba*b*aa**a*b**ba***a*a*"));
         Assert.assertFalse(wildcardExpressionMatching("bababbbbabababaabbaabbaababbbbbabaabbaaabababbaaabbbababbbbaaaaaabbbbbbabaaabbbbaababbbaaabaabaaababababaaabbbbbbababbabbbbabaabbabaabbabbbbaaabaabbbaaabaaaababbbbbabbbababbbaababaaaababaaaabbbbbbaaaabbb", "b*a*b*a****b**b*ab**ab*bb*abbb****babb**a*a*b*bb***aa*bb*b***bbba*bb*aa**b*a**b**b***a*bbbaa*bb***b*"));
     }
 
@@ -1185,5 +1190,11 @@ public class Main {
         cn.idear.algorithm.pow_x_n.Solution solution =
                 new cn.idear.algorithm.pow_x_n.Solution();
         return solution.myPow(x, n);
+    }
+
+    private int trappingRainWater(int[] nums) {
+        cn.idear.algorithm.trapping_rain_water.Solution solution =
+                new cn.idear.algorithm.trapping_rain_water.Solution();
+        return solution.trap(nums);
     }
 }
