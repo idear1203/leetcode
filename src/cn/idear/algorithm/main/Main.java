@@ -14,6 +14,13 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testUniquePaths(){
+        Assert.assertEquals(3, uniquePaths(3, 2));
+        Assert.assertEquals(3, uniquePaths(2, 3));
+        Assert.assertEquals(6, uniquePaths(3, 3));
+    }
+
+    @Test
     public void testRotateArray(){
         int[] expect;
         int[] actual;
@@ -1352,5 +1359,11 @@ public class Main {
                 new cn.idear.algorithm.rotate_array.Solution();
         solution.rotate(nums, k);
         return nums;
+    }
+
+    private int uniquePaths(int m, int n) {
+        cn.idear.algorithm.unique_paths.Solution solution =
+                new cn.idear.algorithm.unique_paths.Solution();
+        return solution.uniquePaths(m, n);
     }
 }
