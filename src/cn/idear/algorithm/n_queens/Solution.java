@@ -28,9 +28,6 @@ public class Solution {
             for(int j = 0; j < n; j++)
                 list.add(new String(board[j]));
             result.add(list);
-            for(String str: list)
-                System.out.println(str);
-            System.out.println();
         }else{
             for(int j = 0; j < n; j++){
                 if(check(board, i, j, n)) {
