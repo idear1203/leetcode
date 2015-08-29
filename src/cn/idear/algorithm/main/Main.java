@@ -14,6 +14,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMaximumSubarray(){
+        Assert.assertEquals(6, maximumSubarray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+    }
+
+    @Test
     public void testNQueensII(){
         Assert.assertEquals(2, nQueensII(4));
     }
@@ -1247,5 +1252,11 @@ public class Main {
         cn.idear.algorithm.n_queens_ii.Solution solution =
                 new cn.idear.algorithm.n_queens_ii.Solution();
         return solution.totalNQueens(n);
+    }
+
+    private int maximumSubarray(int[] nums) {
+        cn.idear.algorithm.maximum_subarray.Solution solution =
+                new cn.idear.algorithm.maximum_subarray.Solution();
+        return solution.maxSubArray(nums);
     }
 }
