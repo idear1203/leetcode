@@ -14,6 +14,23 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRotateArray(){
+        int[] expect;
+        int[] actual;
+        expect = new int[]{5, 6, 7, 1, 2, 3, 4};
+        actual = rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
+        Assert.assertTrue(Arrays.equals(expect, actual));
+
+        expect = new int[]{2, 1};
+        actual = rotateArray(new int[]{1, 2}, 1);
+        Assert.assertTrue(Arrays.equals(expect, actual));
+
+        expect = new int[]{5, 6, 1, 2, 3, 4};
+        actual = rotateArray(new int[]{1, 2, 3, 4, 5, 6}, 2);
+        Assert.assertTrue(Arrays.equals(expect, actual));
+    }
+
+    @Test
     public void testRotateList(){
         ListNode expect;
         ListNode actual;
@@ -1328,5 +1345,12 @@ public class Main {
         cn.idear.algorithm.rotate_list.Solution solution =
                 new cn.idear.algorithm.rotate_list.Solution();
         return solution.rotateRight(head, k);
+    }
+
+    private int[] rotateArray(int[] nums, int k) {
+        cn.idear.algorithm.rotate_array.Solution solution =
+                new cn.idear.algorithm.rotate_array.Solution();
+        solution.rotate(nums, k);
+        return nums;
     }
 }
