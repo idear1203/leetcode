@@ -14,6 +14,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testLengthOfLastWord(){
+        Assert.assertEquals(5, lengthOfLastWord("hello world"));
+    }
+
+    @Test
     public void testSpiralMatrixII(){
         int[][] expect = new int[][]{
                 {1, 2, 3},
@@ -1298,5 +1303,11 @@ public class Main {
         cn.idear.algorithm.spiral_matrix_ii.Solution solution =
                 new cn.idear.algorithm.spiral_matrix_ii.Solution();
         return solution.generateMatrix(n);
+    }
+
+    private int lengthOfLastWord(String s) {
+        cn.idear.algorithm.length_of_last_word.Solution solution =
+                new cn.idear.algorithm.length_of_last_word.Solution();
+        return solution.lengthOfLastWord(s);
     }
 }
