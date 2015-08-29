@@ -14,6 +14,22 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSpiralMatrix(){
+        List<Integer> expect;
+        expect = Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5);
+        List<Integer> actual;
+        actual = spiralMatrix(new int[][]{
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        });
+        Assert.assertEquals(expect, actual);
+        actual = spiralMatrix(new int[][]{{3},{2}});
+        expect = Arrays.asList(3, 2);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testMaximumSubarray(){
         Assert.assertEquals(6, maximumSubarray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
     }
@@ -1258,5 +1274,11 @@ public class Main {
         cn.idear.algorithm.maximum_subarray.Solution solution =
                 new cn.idear.algorithm.maximum_subarray.Solution();
         return solution.maxSubArray(nums);
+    }
+
+    private List<Integer> spiralMatrix(int[][] nums) {
+        cn.idear.algorithm.spiral_matrix.Solution solution =
+                new cn.idear.algorithm.spiral_matrix.Solution();
+        return solution.spiralOrder(nums);
     }
 }
