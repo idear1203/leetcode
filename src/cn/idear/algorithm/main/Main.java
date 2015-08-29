@@ -14,6 +14,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRotateList(){
+        ListNode expect;
+        ListNode actual;
+        expect = ListNode.createListByVal(new int[]{4, 5, 1, 2, 3});
+        actual = rotateList(new int[]{1, 2, 3, 4, 5}, 2);
+        Assert.assertEquals(expect, actual);
+
+        actual = rotateList(new int[]{1, 2, 3, 4, 5}, 7);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testLengthOfLastWord(){
         Assert.assertEquals(5, lengthOfLastWord("hello world"));
     }
@@ -1309,5 +1321,12 @@ public class Main {
         cn.idear.algorithm.length_of_last_word.Solution solution =
                 new cn.idear.algorithm.length_of_last_word.Solution();
         return solution.lengthOfLastWord(s);
+    }
+
+    private ListNode rotateList(int[] nums, int k) {
+        ListNode head = ListNode.createListByVal(nums);
+        cn.idear.algorithm.rotate_list.Solution solution =
+                new cn.idear.algorithm.rotate_list.Solution();
+        return solution.rotateRight(head, k);
     }
 }
