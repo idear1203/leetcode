@@ -14,6 +14,34 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testNQueens(){
+        TwoLevelList<String> expect;
+        expect = TwoLevelList.make(new String[][]{
+                {
+                        ".Q..",  // Solution 1
+                        "...Q",
+                        "Q...",
+                        "..Q."
+                },
+
+                {
+                        "..Q.",  // Solution 2
+                        "Q...",
+                        "...Q",
+                        ".Q.."
+                }
+        });
+        Assert.assertEquals(expect, nQueens(4));
+        expect = TwoLevelList.make(new String[][]{{"Q"}});
+        Assert.assertEquals(expect, nQueens(1));
+    }
+
+    @Test
+    public void testJumpGameII(){
+        Assert.assertEquals(2, jumpGameII(new int[]{2, 3, 1, 1, 4}));
+    }
+
+    @Test
     public void testTrappingRainWater(){
         Assert.assertEquals(6, trappingRainWater(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
     }
@@ -76,7 +104,7 @@ public class Main {
         Assert.assertFalse(wildcardExpressionMatching("aaba", "ab*a*c*a"));
 
         Assert.assertTrue(wildcardExpressionMatching("aaaabaaaabbbbaabbbaabbaababbabbaaaababaaabbbbbbaabbbabababbaaabaabaaaaaabbaabbbbaababbababaabbbaababbbba", "*****b*aba***babaa*bbaba***a*aaba*b*aa**a*b**ba***a*a*"));
-        Assert.assertFalse(wildcardExpressionMatching("bababbbbabababaabbaabbaababbbbbabaabbaaabababbaaabbbababbbbaaaaaabbbbbbabaaabbbbaababbbaaabaabaaababababaaabbbbbbababbabbbbabaabbabaabbabbbbaaabaabbbaaabaaaababbbbbabbbababbbaababaaaababaaaabbbbbbaaaabbb", "b*a*b*a****b**b*ab**ab*bb*abbb****babb**a*a*b*bb***aa*bb*b***bbba*bb*aa**b*a**b**b***a*bbbaa*bb***b*"));
+        Assert.assertTrue(wildcardExpressionMatching("bababbbbabababaabbaabbaababbbbbabaabbaaabababbaaabbbababbbbaaaaaabbbbbbabaaabbbbaababbbaaabaabaaababababaaabbbbbbababbabbbbabaabbabaabbabbbbaaabaabbbaaabaaaababbbbbabbbababbbaababaaaababaaaabbbbbbaaaabbb", "b*a*b*a****b**b*ab**ab*bb*abbb****babb**a*a*b*bb***aa*bb*b***bbba*bb*aa**b*a**b**b***a*bbbaa*bb***b*"));
     }
 
     @Test
@@ -1196,5 +1224,17 @@ public class Main {
         cn.idear.algorithm.trapping_rain_water.Solution solution =
                 new cn.idear.algorithm.trapping_rain_water.Solution();
         return solution.trap(nums);
+    }
+
+    private int jumpGameII(int[] nums) {
+        cn.idear.algorithm.jump_game_ii.Solution solution =
+                new cn.idear.algorithm.jump_game_ii.Solution();
+        return solution.jump(nums);
+    }
+
+    private TwoLevelList<String> nQueens(int n) {
+        cn.idear.algorithm.n_queens.Solution solution =
+                new cn.idear.algorithm.n_queens.Solution();
+        return TwoLevelList.make(solution.solveNQueens(n));
     }
 }
