@@ -14,6 +14,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testNQueensII(){
+        Assert.assertEquals(2, nQueensII(4));
+    }
+
+    @Test
     public void testNQueens(){
         TwoLevelList<String> expect;
         expect = TwoLevelList.make(new String[][]{
@@ -1236,5 +1241,11 @@ public class Main {
         cn.idear.algorithm.n_queens.Solution solution =
                 new cn.idear.algorithm.n_queens.Solution();
         return TwoLevelList.make(solution.solveNQueens(n));
+    }
+
+    private int nQueensII(int n) {
+        cn.idear.algorithm.n_queens_ii.Solution solution =
+                new cn.idear.algorithm.n_queens_ii.Solution();
+        return solution.totalNQueens(n);
     }
 }
