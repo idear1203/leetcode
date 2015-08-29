@@ -14,6 +14,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSpiralMatrixII(){
+        int[][] expect = new int[][]{
+                {1, 2, 3},
+                {8, 9, 4},
+                {7, 6, 5}
+        };
+        int[][] actual = sprialMatrixII(3);
+        for(int i = 0; i < expect.length; i++)
+            Assert.assertTrue(Arrays.equals(expect[i], actual[i]));
+    }
+
+    @Test
     public void testSpiralMatrix(){
         List<Integer> expect;
         expect = Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5);
@@ -1280,5 +1292,11 @@ public class Main {
         cn.idear.algorithm.spiral_matrix.Solution solution =
                 new cn.idear.algorithm.spiral_matrix.Solution();
         return solution.spiralOrder(nums);
+    }
+
+    private int[][] sprialMatrixII(int n) {
+        cn.idear.algorithm.spiral_matrix_ii.Solution solution =
+                new cn.idear.algorithm.spiral_matrix_ii.Solution();
+        return solution.generateMatrix(n);
     }
 }
