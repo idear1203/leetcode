@@ -14,6 +14,35 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testUniquePathsII(){
+        Assert.assertEquals(2, uniquePathsII(new int[][]{
+                {0, 0, 0},
+                {0, 1, 0},
+                {0, 0, 0}
+        }));
+        Assert.assertEquals(0, uniquePathsII(new int[][]{
+                {0, 0},
+                {0, 1},
+        }));
+        Assert.assertEquals(0, uniquePathsII(new int[][]{
+                {1, 0},
+                {0, 0},
+        }));
+        Assert.assertEquals(0, uniquePathsII(new int[][]{
+                {0, 1, 0, 0, 0},
+                {1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}
+        }));
+        Assert.assertEquals(10, uniquePathsII(new int[][]{
+                {0,0,0,0,0},
+                {0,0,0,0,1},
+                {0,0,0,1,0},
+                {0,0,0,0,0}
+        }));
+    }
+
+    @Test
     public void testUniquePaths(){
         Assert.assertEquals(3, uniquePaths(3, 2));
         Assert.assertEquals(3, uniquePaths(2, 3));
@@ -1365,5 +1394,11 @@ public class Main {
         cn.idear.algorithm.unique_paths.Solution solution =
                 new cn.idear.algorithm.unique_paths.Solution();
         return solution.uniquePaths(m, n);
+    }
+
+    private int uniquePathsII(int[][] nums) {
+        cn.idear.algorithm.unique_paths_ii.Solution solution =
+                new cn.idear.algorithm.unique_paths_ii.Solution();
+        return solution.uniquePathsWithObstacles(nums);
     }
 }
