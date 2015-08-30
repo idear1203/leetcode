@@ -15,6 +15,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSimplifyPath(){
+        Assert.assertEquals("/home", simplifyPath("/home/"));
+        Assert.assertEquals("/c", simplifyPath("/a/./b/../../c/"));
+        Assert.assertEquals("/", simplifyPath("/../"));
+        Assert.assertEquals("/home/foo", simplifyPath("/home//foo/"));
+    }
+
+    @Test
     public void testClimbingStairs(){
         Assert.assertEquals(1, climbingStairs(0));
         Assert.assertEquals(1, climbingStairs(1));
@@ -1578,5 +1586,11 @@ public class Main {
         cn.idear.algorithm.climbing_stairs.Solution solution =
                 new cn.idear.algorithm.climbing_stairs.Solution();
         return solution.climbStairs(n);
+    }
+
+    private String simplifyPath(String s) {
+        cn.idear.algorithm.simplify_path.Solution solution =
+                new cn.idear.algorithm.simplify_path.Solution();
+        return solution.simplifyPath(s);
     }
 }
