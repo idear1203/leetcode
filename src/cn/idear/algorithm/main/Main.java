@@ -15,6 +15,26 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRemoveDuplicatesFromSortedListII(){
+        ListNode expect,actual;
+        expect = null;
+        actual = removeDuplicatesFromSortedListII(new int[]{1, 1, 1});
+        Assert.assertEquals(expect, actual);
+
+        expect = null;
+        actual = removeDuplicatesFromSortedListII(new int[]{1, 1, 2, 2});
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{1, 2, 5});
+        actual = removeDuplicatesFromSortedListII(new int[]{1, 2, 3, 3, 4, 4, 5});
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{2, 3});
+        actual = removeDuplicatesFromSortedListII(new int[]{1, 1, 1, 2, 3});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testRemoveDuplicatesFromSortedList(){
         ListNode expect,actual;
         expect = ListNode.createListByVal(new int[]{1});
@@ -1693,5 +1713,11 @@ public class Main {
         cn.idear.algorithm.search_a_2d_matrix_ii.Solution solution =
                 new cn.idear.algorithm.search_a_2d_matrix_ii.Solution();
         return solution.searchMatrix(matrix, target);
+    }
+
+    private ListNode removeDuplicatesFromSortedListII(int[] nums) {
+        cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution solution =
+                new cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution();
+        return solution.deleteDuplicates(ListNode.createListByVal(nums));
     }
 }
