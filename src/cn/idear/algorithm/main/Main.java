@@ -15,6 +15,25 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSetMatrixZeros(){
+        int[][] expect, actual;
+        expect = new int[][]{
+                {1, 0, 1, 1},
+                {0, 0, 0, 0},
+                {1, 0, 1, 1},
+                {1, 0, 1, 1}
+        };
+        actual = setMatrixZeros(new int[][]{
+                {1, 1, 1, 1},
+                {1, 0, 1, 1},
+                {1, 1, 1, 1},
+                {1, 1, 1, 1}
+        });
+        for(int i = 0; i < expect.length; i++)
+            Assert.assertTrue(Arrays.equals(expect[i], actual[i]));
+    }
+
+    @Test
     public void testSimplifyPath(){
         Assert.assertEquals("/home", simplifyPath("/home/"));
         Assert.assertEquals("/c", simplifyPath("/a/./b/../../c/"));
@@ -1592,5 +1611,12 @@ public class Main {
         cn.idear.algorithm.simplify_path.Solution solution =
                 new cn.idear.algorithm.simplify_path.Solution();
         return solution.simplifyPath(s);
+    }
+
+    private int[][] setMatrixZeros(int[][] matrix) {
+        cn.idear.algorithm.set_matrix_zeros.Solution solution =
+                new cn.idear.algorithm.set_matrix_zeros.Solution();
+        solution.setZeroes(matrix);
+        return matrix;
     }
 }
