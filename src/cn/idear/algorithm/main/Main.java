@@ -1,6 +1,7 @@
 package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
+import cn.idear.algorithm.util.Interval;
 import cn.idear.algorithm.util.ListNode;
 import cn.idear.algorithm.util.TwoLevelList;
 import org.junit.Assert;
@@ -13,6 +14,27 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+    @Test
+    public void testMergeIntervals(){
+        List<Interval> expect;
+        expect = Interval.createIntervals(new int[][]{
+                {1, 6}, {8, 10}, {15, 18}
+        });
+        List<Interval> actual;
+        actual = mergeIntervals(new int[][]{
+                {1, 3}, {2, 6}, {8, 10}, {15, 18}
+        });
+        Assert.assertEquals(expect, actual);
+
+        expect = Interval.createIntervals(new int[][]{
+                {1, 10}
+        });
+        actual = mergeIntervals(new int[][]{
+                {2,3},{4,5},{6,7},{8,9},{1,10}
+        });
+        Assert.assertEquals(expect, actual);
+    }
+
     @Test
     public void testJumpGame(){
         Assert.assertTrue(jumpGame(new int[]{2, 3, 1, 1, 4}));
@@ -1436,5 +1458,12 @@ public class Main {
         cn.idear.algorithm.jump_game.Solution solution =
                 new cn.idear.algorithm.jump_game.Solution();
         return solution.canJump(nums);
+    }
+
+    private List<Interval> mergeIntervals(int[][] nums) {
+        List<Interval> intervals = Interval.createIntervals(nums);
+        cn.idear.algorithm.merge_intervals.Solution solution =
+                new cn.idear.algorithm.merge_intervals.Solution();
+        return solution.merge(intervals);
     }
 }
