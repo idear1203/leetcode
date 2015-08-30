@@ -15,6 +15,36 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testInsertIntervals(){
+        List<Interval> expect, actual;
+
+        expect = Interval.createIntervals(new int[][]{
+                {1, 5}, {6,9}
+        });
+        actual = insertIntervals(new int[][]{
+                {1, 3}, {6, 9}
+        }, new int[]{2, 5});
+        Assert.assertEquals(expect, actual);
+
+        expect = Interval.createIntervals(new int[][]{
+                {1, 2}, {3, 10}, {12, 16}
+        });
+        actual = insertIntervals(new int[][]{
+                {1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}
+        }, new int[]{4, 9});
+        Assert.assertEquals(expect, actual);
+    }
+
+    private List<Interval> insertIntervals(int[][] nums, int[] newNums) {
+        List<Interval> intervals = Interval.createIntervals(nums);
+        Assert.assertTrue(newNums.length == 2);
+        Interval newInterval = new Interval(newNums[0], newNums[1]);
+        cn.idear.algorithm.insert_interval.Solution solution =
+                new cn.idear.algorithm.insert_interval.Solution();
+        return solution.insert(intervals, newInterval);
+    }
+
+    @Test
     public void testMergeIntervals(){
         List<Interval> expect;
         expect = Interval.createIntervals(new int[][]{
