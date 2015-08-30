@@ -15,6 +15,40 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testTextJustification(){
+        List<String> expect, actual;
+        expect = Arrays.asList(
+            "This    is    an",
+            "example  of text",
+            "justification.  ");
+        actual = textJustification(new String[]{
+                "This", "is", "an", "example", "of", "text", "justification."
+        },16);
+        Assert.assertEquals(expect, actual);
+
+        expect = new ArrayList<String>(){{add("");}};
+        actual = textJustification(new String[0], 0);
+        Assert.assertEquals(expect, actual);
+
+        expect = Arrays.asList(
+                "What must be", "shall be.   "
+        );
+        actual = textJustification(new String[]{
+                "What","must","be","shall","be."
+        }, 12);
+        Assert.assertEquals(expect, actual);
+
+        expect = Arrays.asList(
+                "Don't  go  around  saying  the",
+                "world  owes  you a living; the",
+                "world owes you nothing; it was","here first.                   ");
+        actual = textJustification(new String[]{
+                "Don't","go","around","saying","the","world","owes","you","a","living;","the","world","owes",
+                "you","nothing;","it","was","here","first."
+        }, 30);
+    }
+
+    @Test
     public void testInsertIntervals(){
         List<Interval> expect, actual;
 
@@ -1495,5 +1529,11 @@ public class Main {
         cn.idear.algorithm.merge_intervals.Solution solution =
                 new cn.idear.algorithm.merge_intervals.Solution();
         return solution.merge(intervals);
+    }
+
+    private List<String> textJustification(String[] words, int maxWidth) {
+        cn.idear.algorithm.text_justification.Solution solution =
+                new cn.idear.algorithm.text_justification.Solution();
+        return solution.fullJustify(words, maxWidth);
     }
 }
