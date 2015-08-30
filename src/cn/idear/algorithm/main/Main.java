@@ -15,15 +15,34 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testClimbingStairs(){
+        Assert.assertEquals(1, climbingStairs(0));
+        Assert.assertEquals(1, climbingStairs(1));
+        Assert.assertEquals(2, climbingStairs(2));
+        Assert.assertEquals(3, climbingStairs(3));
+        Assert.assertEquals(5, climbingStairs(4));
+        Assert.assertEquals(8, climbingStairs(5));
+    }
+
+    @Test
     public void testMySqrt(){
-        Assert.assertEquals(0, mySqrt(0));
-        Assert.assertEquals(1, mySqrt(1));
-        Assert.assertEquals(11, mySqrt(121));
-        Assert.assertEquals(11, mySqrt(123));
-        Assert.assertEquals(46340, mySqrt(Integer.MAX_VALUE));
-        Assert.assertEquals(25971, mySqrt(674478281));
-        Assert.assertEquals(1, mySqrt(3));
-        Assert.assertEquals(2, mySqrt(6));
+        int num;
+        num = 0;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = 1;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = 121;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = 123;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = Integer.MAX_VALUE;
+        Assert.assertEquals((int) Math.sqrt(num), mySqrt(num));
+        num = 674478281;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = 3;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
+        num = 6;
+        Assert.assertEquals((int)Math.sqrt(num), mySqrt(num));
     }
 
     @Test
@@ -1553,5 +1572,11 @@ public class Main {
         cn.idear.algorithm.sqrt_x.Solution solution =
                 new cn.idear.algorithm.sqrt_x.Solution();
         return solution.mySqrt(x);
+    }
+
+    private int climbingStairs(int n) {
+        cn.idear.algorithm.climbing_stairs.Solution solution =
+                new cn.idear.algorithm.climbing_stairs.Solution();
+        return solution.climbStairs(n);
     }
 }
