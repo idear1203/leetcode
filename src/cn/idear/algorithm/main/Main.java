@@ -15,6 +15,20 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchA2DMatrix(){
+        int[][] matrix = new int[][]{
+                {1, 3, 5, 7},
+                {10, 11, 16, 20},
+                {23, 30, 34, 50}
+        };
+        Assert.assertTrue(searchA2DMatrix(matrix, 3));
+        Assert.assertFalse(searchA2DMatrix(matrix, 8));
+        Assert.assertFalse(searchA2DMatrix(matrix, 22));
+        Assert.assertFalse(searchA2DMatrix(matrix, 51));
+        Assert.assertTrue(searchA2DMatrix(matrix, 50));
+    }
+
+    @Test
     public void testSetMatrixZeros(){
         int[][] expect, actual;
         expect = new int[][]{
@@ -1618,5 +1632,11 @@ public class Main {
                 new cn.idear.algorithm.set_matrix_zeros.Solution();
         solution.setZeroes(matrix);
         return matrix;
+    }
+
+    private boolean searchA2DMatrix(int[][] matrix, int target) {
+        cn.idear.algorithm.search_a_2d_matrix.Solution solution =
+                new cn.idear.algorithm.search_a_2d_matrix.Solution();
+        return solution.searchMatrix(matrix, target);
     }
 }
