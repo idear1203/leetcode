@@ -6,7 +6,49 @@ import java.util.Arrays;
  * Created by wangdongwei on 8/30/15.
  */
 public class Solution {
+    /**
+     * (x1, y1) 到 (x2, y2)的距离与(x2, y2)到(x1, y1)距离相同。
+     * @param obstacleGrid
+     * @return
+     */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int m = obstacleGrid.length;
+        if(m == 0)
+            return 0;
+        int n = obstacleGrid[0].length;
+        /**
+         * 起点终点有坑。
+         */
+        if(obstacleGrid[0][0] == 1 || obstacleGrid[m - 1][n - 1] == 1)
+            return 0;
+        /**
+         * WA: case {{0}}
+         */
+        obstacleGrid[0][0] = 1;
+        boolean meetObstacle = false;
+        for(int i = 1; i < m; i++) {
+            if (!meetObstacle && obstacleGrid[i][0] == 1)
+                meetObstacle = true;
+            obstacleGrid[i][0] = meetObstacle ? 0 : 1;
+        }
+        meetObstacle = false;
+        for(int j = 1; j < n; j++){
+            if(!meetObstacle && obstacleGrid[0][j] == 1)
+                meetObstacle = true;
+            obstacleGrid[0][j] = meetObstacle ? 0 : 1;
+        }
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
+                if(obstacleGrid[i][j] == 1)
+                    obstacleGrid[i][j] = 0;
+                else
+                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+            }
+        }
+        return obstacleGrid[m - 1][n - 1];
+    }
+
+    public int uniquePathsWithObstacles1(int[][] obstacleGrid) {
         int m = obstacleGrid.length;
         if(m == 0)
             return 0;

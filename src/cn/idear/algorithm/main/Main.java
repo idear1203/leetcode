@@ -49,6 +49,9 @@ public class Main {
                 {0,0,0,1,0},
                 {0,0,0,0,0}
         }));
+        Assert.assertEquals(1, uniquePathsII(new int[][]{
+                {0}
+        }));
     }
 
     @Test
@@ -1408,7 +1411,10 @@ public class Main {
     private int uniquePathsII(int[][] nums) {
         cn.idear.algorithm.unique_paths_ii.Solution solution =
                 new cn.idear.algorithm.unique_paths_ii.Solution();
-        return solution.uniquePathsWithObstacles(nums);
+        int rst = solution.uniquePathsWithObstacles(nums);
+        for(int i = 0; i < nums.length; i++)
+            System.out.println(Arrays.toString(nums[i]));
+        return rst;
     }
 
     private int minimumPathSum(int[][] grid) {
