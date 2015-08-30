@@ -15,6 +15,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMySqrt(){
+        Assert.assertEquals(0, mySqrt(0));
+        Assert.assertEquals(1, mySqrt(1));
+        Assert.assertEquals(11, mySqrt(121));
+        Assert.assertEquals(11, mySqrt(123));
+        Assert.assertEquals(46340, mySqrt(Integer.MAX_VALUE));
+        Assert.assertEquals(25971, mySqrt(674478281));
+        Assert.assertEquals(1, mySqrt(3));
+        Assert.assertEquals(2, mySqrt(6));
+    }
+
+    @Test
     public void testTextJustification(){
         List<String> expect, actual;
         expect = Arrays.asList(
@@ -1535,5 +1547,11 @@ public class Main {
         cn.idear.algorithm.text_justification.Solution solution =
                 new cn.idear.algorithm.text_justification.Solution();
         return solution.fullJustify(words, maxWidth);
+    }
+
+    private int mySqrt(int x) {
+        cn.idear.algorithm.sqrt_x.Solution solution =
+                new cn.idear.algorithm.sqrt_x.Solution();
+        return solution.mySqrt(x);
     }
 }
