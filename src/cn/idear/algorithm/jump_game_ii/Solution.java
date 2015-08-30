@@ -15,15 +15,37 @@ import java.util.Arrays;
 
  The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
  */
-//TODO:
 public class Solution {
+
+    public int jump(int[] nums){
+        /**
+         * 贪心法。每跳一次，记录最左和最右可达的区间，如果最右超过了数组长度，则返回结果。
+          */
+        if(nums.length <= 1)
+            return 0;
+        int count = 0;
+        int left = 0;
+        int right = 0;
+        int target = nums.length - 1;
+        while(right < target){
+            int oldRight = right;
+            count++;
+            for(int i = left; i <= oldRight; i++){
+                right = Math.max(right, i + nums[i]);
+                if(right >= target)
+                    return count;
+            }
+            left = oldRight + 1;
+        }
+        return count;
+    }
 
     /**
      * 超时
      * @param nums
      * @return
      */
-      public int jump(int[] nums){
+      public int jump1(int[] nums){
           int n = nums.length;
           if(n == 0)
               return 0;
