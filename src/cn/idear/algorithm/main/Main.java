@@ -15,6 +15,28 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSearchA2DMatrixII(){
+        int[][] matrix = new int[][]{
+                {1,   4,  7, 11, 15},
+                {2,   5,  8, 12, 19},
+                {3,   6,  9, 16, 22},
+                {10, 13, 14, 17, 24},
+                {18, 21, 23, 26, 30}
+        };
+        Assert.assertTrue(searchA2DMatrixII(matrix, 5));
+        Assert.assertFalse(searchA2DMatrixII(matrix, 20));
+
+        matrix = new int[][]{
+                {1, 2, 3, 4, 5},
+                {6, 7, 8, 9, 10},
+                {11, 12, 13, 14, 15},
+                {16, 17, 18, 19, 20},
+                {21, 22, 23, 24, 25}
+        };
+        Assert.assertTrue(searchA2DMatrixII(matrix, 5));
+    }
+
+    @Test
     public void testSearchA2DMatrix(){
         int[][] matrix = new int[][]{
                 {1, 3, 5, 7},
@@ -1637,6 +1659,12 @@ public class Main {
     private boolean searchA2DMatrix(int[][] matrix, int target) {
         cn.idear.algorithm.search_a_2d_matrix.Solution solution =
                 new cn.idear.algorithm.search_a_2d_matrix.Solution();
+        return solution.searchMatrix(matrix, target);
+    }
+
+    private boolean searchA2DMatrixII(int[][] matrix, int target) {
+        cn.idear.algorithm.search_a_2d_matrix_ii.Solution solution =
+                new cn.idear.algorithm.search_a_2d_matrix_ii.Solution();
         return solution.searchMatrix(matrix, target);
     }
 }
