@@ -14,6 +14,12 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testJumpGame(){
+        Assert.assertTrue(jumpGame(new int[]{2, 3, 1, 1, 4}));
+        Assert.assertFalse(jumpGame(new int[]{3, 2, 1, 0, 4}));
+    }
+
+    @Test
     public void testMinimumPathSum(){
         Assert.assertEquals(17, minimumPathSum(new int[][]{
                 {1, 3, 2},
@@ -1424,5 +1430,11 @@ public class Main {
         for(int i = 0; i < grid.length; i++)
             System.out.println(Arrays.toString(grid[i]));
         return rst;
+    }
+
+    private boolean jumpGame(int[] nums) {
+        cn.idear.algorithm.jump_game.Solution solution =
+                new cn.idear.algorithm.jump_game.Solution();
+        return solution.canJump(nums);
     }
 }
