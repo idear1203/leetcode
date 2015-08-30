@@ -14,6 +14,15 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMinimumPathSum(){
+        Assert.assertEquals(17, minimumPathSum(new int[][]{
+                {1, 3, 2},
+                {7, 4, 6},
+                {9, 8, 5}
+        }));
+    }
+
+    @Test
     public void testUniquePathsII(){
         Assert.assertEquals(2, uniquePathsII(new int[][]{
                 {0, 0, 0},
@@ -1400,5 +1409,14 @@ public class Main {
         cn.idear.algorithm.unique_paths_ii.Solution solution =
                 new cn.idear.algorithm.unique_paths_ii.Solution();
         return solution.uniquePathsWithObstacles(nums);
+    }
+
+    private int minimumPathSum(int[][] grid) {
+        cn.idear.algorithm.minimum_path_sum.Solution solution =
+                new cn.idear.algorithm.minimum_path_sum.Solution();
+        int rst = solution.minPathSum(grid);
+        for(int i = 0; i < grid.length; i++)
+            System.out.println(Arrays.toString(grid[i]));
+        return rst;
     }
 }
