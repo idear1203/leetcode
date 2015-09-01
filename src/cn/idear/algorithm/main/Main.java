@@ -15,6 +15,15 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRemoveDuplicatesFromSortedArrayII(){
+        int[] expect, actual;
+        expect = new int[]{1, 1, 2, 2, 3, 3};
+        actual = new int[]{1, 1, 1, 2, 2, 3};
+        Assert.assertEquals(5, removeDuplicatesFromSortedArrayII(actual));
+        Assert.assertTrue(Arrays.equals(expect, actual));
+    }
+
+    @Test
     public void testRemoveDuplicatesFromSortedListII(){
         ListNode expect,actual;
         expect = null;
@@ -1719,5 +1728,11 @@ public class Main {
         cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution solution =
                 new cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution();
         return solution.deleteDuplicates(ListNode.createListByVal(nums));
+    }
+
+    private int removeDuplicatesFromSortedArrayII(int[] nums) {
+        cn.idear.algorithm.remove_duplicates_from_sorted_array_ii.Solution solution =
+                new cn.idear.algorithm.remove_duplicates_from_sorted_array_ii.Solution();
+        return solution.removeDuplicates(nums);
     }
 }
