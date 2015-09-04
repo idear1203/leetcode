@@ -15,6 +15,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testGrayCode(){
+        Assert.assertEquals(Arrays.asList(0, 1, 3, 2), grayCode(2));
+    }
+
+    @Test
     public void testPartition(){
         ListNode expect, actual;
         expect = ListNode.createListByVal(new int[]{1, 2, 2, 4, 3, 5});
@@ -1770,4 +1775,11 @@ public class Main {
                 new cn.idear.algorithm.partition_list.Solution();
         return solution.partition(ListNode.createListByVal(nums), x);
     }
+
+    private List<Integer> grayCode(int n) {
+        cn.idear.algorithm.gray_code.Solution solution =
+                new cn.idear.algorithm.gray_code.Solution();
+        return solution.grayCode(n);
+    }
+
 }
