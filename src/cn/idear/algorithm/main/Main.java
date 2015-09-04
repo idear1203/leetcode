@@ -15,6 +15,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPartition(){
+        ListNode expect, actual;
+        expect = ListNode.createListByVal(new int[]{1, 2, 2, 4, 3, 5});
+        actual = partition(new int[]{1, 4, 3, 2, 5, 2}, 3);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testSubsets(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -1755,5 +1763,11 @@ public class Main {
         cn.idear.algorithm.subsets.Solution solution =
                 new cn.idear.algorithm.subsets.Solution();
         return TwoLevelList.make(solution.subsets(nums));
+    }
+
+    private ListNode partition(int[] nums, int x) {
+        cn.idear.algorithm.partition_list.Solution solution =
+                new cn.idear.algorithm.partition_list.Solution();
+        return solution.partition(ListNode.createListByVal(nums), x);
     }
 }
