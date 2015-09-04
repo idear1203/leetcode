@@ -15,6 +15,21 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSubsets(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {3}, {1}, {2}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}, {}
+        });
+        actual = subsets(new int[]{2, 3, 1});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testEditDistance(){
+        //TODO: implementation
+    }
+
+    @Test
     public void testRemoveDuplicatesFromSortedArrayII(){
         int[] expect, actual;
         expect = new int[]{1, 1, 2, 2, 3, 3};
@@ -1734,5 +1749,11 @@ public class Main {
         cn.idear.algorithm.remove_duplicates_from_sorted_array_ii.Solution solution =
                 new cn.idear.algorithm.remove_duplicates_from_sorted_array_ii.Solution();
         return solution.removeDuplicates(nums);
+    }
+
+    private TwoLevelList<Integer> subsets(int[] nums) {
+        cn.idear.algorithm.subsets.Solution solution =
+                new cn.idear.algorithm.subsets.Solution();
+        return TwoLevelList.make(solution.subsets(nums));
     }
 }
