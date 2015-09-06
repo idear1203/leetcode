@@ -15,6 +15,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSubsetsII(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {2}, {1}, {1, 2}, {1, 2, 2}, {2, 2}, {}
+        });
+        actual = subsetsII(new int[]{1, 2, 2});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testGrayCode(){
         Assert.assertEquals(Arrays.asList(0, 1, 3, 2), grayCode(2));
     }
@@ -1780,6 +1790,12 @@ public class Main {
         cn.idear.algorithm.gray_code.Solution solution =
                 new cn.idear.algorithm.gray_code.Solution();
         return solution.grayCode(n);
+    }
+
+    private TwoLevelList<Integer> subsetsII(int[] nums) {
+        cn.idear.algorithm.subsets_ii.Solution solution =
+                new cn.idear.algorithm.subsets_ii.Solution();
+        return TwoLevelList.make(solution.subsetsWithDup(nums));
     }
 
 }
