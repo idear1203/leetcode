@@ -15,6 +15,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testWordSearch(){
+        char[][] board = generateBoard(new String[]{
+                "ABCE",
+                "SFCS",
+                "ADEE"
+        });
+        Assert.assertTrue(wordSearch(board, "ABCCED"));
+        Assert.assertTrue(wordSearch(board, "SEE"));
+        Assert.assertFalse(wordSearch(board, "ABCB"));
+    }
+
+    @Test
     public void testSortColors(){
         int[] expect, actual;
         expect = new int[]{0, 0, 0, 1, 1, 2, 2, 2, 2};
@@ -1817,6 +1829,23 @@ public class Main {
                 new cn.idear.algorithm.sort_colors.Solution();
         solution.sortColors(nums);
         return nums;
+    }
+
+    private char[][] generateBoard(String[] strings) {
+        if(strings.length == 0)
+            return new char[0][];
+        int m = strings.length;
+        int n = strings[0].length();
+        char[][] board = new char[m][n];
+        for(int i = 0; i < m; i++)
+            board[i] = strings[i].toCharArray();
+        return board;
+    }
+
+    private boolean wordSearch(char[][] board, String word) {
+        cn.idear.algorithm.word_search.Solution solution =
+                new cn.idear.algorithm.word_search.Solution();
+        return solution.exist(board, word);
     }
 
 }
