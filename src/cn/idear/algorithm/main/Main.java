@@ -15,6 +15,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testSortColors(){
+        int[] expect, actual;
+        expect = new int[]{0, 0, 0, 1, 1, 2, 2, 2, 2};
+        actual = sortColors(new int[]{0, 1, 2, 0, 1, 2, 0, 2, 2});
+        Assert.assertTrue(Arrays.equals(expect, actual));
+    }
+
+    @Test
     public void testSubsetsII(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -1802,6 +1810,13 @@ public class Main {
         cn.idear.algorithm.edit_distance.Solution solution =
                 new cn.idear.algorithm.edit_distance.Solution();
         return solution.minDistance(word1, word2);
+    }
+
+    private int[] sortColors(int[] nums) {
+        cn.idear.algorithm.sort_colors.Solution solution =
+                new cn.idear.algorithm.sort_colors.Solution();
+        solution.sortColors(nums);
+        return nums;
     }
 
 }
