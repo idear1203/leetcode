@@ -49,7 +49,7 @@ public class Main {
 
     @Test
     public void testEditDistance(){
-        //TODO: implementation
+        Assert.assertEquals(3, editDistance("cafe", "coffee"));
     }
 
     @Test
@@ -1796,6 +1796,12 @@ public class Main {
         cn.idear.algorithm.subsets_ii.Solution solution =
                 new cn.idear.algorithm.subsets_ii.Solution();
         return TwoLevelList.make(solution.subsetsWithDup(nums));
+    }
+
+    private int editDistance(String word1, String word2) {
+        cn.idear.algorithm.edit_distance.Solution solution =
+                new cn.idear.algorithm.edit_distance.Solution();
+        return solution.minDistance(word1, word2);
     }
 
 }
