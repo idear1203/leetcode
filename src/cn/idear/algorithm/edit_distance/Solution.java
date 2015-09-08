@@ -2,18 +2,22 @@ package cn.idear.algorithm.edit_distance;
 
 /**
  * Created by wangdongwei on 9/4/15.
+ * Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.)
+
+ You have the following 3 operations permitted on a word:
+
+ a) Insert a character
+ b) Delete a character
+ c) Replace a character
  */
-//TODO:没有理解算法内涵
 public class Solution {
     public int minDistance(String word1, String word2){
         int n = word1.length();
         int m = word2.length();
-        /**
-         * 为什么要+1?
-         */
         int[][] f = new int[n + 1][m + 1];
         /**
-         * 初始化？
+         * 初始化表示了空串编导A[0...i]或B[0...i]的编辑距离。
+         * 不停添加/删除字符即可。
          */
         for(int i = 0; i <= n; i++)
             f[i][0] = i;

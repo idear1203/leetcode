@@ -49,6 +49,36 @@ public class Main {
     }
 
     @Test
+    public void testWordSearch(){
+        char[][] board = generateBoard(new String[]{
+                "ABCE",
+                "SFCS",
+                "ADEE"
+        });
+        Assert.assertTrue(wordSearch(board, "ABCCED"));
+        Assert.assertTrue(wordSearch(board, "SEE"));
+        Assert.assertFalse(wordSearch(board, "ABCB"));
+    }
+
+    @Test
+    public void testSortColors(){
+        int[] expect, actual;
+        expect = new int[]{0, 0, 0, 1, 1, 2, 2, 2, 2};
+        actual = sortColors(new int[]{0, 1, 2, 0, 1, 2, 0, 2, 2});
+        Assert.assertTrue(Arrays.equals(expect, actual));
+    }
+
+    @Test
+    public void testSubsetsII(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {2}, {1}, {1, 2}, {1, 2, 2}, {2, 2}, {}
+        });
+        actual = subsetsII(new int[]{1, 2, 2});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testGrayCode(){
         Assert.assertEquals(Arrays.asList(0, 1, 3, 2), grayCode(2));
     }
@@ -73,7 +103,7 @@ public class Main {
 
     @Test
     public void testEditDistance(){
-        //TODO: implementation
+        Assert.assertEquals(3, editDistance("cafe", "coffee"));
     }
 
     @Test
@@ -1832,6 +1862,42 @@ public class Main {
         cn.idear.algorithm.decode_ways.Solution solution =
                 new cn.idear.algorithm.decode_ways.Solution();
         return solution.numDecodings(s);
+    }
+
+    private TwoLevelList<Integer> subsetsII(int[] nums) {
+        cn.idear.algorithm.subsets_ii.Solution solution =
+                new cn.idear.algorithm.subsets_ii.Solution();
+        return TwoLevelList.make(solution.subsetsWithDup(nums));
+    }
+
+    private int editDistance(String word1, String word2) {
+        cn.idear.algorithm.edit_distance.Solution solution =
+                new cn.idear.algorithm.edit_distance.Solution();
+        return solution.minDistance(word1, word2);
+    }
+
+    private int[] sortColors(int[] nums) {
+        cn.idear.algorithm.sort_colors.Solution solution =
+                new cn.idear.algorithm.sort_colors.Solution();
+        solution.sortColors(nums);
+        return nums;
+    }
+
+    private char[][] generateBoard(String[] strings) {
+        if(strings.length == 0)
+            return new char[0][];
+        int m = strings.length;
+        int n = strings[0].length();
+        char[][] board = new char[m][n];
+        for(int i = 0; i < m; i++)
+            board[i] = strings[i].toCharArray();
+        return board;
+    }
+
+    private boolean wordSearch(char[][] board, String word) {
+        cn.idear.algorithm.word_search.Solution solution =
+                new cn.idear.algorithm.word_search.Solution();
+        return solution.exist(board, word);
     }
 
 }
