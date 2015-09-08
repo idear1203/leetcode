@@ -15,6 +15,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testDecodeWays(){
+        Assert.assertEquals(2, decodeWays("12"));
+        Assert.assertEquals(0, decodeWays("0"));
+        Assert.assertEquals(0, decodeWays("01"));
+        Assert.assertEquals(0, decodeWays("100"));
+        Assert.assertEquals(1, decodeWays("110"));
+        Assert.assertEquals(2, decodeWays("227"));
+    }
+
+    @Test
     public void testReverseLinkedListII(){
         ListNode expect, actual;
 
@@ -1815,6 +1825,12 @@ public class Main {
         cn.idear.algorithm.reverse_linked_list_ii.Solution solution =
                 new cn.idear.algorithm.reverse_linked_list_ii.Solution();
         return solution.reverseBetween(ListNode.createListByVal(nums), m, n);
+    }
+
+    private int decodeWays(String s) {
+        cn.idear.algorithm.decode_ways.Solution solution =
+                new cn.idear.algorithm.decode_ways.Solution();
+        return solution.numDecodings(s);
     }
 
 }
