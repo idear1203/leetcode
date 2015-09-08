@@ -15,6 +15,19 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testReverseLinkedListII(){
+        ListNode expect, actual;
+
+        expect = ListNode.createListByVal(new int[]{1, 4, 3, 2, 5});
+        actual = reverseLinkedListII(new int[]{1, 2, 3, 4, 5}, 2, 4);
+        Assert.assertEquals(expect, actual);
+
+        expect = ListNode.createListByVal(new int[]{1, 5, 4, 3, 2});
+        actual = reverseLinkedListII(new int[]{1, 2, 3, 4, 5}, 2, 5);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testLargestRectangleInHistogram(){
         Assert.assertEquals(10, largestRectangleInHistogram(new int[]{2, 1, 5, 6, 2, 3}));
         Assert.assertEquals(4, largestRectangleInHistogram(new int[]{1, 2, 2}));
@@ -1796,6 +1809,12 @@ public class Main {
         cn.idear.algorithm.largest_rectangle_in_histogram.Solution solution =
                 new cn.idear.algorithm.largest_rectangle_in_histogram.Solution();
         return  solution.largestRectangleArea(nums);
+    }
+
+    private ListNode reverseLinkedListII(int[] nums, int m, int n) {
+        cn.idear.algorithm.reverse_linked_list_ii.Solution solution =
+                new cn.idear.algorithm.reverse_linked_list_ii.Solution();
+        return solution.reverseBetween(ListNode.createListByVal(nums), m, n);
     }
 
 }
