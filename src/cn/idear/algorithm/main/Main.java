@@ -19,6 +19,7 @@ public class Main {
         Assert.assertEquals(2, decodeWays("12"));
         Assert.assertEquals(0, decodeWays("0"));
         Assert.assertEquals(0, decodeWays("01"));
+        Assert.assertEquals(0, decodeWays("012"));
         Assert.assertEquals(0, decodeWays("100"));
         Assert.assertEquals(1, decodeWays("110"));
         Assert.assertEquals(2, decodeWays("227"));

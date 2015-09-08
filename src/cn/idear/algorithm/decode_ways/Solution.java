@@ -1,19 +1,21 @@
 package cn.idear.algorithm.decode_ways;
 
+import java.util.Arrays;
+
 /**
  * Created by wangdongwei on 9/8/15.
  * A message containing letters from A-Z is being encoded to numbers using the following mapping:
  */
-//TODO: need to improve the code
 public class Solution {
     private int[] record;
     public int numDecodings(String s) {
         record = new int[s.length() + 1];
+        Arrays.fill(record, -1);
         return numDecodingsHelper(s, 0);
     }
 
     private int numDecodingsHelper(String s, int index) {
-        if(record[index] > 0)
+        if(record[index] != -1)
             return record[index];
         if(index == s.length())
             return record[index] = 0;
