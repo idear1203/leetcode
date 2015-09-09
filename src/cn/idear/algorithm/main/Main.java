@@ -15,6 +15,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testRestoreIpAddress(){
+        List<String> expect, actual;
+        expect = Arrays.asList("255.255.11.135", "255.255.111.35");
+        actual = restoreIpAddress("25525511135");
+        Assert.assertEquals(expect, actual);
+
+        expect = new ArrayList<>();
+        actual = restoreIpAddress("22");
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testDecodeWays(){
         Assert.assertEquals(2, decodeWays("12"));
         Assert.assertEquals(0, decodeWays("0"));
@@ -1898,6 +1910,12 @@ public class Main {
         cn.idear.algorithm.word_search.Solution solution =
                 new cn.idear.algorithm.word_search.Solution();
         return solution.exist(board, word);
+    }
+
+    private List<String> restoreIpAddress(String s) {
+        cn.idear.algorithm.restore_ip_address.Solution solution =
+                new cn.idear.algorithm.restore_ip_address.Solution();
+        return solution.restoreIpAddresses(s);
     }
 
 }
