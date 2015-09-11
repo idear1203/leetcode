@@ -14,6 +14,49 @@ import java.util.Stack;
  Given binary tree {1,#,2,3},
  */
 public class Solution {
+    private enum ReturnType{
+        PRE, POST, IN, DONE
+    }
+    private class State{
+        ReturnType returnType = ReturnType.PRE;
+        TreeNode node;
+
+        public State(TreeNode node) {
+            this.node = node;
+        }
+    }
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<State> stack = new Stack<>();
+        if(root != null)
+            stack.push(new State(root));
+        List<Integer> result = new ArrayList<>();
+        while(!stack.isEmpty()){
+            State state = stack.pop();
+            switch (state.returnType){
+                case PRE:
+                    result.add(state.node.val);
+                    state.returnType = ReturnType.IN;
+
+                case IN:
+                    state.returnType = ReturnType.POST;
+                    if(state.node.left != null){
+                        stack.push(state);
+                        stack.push(new State(state.node.left));
+                        continue;
+                    }
+
+                case POST:
+                    state.returnType = ReturnType.DONE;
+                    if(state.node.right != null){
+                        stack.push(new State(state.node.right));
+                    }
+
+                default:
+                    break;
+            }
+        }
+        return result;
+    }
     public List<Integer> preorderTraversal1(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if(root == null)
@@ -41,7 +84,7 @@ public class Solution {
     }
 
 
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         preorderTraversalHelper(root, result);
         return result;

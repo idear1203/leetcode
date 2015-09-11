@@ -10,7 +10,51 @@ import java.util.Stack;
  * Created by wangdongwei on 9/9/15.
  */
 public class Solution {
+    private enum ReturnType{
+        PRE, POST, IN, DONE
+    }
+    private class State{
+        ReturnType returnType = ReturnType.PRE;
+        TreeNode node;
+
+        public State(TreeNode node) {
+            this.node = node;
+        }
+    }
     public List<Integer> inorderTraversal(TreeNode root) {
+        Stack<State> stack = new Stack<>();
+        if(root != null)
+            stack.push(new State(root));
+        List<Integer> result = new ArrayList<>();
+        while(!stack.isEmpty()){
+           State state = stack.pop();
+            switch (state.returnType){
+                case PRE:
+                    state.returnType = ReturnType.IN;
+                    if(state.node.left != null){
+                        stack.push(state);
+                        stack.push(new State(state.node.left));
+                        continue;
+                    }
+
+                case IN:
+                    state.returnType = ReturnType.POST;
+                    result.add(state.node.val);
+
+                case POST:
+                    state.returnType = ReturnType.DONE;
+                    if(state.node.right != null){
+                        stack.push(new State(state.node.right));
+                    }
+
+                default:
+                    break;
+            }
+        }
+        return result;
+    }
+
+    public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode peek = root;

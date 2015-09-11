@@ -14,7 +14,7 @@ import java.util.Stack;
  Given binary tree {1,#,2,3},
  */
 public class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal1(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode current, last;
@@ -50,6 +50,68 @@ public class Solution {
                 }
             }
         }while(!stack.isEmpty());
+        return result;
+    }
+
+    private enum ReturnType{
+        PRE, IN, POST, DONE
+    }
+
+    private class State{
+
+        TreeNode node;
+
+        ReturnType type = ReturnType.PRE;
+
+        public State(TreeNode node) {
+            this.node = node;
+        }
+
+        public State(TreeNode node, ReturnType type) {
+            this.node = node;
+            this.type = type;
+        }
+    }
+
+    /**
+     * visit(left)
+     * visit(right)
+     * visit(root)
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<State> stack = new Stack<>();
+        if(root != null)
+            stack.push(new State(root));
+        while(!stack.isEmpty()){
+            State state = stack.pop();
+            switch (state.type){
+                case PRE:
+                    state.type = ReturnType.POST;
+                    if(state.node.left != null){
+                        stack.push(state);
+                        stack.push(new State(state.node.left));
+                        continue;
+                    }
+
+                case POST:
+                    state.type = ReturnType.IN;
+                    if(state.node.right != null){
+                        stack.push(state);
+                        stack.push(new State(state.node.right));
+                        continue;
+                    }
+
+                case IN:
+                    state.type = ReturnType.DONE;
+                    result.add(state.node.val);
+
+                default:
+                    break;
+            }
+        }
         return result;
     }
 }

@@ -15,11 +15,20 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+
+    @Test
+    public void testBinaryTreePostorderTraversal(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(3, 2, 1);
+        actual = binaryTreePostorderTraversal(new int[]{1, 0, 2, 3});
+        Assert.assertEquals(expect, actual);
+    }
+
     @Test
     public void testBinaryTreePreorderTraversal(){
         List<Integer> expect, actual;
         expect = Arrays.asList(1, 2, 3);
-        actual = binaryTreepreorderTraversal(new int[]{1, 0, 2, 3});
+        actual = binaryTreePreorderTraversal(new int[]{1, 0, 2, 3});
         Assert.assertEquals(expect, actual);
     }
 
@@ -1941,10 +1950,16 @@ public class Main {
         return solution.inorderTraversal(TreeNode.createTree(nums));
     }
 
-    private List<Integer> binaryTreepreorderTraversal(int[] nums) {
+    private List<Integer> binaryTreePreorderTraversal(int[] nums) {
         cn.idear.algorithm.binary_tree_preorder_traversal.Solution solution =
                 new cn.idear.algorithm.binary_tree_preorder_traversal.Solution();
         return solution.preorderTraversal(TreeNode.createTree(nums));
+    }
+
+    private List<Integer> binaryTreePostorderTraversal(int[] nums) {
+        cn.idear.algorithm.binary_tree_postorder_traversal.Solution solution =
+                new cn.idear.algorithm.binary_tree_postorder_traversal.Solution();
+        return solution.postorderTraversal(TreeNode.createTree(nums));
     }
 
 }
