@@ -3,6 +3,7 @@ package cn.idear.algorithm.main;
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.util.Interval;
 import cn.idear.algorithm.util.ListNode;
+import cn.idear.algorithm.util.TreeNode;
 import cn.idear.algorithm.util.TwoLevelList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,6 +15,14 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+    @Test
+    public void testBinaryTreeInorderTraversal(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(1, 3, 2);
+        actual = binaryTreeInorderTraversal(new int[]{1, 0, 2, 3});
+        Assert.assertEquals(expect, actual);
+    }
+
     @Test
     public void testRestoreIpAddress(){
         List<String> expect, actual;
@@ -1916,6 +1925,12 @@ public class Main {
         cn.idear.algorithm.restore_ip_address.Solution solution =
                 new cn.idear.algorithm.restore_ip_address.Solution();
         return solution.restoreIpAddresses(s);
+    }
+
+    private List<Integer> binaryTreeInorderTraversal(int[] nums) {
+        cn.idear.algorithm.binary_tree_inorder_traversal.Solution solution =
+                new cn.idear.algorithm.binary_tree_inorder_traversal.Solution();
+        return solution.inorderTraversal(TreeNode.createTree(nums));
     }
 
 }
