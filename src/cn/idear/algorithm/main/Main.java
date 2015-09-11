@@ -16,6 +16,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testBinaryTreePreorderTraversal(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(1, 2, 3);
+        actual = binaryTreepreorderTraversal(new int[]{1, 0, 2, 3});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testBinaryTreeInorderTraversal(){
         List<Integer> expect, actual;
         expect = Arrays.asList(1, 3, 2);
@@ -1931,6 +1939,12 @@ public class Main {
         cn.idear.algorithm.binary_tree_inorder_traversal.Solution solution =
                 new cn.idear.algorithm.binary_tree_inorder_traversal.Solution();
         return solution.inorderTraversal(TreeNode.createTree(nums));
+    }
+
+    private List<Integer> binaryTreepreorderTraversal(int[] nums) {
+        cn.idear.algorithm.binary_tree_preorder_traversal.Solution solution =
+                new cn.idear.algorithm.binary_tree_preorder_traversal.Solution();
+        return solution.preorderTraversal(TreeNode.createTree(nums));
     }
 
 }

@@ -52,4 +52,9 @@ public class TreeNode {
         result = 31 * result + (right != null ? right.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(val);
+    }
 }
