@@ -17,6 +17,20 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testUniqueBinarySearchTree(){
+        Assert.assertEquals(1, uniqueBinarySearchTree(0));
+        Assert.assertEquals(1, uniqueBinarySearchTree(1));
+        Assert.assertEquals(2, uniqueBinarySearchTree(2));
+        Assert.assertEquals(5, uniqueBinarySearchTree(3));
+        Assert.assertEquals(14, uniqueBinarySearchTree(4));
+    }
+
+    @Test
+    public void testMoveZeros(){
+        Assert.assertTrue(Arrays.equals(new int[]{1, 3, 2, 0, 0}, moveZeros(new int[]{0, 1, 0, 3, 2})));
+    }
+
+    @Test
     public void testBinaryTreePostorderTraversal(){
         List<Integer> expect, actual;
         expect = Arrays.asList(3, 2, 1);
@@ -1962,4 +1976,16 @@ public class Main {
         return solution.postorderTraversal(TreeNode.createTree(nums));
     }
 
+    private int[] moveZeros(int[] nums) {
+        cn.idear.algorithm.move_zeros.Solution solution =
+                new cn.idear.algorithm.move_zeros.Solution();
+        solution.moveZeroes(nums);
+        return nums;
+    }
+
+    private int uniqueBinarySearchTree(int n) {
+        cn.idear.algorithm.unique_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.unique_binary_search_tree.Solution();
+        return solution.numTrees(n);
+    }
 }
