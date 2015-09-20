@@ -17,6 +17,15 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testUniqueBinarySearchTreeII(){
+        Assert.assertEquals(1, uniqueBinarySearchTreeII(0).size());
+        Assert.assertEquals(1, uniqueBinarySearchTreeII(1).size());
+        Assert.assertEquals(2, uniqueBinarySearchTreeII(2).size());
+        Assert.assertEquals(5, uniqueBinarySearchTreeII(3).size());
+        Assert.assertEquals(14, uniqueBinarySearchTreeII(4).size());
+    }
+
+    @Test
     public void testUniqueBinarySearchTree(){
         Assert.assertEquals(1, uniqueBinarySearchTree(0));
         Assert.assertEquals(1, uniqueBinarySearchTree(1));
@@ -1988,4 +1997,11 @@ public class Main {
                 new cn.idear.algorithm.unique_binary_search_tree.Solution();
         return solution.numTrees(n);
     }
+
+    private List<TreeNode> uniqueBinarySearchTreeII(int n) {
+        cn.idear.algorithm.unique_binary_search_trees_ii.Solution solution =
+                new cn.idear.algorithm.unique_binary_search_trees_ii.Solution();
+        return solution.generateTrees(n);
+    }
+
 }

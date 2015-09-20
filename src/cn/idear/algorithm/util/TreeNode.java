@@ -10,7 +10,7 @@ public class TreeNode {
 
     public TreeNode right;
 
-    TreeNode(int x) { val = x; }
+    public TreeNode(int x) { val = x; }
 
     public static TreeNode createTree(int[] nums, int replacement){
         if(nums.length == 0)
