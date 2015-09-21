@@ -1,5 +1,7 @@
 package cn.idear.algorithm.util;
 
+import java.util.*;
+
 /**
  * Created by wangdongwei on 9/9/15.
  */
@@ -55,6 +57,23 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return String.valueOf(val);
+        return toStringHelper().toString();
+    }
+
+    private List<Integer> toStringHelper() {
+        List<Integer> nums = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(this);
+        while (!queue.isEmpty()){
+            TreeNode root = queue.poll();
+            if(root == null)
+                nums.add(0);
+            else{
+                nums.add(root.val);
+                queue.add(root.left);
+                queue.add(root.right);
+            }
+        }
+        return nums;
     }
 }

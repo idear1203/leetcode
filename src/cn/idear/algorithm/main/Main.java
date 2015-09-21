@@ -17,6 +17,24 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testRecoverBinarySearchTree(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{4, 2, 5, 1, 3, 0, 0, 0, 0, 0, 0});
+        actual = recoverBinarySearchTree(TreeNode.createTree(new int[]{4, 5, 2, 1, 3, 0, 0, 0, 0, 0, 0}));
+        Assert.assertEquals(expect, actual);
+
+        actual = recoverBinarySearchTree(TreeNode.createTree(new int[]{4, 3, 5, 1, 2, 0, 0, 0, 0, 0, 0}));
+        Assert.assertEquals(expect, actual);
+    }
+
+    private TreeNode recoverBinarySearchTree(TreeNode root) {
+        cn.idear.algorithm.recover_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.recover_binary_search_tree.Solution();
+        solution.recoverTree(root);
+        return root;
+    }
+
+    @Test
     public void testValidateBinarySearchTree(){
         Assert.assertFalse(validateBinarySearchTree(new int[]{3, 1, 5, 0, 4, 0, 0, 0, 0}));
         Assert.assertTrue(validateBinarySearchTree(new int[]{Integer.MAX_VALUE, 0, 0}));
