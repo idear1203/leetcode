@@ -17,6 +17,19 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testValidateBinarySearchTree(){
+        Assert.assertFalse(validateBinarySearchTree(new int[]{3, 1, 5, 0, 4, 0, 0, 0, 0}));
+        Assert.assertTrue(validateBinarySearchTree(new int[]{Integer.MAX_VALUE, 0, 0}));
+    }
+
+    private boolean validateBinarySearchTree(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.validate_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.validate_binary_search_tree.Solution();
+        return solution.isValidBST(root);
+    }
+
+    @Test
     public void testUniqueBinarySearchTreeII(){
         Assert.assertEquals(1, uniqueBinarySearchTreeII(0).size());
         Assert.assertEquals(1, uniqueBinarySearchTreeII(1).size());
