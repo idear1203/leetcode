@@ -17,6 +17,22 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testSameTree(){
+        TreeNode expect, actual;
+        Assert.assertTrue(sameTree(null, null));
+
+        expect = TreeNode.createTree(new int[]{1, 0, 0});
+        actual = TreeNode.createTree(new int[]{1, 2, 0, 0, 0});
+        Assert.assertFalse(sameTree(expect, actual));
+    }
+
+    private boolean sameTree(TreeNode p, TreeNode q) {
+        cn.idear.algorithm.same_tree.Solution solution =
+                new cn.idear.algorithm.same_tree.Solution();
+        return solution.isSameTree(p, q);
+    }
+
+    @Test
     public void testRecoverBinarySearchTree(){
         TreeNode expect, actual;
         expect = TreeNode.createTree(new int[]{4, 2, 5, 1, 3, 0, 0, 0, 0, 0, 0});
