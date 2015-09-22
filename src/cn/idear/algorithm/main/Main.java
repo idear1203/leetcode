@@ -17,6 +17,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testSymmetricTree(){
+        Assert.assertTrue(symmetricTree(new int[]{1, 2, 2, 3, 4, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0}));
+        Assert.assertFalse(symmetricTree(new int[]{1, 2, 2, 0, 3, 0, 3, 0, 0, 0, 0}));
+    }
+
+    @Test
     public void testSameTree(){
         TreeNode expect, actual;
         Assert.assertTrue(sameTree(null, null));
@@ -2049,6 +2055,13 @@ public class Main {
         cn.idear.algorithm.unique_binary_search_trees_ii.Solution solution =
                 new cn.idear.algorithm.unique_binary_search_trees_ii.Solution();
         return solution.generateTrees(n);
+    }
+
+    private boolean symmetricTree(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.symmetric_tree.Solution solution =
+                new cn.idear.algorithm.symmetric_tree.Solution();
+        return solution.isSymmetric(root);
     }
 
 }
