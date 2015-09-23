@@ -17,6 +17,18 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testZigzagBinaryTreeLevelOrderTraversal(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {1},
+                {17, 9},
+                {22, 23, 24}
+        });
+        actual = binaryZigzagTreeLevelOrderTraversal(new int[]{1, 9, 17, 0, 22, 23, 24, 0, 0, 0, 0, 0, 0});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testBinaryTreeLevelOrderTraversal(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -2081,6 +2093,12 @@ public class Main {
         cn.idear.algorithm.binary_tree_level_order_traversal.Solution solution =
                 new cn.idear.algorithm.binary_tree_level_order_traversal.Solution();
         return TwoLevelList.make(solution.levelOrder(root));
+    }
+
+    private TwoLevelList<Integer> binaryZigzagTreeLevelOrderTraversal(int[] nums) {
+        cn.idear.algorithm.binary_tree_zigzag_level_order_traversal.Solution solution =
+                new cn.idear.algorithm.binary_tree_zigzag_level_order_traversal.Solution();
+        return TwoLevelList.make(solution.zigzagLevelOrder(TreeNode.createTree(nums)));
     }
 
 }
