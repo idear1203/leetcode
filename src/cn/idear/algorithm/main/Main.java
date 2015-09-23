@@ -17,6 +17,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMaximumDepthofBinaryTree(){
+        Assert.assertEquals(3, maximumDepthofBinaryTree(new int[]{1, 9, 17, 0, 22, 23, 24, 0, 0, 0, 0, 0, 0}));
+    }
+
+    @Test
     public void testZigzagBinaryTreeLevelOrderTraversal(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -2099,6 +2104,12 @@ public class Main {
         cn.idear.algorithm.binary_tree_zigzag_level_order_traversal.Solution solution =
                 new cn.idear.algorithm.binary_tree_zigzag_level_order_traversal.Solution();
         return TwoLevelList.make(solution.zigzagLevelOrder(TreeNode.createTree(nums)));
+    }
+
+    private int maximumDepthofBinaryTree(int[] nums) {
+        cn.idear.algorithm.maximum_depth_of_binary_tree.Solution solution =
+                new cn.idear.algorithm.maximum_depth_of_binary_tree.Solution();
+        return solution.maxDepth(TreeNode.createTree(nums));
     }
 
 }
