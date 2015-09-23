@@ -17,6 +17,18 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBinaryTreeLevelOrderTraversal(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {1},
+                {9, 17},
+                {22, 23, 24}
+        });
+        actual = binaryTreeLevelOrderTraversal(new int[]{1, 9, 17, 0, 22, 23, 24, 0, 0, 0, 0, 0, 0});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testSymmetricTree(){
         Assert.assertTrue(symmetricTree(new int[]{1, 2, 2, 3, 4, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0}));
         Assert.assertFalse(symmetricTree(new int[]{1, 2, 2, 0, 3, 0, 3, 0, 0, 0, 0}));
@@ -2062,6 +2074,13 @@ public class Main {
         cn.idear.algorithm.symmetric_tree.Solution solution =
                 new cn.idear.algorithm.symmetric_tree.Solution();
         return solution.isSymmetric(root);
+    }
+
+    private TwoLevelList<Integer> binaryTreeLevelOrderTraversal(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.binary_tree_level_order_traversal.Solution solution =
+                new cn.idear.algorithm.binary_tree_level_order_traversal.Solution();
+        return TwoLevelList.make(solution.levelOrder(root));
     }
 
 }
