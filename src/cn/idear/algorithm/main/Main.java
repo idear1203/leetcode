@@ -17,6 +17,58 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testConvertSortedListToBinarySearchTree(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{1, 0, 0});
+        actual = convertSortedListToBinarySearchTree(new int[]{1});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{2, 1, 0, 0, 0});
+        actual = convertSortedListToBinarySearchTree(new int[]{1, 2});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{2, 1, 3, 0, 0, 0, 0});
+        actual = convertSortedListToBinarySearchTree(new int[]{1, 2, 3});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{3, 2, 4, 1, 0, 0, 0, 0, 0});
+        actual = convertSortedListToBinarySearchTree(new int[]{1, 2, 3, 4});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testConvertSortedArrayToBinarySearchTree(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{1, 0, 0});
+        actual = convertSortedArrayToBinarySearchTree(new int[]{1});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{2, 1, 0, 0, 0});
+        actual = convertSortedArrayToBinarySearchTree(new int[]{1, 2});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{2, 1, 3, 0, 0, 0, 0});
+        actual = convertSortedArrayToBinarySearchTree(new int[]{1, 2, 3});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{3, 2, 4, 1, 0, 0, 0, 0, 0});
+        actual = convertSortedArrayToBinarySearchTree(new int[]{1, 2, 3, 4});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testBinaryTreeLevelOrderTraversalII(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {22, 23, 24},
+                {9, 17},
+                {1}
+        });
+        actual = binaryTreeLevelOrderTraversalII(new int[]{1, 9, 17, 0, 22, 23, 24, 0, 0, 0, 0, 0, 0});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testConstructBinaryTreeFromInorderAndPostorderTraversal(){
         TreeNode expect, actual;
 
@@ -2148,6 +2200,24 @@ public class Main {
         cn.idear.algorithm.construct_binary_tree_from_inorder_and_postorder_traversal.Solution solution =
                 new cn.idear.algorithm.construct_binary_tree_from_inorder_and_postorder_traversal.Solution();
         return solution.buildTree(inorder, postorder);
+    }
+
+    private TwoLevelList<Integer> binaryTreeLevelOrderTraversalII(int[] nums) {
+        cn.idear.algorithm.binary_tree_level_order_traversal_ii.Solution solution =
+                new cn.idear.algorithm.binary_tree_level_order_traversal_ii.Solution();
+        return TwoLevelList.make(solution.levelOrderBottom(TreeNode.createTree(nums)));
+    }
+
+    private TreeNode convertSortedArrayToBinarySearchTree(int[] nums) {
+        cn.idear.algorithm.convert_sorted_array_to_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.convert_sorted_array_to_binary_search_tree.Solution();
+        return solution.sortedArrayToBST(nums);
+    }
+
+    private TreeNode convertSortedListToBinarySearchTree(int[] nums) {
+        cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution();
+        return solution.sortedListToBST(ListNode.createListByVal(nums));
     }
 
 }
