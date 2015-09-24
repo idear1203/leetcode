@@ -16,6 +16,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPathSum(){
+        Assert.assertTrue(pathSum(new int[]{5, 4, 8, 11, 13, 4, 7, 2, 0, 1, 0, 0, 0, 0, 0, 0}, 22));
+    }
+
+    @Test
     public void testMinimumDepthOfBinaryTree(){
         Assert.assertEquals(2, minimumDepthOfBinaryTree(new int[]{1, 2, 0, 0, 0}));
     }
@@ -2242,6 +2247,12 @@ public class Main {
         cn.idear.algorithm.minimum_depth_of_binary_tree.Solution solution =
                 new cn.idear.algorithm.minimum_depth_of_binary_tree.Solution();
         return solution.minDepth(TreeNode.createTree(nums));
+    }
+
+    private boolean pathSum(int[] nums, int sum) {
+        cn.idear.algorithm.path_sum.Solution solution =
+                new cn.idear.algorithm.path_sum.Solution();
+        return solution.hasPathSum(TreeNode.createTree(nums), sum);
     }
 
 }
