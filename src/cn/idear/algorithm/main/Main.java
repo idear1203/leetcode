@@ -16,6 +16,11 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testMinimumDepthOfBinaryTree(){
+        Assert.assertEquals(2, minimumDepthOfBinaryTree(new int[]{1, 2, 0, 0, 0}));
+    }
+
+    @Test
     public void testBalancedBinaryTree(){
         Assert.assertTrue(balancedBinaryTree(new int[0]));
         Assert.assertTrue(balancedBinaryTree(new int[]{1, 0, 0}));
@@ -2231,6 +2236,12 @@ public class Main {
         cn.idear.algorithm.balanced_binary_tree.Solution solution =
                 new cn.idear.algorithm.balanced_binary_tree.Solution();
         return solution.isBalanced(TreeNode.createTree(nums));
+    }
+
+    private int minimumDepthOfBinaryTree(int[] nums) {
+        cn.idear.algorithm.minimum_depth_of_binary_tree.Solution solution =
+                new cn.idear.algorithm.minimum_depth_of_binary_tree.Solution();
+        return solution.minDepth(TreeNode.createTree(nums));
     }
 
 }
