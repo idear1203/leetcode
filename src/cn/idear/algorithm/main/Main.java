@@ -16,6 +16,14 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testFlattenBinaryTreeToLinkedList(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{1, 0, 2, 0, 0});
+        actual = flattenBinaryTreeToLinkedList(new int[]{1, 2, 0, 0, 0});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testPathSumII(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -2270,6 +2278,14 @@ public class Main {
         cn.idear.algorithm.path_sum_ii.Solution solution =
                 new cn.idear.algorithm.path_sum_ii.Solution();
         return TwoLevelList.make(solution.pathSum(TreeNode.createTree(nums), sum));
+    }
+
+    private TreeNode flattenBinaryTreeToLinkedList(int[] nums) {
+        cn.idear.algorithm.flatten_binary_tree_to_linked_list.Solution solution =
+                new cn.idear.algorithm.flatten_binary_tree_to_linked_list.Solution();
+        TreeNode root = TreeNode.createTree(nums);
+        solution.flatten(root);
+        return root;
     }
 
 }
