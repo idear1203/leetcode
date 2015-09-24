@@ -15,6 +15,13 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+    @Test
+    public void testBalancedBinaryTree(){
+        Assert.assertTrue(balancedBinaryTree(new int[0]));
+        Assert.assertTrue(balancedBinaryTree(new int[]{1, 0, 0}));
+        Assert.assertTrue(balancedBinaryTree(new int[]{2, 1, 0, 0, 0}));
+        Assert.assertFalse(balancedBinaryTree(new int[]{1, 2, 0, 3, 0, 0, 0}));
+    }
 
     @Test
     public void testConvertSortedListToBinarySearchTree(){
@@ -2218,6 +2225,12 @@ public class Main {
         cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution solution =
                 new cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution();
         return solution.sortedListToBST(ListNode.createListByVal(nums));
+    }
+
+    private boolean balancedBinaryTree(int[] nums) {
+        cn.idear.algorithm.balanced_binary_tree.Solution solution =
+                new cn.idear.algorithm.balanced_binary_tree.Solution();
+        return solution.isBalanced(TreeNode.createTree(nums));
     }
 
 }
