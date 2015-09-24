@@ -16,6 +16,17 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPathSumII(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {5, 4, 11, 2},
+                {5, 8, 4, 5}
+        });
+        actual = pathSumII(new int[]{5, 4, 8, 11, 0, 13, 4, 7, 2, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0}, 22);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testPathSum(){
         Assert.assertTrue(pathSum(new int[]{5, 4, 8, 11, 13, 4, 7, 2, 0, 1, 0, 0, 0, 0, 0, 0}, 22));
     }
@@ -2253,6 +2264,12 @@ public class Main {
         cn.idear.algorithm.path_sum.Solution solution =
                 new cn.idear.algorithm.path_sum.Solution();
         return solution.hasPathSum(TreeNode.createTree(nums), sum);
+    }
+
+    private TwoLevelList<Integer> pathSumII(int[] nums, int sum) {
+        cn.idear.algorithm.path_sum_ii.Solution solution =
+                new cn.idear.algorithm.path_sum_ii.Solution();
+        return TwoLevelList.make(solution.pathSum(TreeNode.createTree(nums), sum));
     }
 
 }
