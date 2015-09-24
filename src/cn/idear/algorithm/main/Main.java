@@ -17,7 +17,20 @@ import java.util.*;
 public class Main {
 
     @Test
-    public void testConstructBinaryTreefromPreorderandInorderTraversal(){
+    public void testConstructBinaryTreeFromInorderAndPostorderTraversal(){
+        TreeNode expect, actual;
+
+        expect = TreeNode.createTree(new int[]{1, 0, 0});
+        actual = constructBinaryTreeFromInOrderAndPostOrderTraversal(new int[]{1}, new int[]{1});
+        Assert.assertEquals(expect, actual);
+
+        expect = TreeNode.createTree(new int[]{1, 0, 2, 0, 0});
+        actual = constructBinaryTreeFromInOrderAndPostOrderTraversal(new int[]{1, 2}, new int[]{2, 1});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testConstructBinaryTreeFromPreorderAndInorderTraversal(){
         TreeNode expect, actual;
 
         expect = TreeNode.createTree(new int[]{1, 0, 0});
@@ -30,7 +43,7 @@ public class Main {
     }
 
     @Test
-    public void testMaximumDepthofBinaryTree(){
+    public void testMaximumDepthOfBinaryTree(){
         Assert.assertEquals(3, maximumDepthofBinaryTree(new int[]{1, 9, 17, 0, 22, 23, 24, 0, 0, 0, 0, 0, 0}));
     }
 
@@ -2129,6 +2142,12 @@ public class Main {
         cn.idear.algorithm.construct_binary_tree_from_preorder_and_inorder_traversal.Solution solution =
                 new cn.idear.algorithm.construct_binary_tree_from_preorder_and_inorder_traversal.Solution();
         return solution.buildTree(preorder, inorder);
+    }
+
+    private TreeNode constructBinaryTreeFromInOrderAndPostOrderTraversal(int[] inorder, int[] postorder) {
+        cn.idear.algorithm.construct_binary_tree_from_inorder_and_postorder_traversal.Solution solution =
+                new cn.idear.algorithm.construct_binary_tree_from_inorder_and_postorder_traversal.Solution();
+        return solution.buildTree(inorder, postorder);
     }
 
 }
