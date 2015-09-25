@@ -16,6 +16,20 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPascalsTriangle(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{
+                {1},
+                {1, 1},
+                {1, 2, 1},
+                {1, 3, 3, 1},
+                {1, 4, 6, 4, 1}
+        });
+        actual = pascalTriangle(5);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testFlattenBinaryTreeToLinkedList(){
         TreeNode expect, actual;
         expect = TreeNode.createTree(new int[]{1, 0, 2, 0, 0});
@@ -2286,6 +2300,12 @@ public class Main {
         TreeNode root = TreeNode.createTree(nums);
         solution.flatten(root);
         return root;
+    }
+
+    private TwoLevelList<Integer> pascalTriangle(int numRows) {
+        cn.idear.algorithm.pascals_triangle.Solution solution =
+                new cn.idear.algorithm.pascals_triangle.Solution();
+        return TwoLevelList.make(solution.generate(numRows));
     }
 
 }
