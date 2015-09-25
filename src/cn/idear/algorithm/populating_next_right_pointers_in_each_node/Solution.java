@@ -11,15 +11,24 @@ import java.util.Stack;
  */
 public class Solution {
     public void connect(TreeLinkNode root) {
-        if(root == null)
-            return;
-        if(root.left != null){
-            connect(root.left);
-            connect(root.right);
-            for(TreeLinkNode l = root.left, r= root.right; l != null ; l = l.right, r = r.left)
-                l.next = r;
-        }
+       if(root == null || root.left == null)
+           return;
+        root.left.next = root.right;
+        if(root.next != null)
+            root.right.next = root.next.left;
+        connect(root.left);
+        connect(root.right);
     }
+//    public void connect(TreeLinkNode root) {
+//        if(root == null)
+//            return;
+//        if(root.left != null){
+//            connect(root.left);
+//            connect(root.right);
+//            for(TreeLinkNode l = root.left, r= root.right; l != null ; l = l.right, r = r.left)
+//                l.next = r;
+//        }
+//    }
 
     public void connect1(TreeLinkNode root) {
         if(root == null)
