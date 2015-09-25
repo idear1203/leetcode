@@ -16,6 +16,18 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testPascalsTriangleII(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(1, 4, 6, 4, 1);
+        actual = pascalsTriangleII(4);
+        Assert.assertEquals(expect, actual);
+
+        expect = Collections.singletonList(1);
+        actual = pascalsTriangleII(0);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testPascalsTriangle(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{
@@ -2306,6 +2318,12 @@ public class Main {
         cn.idear.algorithm.pascals_triangle.Solution solution =
                 new cn.idear.algorithm.pascals_triangle.Solution();
         return TwoLevelList.make(solution.generate(numRows));
+    }
+
+    private List<Integer> pascalsTriangleII(int indexRows) {
+        cn.idear.algorithm.pascals_triangle_ii.Solution solution =
+                new cn.idear.algorithm.pascals_triangle_ii.Solution();
+        return solution.getRow(indexRows);
     }
 
 }
