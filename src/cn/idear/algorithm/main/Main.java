@@ -16,6 +16,31 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testCompareVersionNumbers(){
+        Assert.assertTrue(1 == compareVersionNumbers("1" , "0"));
+        Assert.assertTrue(0 == compareVersionNumbers("1.0" , "1"));
+    }
+
+    @Test
+    public void testValidPalindrome(){
+        Assert.assertTrue(validPalindrome(""));
+        Assert.assertTrue(validPalindrome("*&*&("));
+        Assert.assertTrue(validPalindrome("A man, a plan, a canal: Panama"));
+        Assert.assertFalse(validPalindrome("race a car"));
+        Assert.assertFalse(validPalindrome("1a2"));
+    }
+
+    @Test
+    public void testTriangle(){
+        Assert.assertEquals(11, triangle(new Integer[][]{
+                {2},
+                {3, 4},
+                {6, 5, 7},
+                {4, 1, 8, 3}
+        }));
+    }
+
+    @Test
     public void testPascalsTriangleII(){
         List<Integer> expect, actual;
         expect = Arrays.asList(1, 4, 6, 4, 1);
@@ -2324,6 +2349,27 @@ public class Main {
         cn.idear.algorithm.pascals_triangle_ii.Solution solution =
                 new cn.idear.algorithm.pascals_triangle_ii.Solution();
         return solution.getRow(indexRows);
+    }
+
+    private int triangle(Integer[][] nums) {
+        List<List<Integer>> triangle = new ArrayList<>();
+        for(int i = 0; i < nums.length; i++)
+            triangle.add(Arrays.asList(nums[i]));
+        cn.idear.algorithm.triangle.Solution solution =
+                new cn.idear.algorithm.triangle.Solution();
+        return solution.minimumTotal(triangle);
+    }
+
+    private boolean validPalindrome(String s) {
+        cn.idear.algorithm.valid_palindrome.Solution solution =
+                new cn.idear.algorithm.valid_palindrome.Solution();
+        return solution.isPalindrome(s);
+    }
+
+    private int compareVersionNumbers(String version1, String version2) {
+        cn.idear.algorithm.compare_version_numbers.Solution solution =
+                new cn.idear.algorithm.compare_version_numbers.Solution();
+        return solution.compareVersion(version1, version2);
     }
 
 }
