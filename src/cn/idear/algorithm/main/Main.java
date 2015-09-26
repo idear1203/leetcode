@@ -16,6 +16,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testKthLargestElementInAnArray(){
+        Assert.assertEquals(1, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 6));
+        Assert.assertEquals(2, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 5));
+        Assert.assertEquals(3, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 4));
+        Assert.assertEquals(4, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 3));
+        Assert.assertEquals(5, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 2));
+        Assert.assertEquals(6, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 1));
+    }
+
+    @Test
     public void testReorderList(){
         Assert.assertEquals(ListNode.make(new int[]{1, 3, 2}), reorderList(new int[]{1, 2, 3}));
     }
@@ -2394,6 +2404,12 @@ public class Main {
                 new cn.idear.algorithm.reorder_list.Solution();
         solution.reorderList(head);
         return head;
+    }
+
+    private int kthLargestElementInAnArray(int[] nums, int k) {
+        cn.idear.algorithm.kth_largest_element_in_an_array.Solution solution =
+                new cn.idear.algorithm.kth_largest_element_in_an_array.Solution();
+        return solution.findKthLargest(nums, k);
     }
 
 }
