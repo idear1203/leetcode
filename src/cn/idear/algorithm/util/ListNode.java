@@ -27,7 +27,7 @@ public class ListNode {
         return result;
     }
 
-    public static ListNode createListByVal(int[] nums){
+    public static ListNode make(int[] nums){
         ListNode dummy = new ListNode(-1);
         ListNode curNode = dummy;
         for(int i = 0; i < nums.length; i++){

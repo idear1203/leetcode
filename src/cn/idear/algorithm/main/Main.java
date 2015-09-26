@@ -16,6 +16,16 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testReorderList(){
+        Assert.assertEquals(ListNode.make(new int[]{1, 3, 2}), reorderList(new int[]{1, 2, 3}));
+    }
+
+    @Test
+    public void testSumRootToLeafNumbers(){
+        Assert.assertTrue(25 == sumRootToLeafNumbers(new int[]{1, 2, 3}));
+    }
+
+    @Test
     public void testCompareVersionNumbers(){
         Assert.assertTrue(1 == compareVersionNumbers("1" , "0"));
         Assert.assertTrue(0 == compareVersionNumbers("1.0" , "1"));
@@ -337,11 +347,11 @@ public class Main {
     public void testReverseLinkedListII(){
         ListNode expect, actual;
 
-        expect = ListNode.createListByVal(new int[]{1, 4, 3, 2, 5});
+        expect = ListNode.make(new int[]{1, 4, 3, 2, 5});
         actual = reverseLinkedListII(new int[]{1, 2, 3, 4, 5}, 2, 4);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 5, 4, 3, 2});
+        expect = ListNode.make(new int[]{1, 5, 4, 3, 2});
         actual = reverseLinkedListII(new int[]{1, 2, 3, 4, 5}, 2, 5);
         Assert.assertEquals(expect, actual);
     }
@@ -394,7 +404,7 @@ public class Main {
     @Test
     public void testPartition(){
         ListNode expect, actual;
-        expect = ListNode.createListByVal(new int[]{1, 2, 2, 4, 3, 5});
+        expect = ListNode.make(new int[]{1, 2, 2, 4, 3, 5});
         actual = partition(new int[]{1, 4, 3, 2, 5, 2}, 3);
         Assert.assertEquals(expect, actual);
     }
@@ -434,11 +444,11 @@ public class Main {
         actual = removeDuplicatesFromSortedListII(new int[]{1, 1, 2, 2});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 2, 5});
+        expect = ListNode.make(new int[]{1, 2, 5});
         actual = removeDuplicatesFromSortedListII(new int[]{1, 2, 3, 3, 4, 4, 5});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{2, 3});
+        expect = ListNode.make(new int[]{2, 3});
         actual = removeDuplicatesFromSortedListII(new int[]{1, 1, 1, 2, 3});
         Assert.assertEquals(expect, actual);
     }
@@ -446,25 +456,25 @@ public class Main {
     @Test
     public void testRemoveDuplicatesFromSortedList(){
         ListNode expect,actual;
-        expect = ListNode.createListByVal(new int[]{1});
+        expect = ListNode.make(new int[]{1});
         actual = removeDuplicatesFromSortedList(new int[]{1, 1, 1});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 1, 2});
+        expect = ListNode.make(new int[]{1, 1, 2});
         actual = removeDuplicatesFromSortedList(new int[]{1, 2});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 1, 2, 3, 3});
+        expect = ListNode.make(new int[]{1, 1, 2, 3, 3});
         actual = removeDuplicatesFromSortedList(new int[]{1, 2, 3});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1});
+        expect = ListNode.make(new int[]{1});
         actual = removeDuplicatesFromSortedList(new int[]{1, 1});
         Assert.assertEquals(expect, actual);
     }
 
     private ListNode removeDuplicatesFromSortedList(int[] nums) {
-        ListNode head = ListNode.createListByVal(nums);
+        ListNode head = ListNode.make(nums);
         cn.idear.algorithm.remove_duplicates_from_sorted_list.Solution solution =
                 new cn.idear.algorithm.remove_duplicates_from_sorted_list.Solution();
         return solution.deleteDuplicates(head);
@@ -724,7 +734,7 @@ public class Main {
     public void testRotateList(){
         ListNode expect;
         ListNode actual;
-        expect = ListNode.createListByVal(new int[]{4, 5, 1, 2, 3});
+        expect = ListNode.make(new int[]{4, 5, 1, 2, 3});
         actual = rotateList(new int[]{1, 2, 3, 4, 5}, 2);
         Assert.assertEquals(expect, actual);
 
@@ -1115,8 +1125,8 @@ public class Main {
 
     @Test
     public void testDeleteNodeInALinkedList(){
-        ListNode expect = ListNode.createListByVal(new int[]{1, 2, 4});
-        ListNode actual = ListNode.createListByVal(new int[]{1, 2, 3, 4});
+        ListNode expect = ListNode.make(new int[]{1, 2, 4});
+        ListNode actual = ListNode.make(new int[]{1, 2, 3, 4});
         deleteNodeInALinkedList(actual, 3);
         Assert.assertEquals(expect, actual);
     }
@@ -1127,8 +1137,8 @@ public class Main {
         ListNode head;
         Assert.assertEquals(null, removeLinkedListElements(null, 6));
 
-        head = ListNode.createListByVal(new int[]{1, 2, 6, 3, 4, 5, 6});
-        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        head = ListNode.make(new int[]{1, 2, 6, 3, 4, 5, 6});
+        expect = ListNode.make(new int[]{1, 2, 3, 4, 5});
         Assert.assertEquals(expect, removeLinkedListElements(head, 6));
     }
 
@@ -1162,31 +1172,31 @@ public class Main {
         ListNode expect;
         ListNode actual;
 
-        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        expect = ListNode.make(new int[]{1, 2, 3, 4, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 0);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        expect = ListNode.make(new int[]{1, 2, 3, 4, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 1);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{2, 1, 4, 3, 5});
+        expect = ListNode.make(new int[]{2, 1, 4, 3, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 2);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{3, 2, 1, 4, 5});
+        expect = ListNode.make(new int[]{3, 2, 1, 4, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 3);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{4, 3, 2, 1, 5});
+        expect = ListNode.make(new int[]{4, 3, 2, 1, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 4);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{5, 4, 3, 2, 1});
+        expect = ListNode.make(new int[]{5, 4, 3, 2, 1});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 5);
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{1, 2, 3, 4, 5});
+        expect = ListNode.make(new int[]{1, 2, 3, 4, 5});
         actual = reverseNodesInKGroups(new int[]{1, 2, 3, 4, 5}, 6);
         Assert.assertEquals(expect, actual);
     }
@@ -1196,15 +1206,15 @@ public class Main {
         ListNode expect;
         ListNode actual;
 
-        expect = ListNode.createListByVal(new int[]{2, 1, 4, 3});
+        expect = ListNode.make(new int[]{2, 1, 4, 3});
         actual = swapNodesInPairs(new int[]{1, 2, 3, 4});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{2, 1, 3});
+        expect = ListNode.make(new int[]{2, 1, 3});
         actual = swapNodesInPairs(new int[]{1, 2, 3});
         Assert.assertEquals(expect, actual);
 
-        expect = ListNode.createListByVal(new int[]{2, 1});
+        expect = ListNode.make(new int[]{2, 1});
         actual = swapNodesInPairs(new int[]{1, 2});
         Assert.assertEquals(expect, actual);
     }
@@ -1317,19 +1327,19 @@ public class Main {
         ListNode origin;
         ListNode expect;
 
-        origin = ListNode.createListByVal(new int[]{1, 2, 3});
-        expect = ListNode.createListByVal(new int[]{1, 2});
+        origin = ListNode.make(new int[]{1, 2, 3});
+        expect = ListNode.make(new int[]{1, 2});
         Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 1));
 
-        origin = ListNode.createListByVal(new int[]{1, 2, 3});
-        expect = ListNode.createListByVal(new int[]{1, 3});
+        origin = ListNode.make(new int[]{1, 2, 3});
+        expect = ListNode.make(new int[]{1, 3});
         Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 2));
 
-        origin = ListNode.createListByVal(new int[]{1, 2, 3});
-        expect = ListNode.createListByVal(new int[]{2, 3});
+        origin = ListNode.make(new int[]{1, 2, 3});
+        expect = ListNode.make(new int[]{2, 3});
         Assert.assertEquals(expect, removeNthNodeFromEndofList(origin, 3));
 
-        origin = ListNode.createListByVal(new int[]{1});
+        origin = ListNode.make(new int[]{1});
         Assert.assertEquals(null, removeNthNodeFromEndofList(origin, 1));
     }
 
@@ -1366,7 +1376,7 @@ public class Main {
 
     @Test
     public void testReverseLinkedList(){
-        ListNode expect = ListNode.createListByVal(new int[]{1, 2});
+        ListNode expect = ListNode.make(new int[]{1, 2});
         ListNode actual = reverseLinkedList(new int[]{2, 1});
         Assert.assertEquals(expect,actual);
     }
@@ -1474,14 +1484,14 @@ public class Main {
 
     @Test
     public void testMergeKSortedLists(){
-        ListNode expect = ListNode.createListByVal(new int[]{1,2,3,4,5,6,7,8,9});
+        ListNode expect = ListNode.make(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
         ListNode actual = mergeKSortedLists(new int[][]{{1, 5, 7}, {6, 8}, {2, 3}, {4, 9}});
         Assert.assertEquals(expect, actual);
     }
 
     @Test
     public void testMergeTwoSortedList(){
-        ListNode expect = ListNode.createListByVal(new int[]{1,2,3,4,5,6,7,8,9});
+        ListNode expect = ListNode.make(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
         ListNode actual = mergeTwoSortedList(new int[]{1, 3, 5, 7, 9}, new int[]{2, 4, 6, 8});
         Assert.assertEquals(expect, actual);
     }
@@ -1579,13 +1589,13 @@ public class Main {
     public void testAddTwoNumbers(){
         ListNode rst;
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6, 4});
-        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 8}),rst);
+        Assert.assertEquals(ListNode.make(new int[]{7, 0, 8}),rst);
 
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6});
-        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 4}),rst);
+        Assert.assertEquals(ListNode.make(new int[]{7, 0, 4}),rst);
 
         rst = addTwoNumbers(new int[]{2, 4, 3}, new int[]{5, 6, 6});
-        Assert.assertEquals(ListNode.createListByVal(new int[]{7, 0, 0, 1}),rst);
+        Assert.assertEquals(ListNode.make(new int[]{7, 0, 0, 1}),rst);
     }
 
     private  int[] twoSum(int[] nums , int target){
@@ -1594,8 +1604,8 @@ public class Main {
     }
 
     private  ListNode addTwoNumbers(int[] l1, int[] l2){
-        ListNode n1 = ListNode.createListByVal(l1);
-        ListNode n2 = ListNode.createListByVal(l2);
+        ListNode n1 = ListNode.make(l1);
+        ListNode n2 = ListNode.make(l2);
         cn.idear.algorithm.add_two_numbers.Solution solution = new cn.idear.algorithm.add_two_numbers.Solution();
         return  solution.addTwoNumbers(n1, n2);
     }
@@ -1636,8 +1646,8 @@ public class Main {
     }
 
     private ListNode mergeTwoSortedList(int[] nums1, int[] nums2) {
-        ListNode l1 = ListNode.createListByVal(nums1);
-        ListNode l2 = ListNode.createListByVal(nums2);
+        ListNode l1 = ListNode.make(nums1);
+        ListNode l2 = ListNode.make(nums2);
         cn.idear.algorithm.merge_two_sorted_lists.Solution solution = new cn.idear.algorithm.merge_two_sorted_lists.Solution();
         return solution.mergeTwoLists(l1, l2);
     }
@@ -1645,7 +1655,7 @@ public class Main {
     private ListNode mergeKSortedLists(int[][] ints) {
         ListNode[] list = new ListNode[ints.length];
         for(int i = 0; i < ints.length; i++)
-            list[i] = ListNode.createListByVal(ints[i]);
+            list[i] = ListNode.make(ints[i]);
         cn.idear.algorithm.merge_k_sorted_lists.Solution solution =
                 new cn.idear.algorithm.merge_k_sorted_lists.Solution();
         return solution.mergeKLists(list);
@@ -1702,14 +1712,14 @@ public class Main {
     private boolean palindromeLinkedList(int[] nums) {
         cn.idear.algorithm.palindrome_linked_list.Solution solution =
                 new cn.idear.algorithm.palindrome_linked_list.Solution();
-        ListNode head = ListNode.createListByVal(nums);
+        ListNode head = ListNode.make(nums);
         return solution.isPalindrome(head);
     }
 
     private ListNode reverseLinkedList(int[] nums) {
         cn.idear.algorithm.reverse_linked_list.Solution solution =
                 new cn.idear.algorithm.reverse_linked_list.Solution();
-        return solution.reverseList(ListNode.createListByVal(nums));
+        return solution.reverseList(ListNode.make(nums));
     }
 
     private int containerWithMostWater(int[] nums) {
@@ -1798,13 +1808,13 @@ public class Main {
     private ListNode swapNodesInPairs(int[] nums) {
         cn.idear.algorithm.swap_nodes_in_pairs.Solution solution =
                 new cn.idear.algorithm.swap_nodes_in_pairs.Solution();
-        return solution.swapPairs(ListNode.createListByVal(nums));
+        return solution.swapPairs(ListNode.make(nums));
     }
 
     private ListNode reverseNodesInKGroups(int[] nums, int k) {
         cn.idear.algorithm.reverse_nodes_in_k_group.Solution solution =
                 new cn.idear.algorithm.reverse_nodes_in_k_group.Solution();
-        return solution.reverseKGroup(ListNode.createListByVal(nums), k);
+        return solution.reverseKGroup(ListNode.make(nums), k);
     }
 
     private int removeDuplicatesFromSortedArray(int[] nums) {
@@ -2031,7 +2041,7 @@ public class Main {
     }
 
     private ListNode rotateList(int[] nums, int k) {
-        ListNode head = ListNode.createListByVal(nums);
+        ListNode head = ListNode.make(nums);
         cn.idear.algorithm.rotate_list.Solution solution =
                 new cn.idear.algorithm.rotate_list.Solution();
         return solution.rotateRight(head, k);
@@ -2127,7 +2137,7 @@ public class Main {
     private ListNode removeDuplicatesFromSortedListII(int[] nums) {
         cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution solution =
                 new cn.idear.algorithm.remove_duplicates_from_sorted_list_ii.Solution();
-        return solution.deleteDuplicates(ListNode.createListByVal(nums));
+        return solution.deleteDuplicates(ListNode.make(nums));
     }
 
     private int removeDuplicatesFromSortedArrayII(int[] nums) {
@@ -2145,7 +2155,7 @@ public class Main {
     private ListNode partition(int[] nums, int x) {
         cn.idear.algorithm.partition_list.Solution solution =
                 new cn.idear.algorithm.partition_list.Solution();
-        return solution.partition(ListNode.createListByVal(nums), x);
+        return solution.partition(ListNode.make(nums), x);
     }
 
     private List<Integer> grayCode(int n) {
@@ -2163,7 +2173,7 @@ public class Main {
     private ListNode reverseLinkedListII(int[] nums, int m, int n) {
         cn.idear.algorithm.reverse_linked_list_ii.Solution solution =
                 new cn.idear.algorithm.reverse_linked_list_ii.Solution();
-        return solution.reverseBetween(ListNode.createListByVal(nums), m, n);
+        return solution.reverseBetween(ListNode.make(nums), m, n);
     }
 
     private int decodeWays(String s) {
@@ -2304,7 +2314,7 @@ public class Main {
     private TreeNode convertSortedListToBinarySearchTree(int[] nums) {
         cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution solution =
                 new cn.idear.algorithm.convert_sorted_list_to_binary_search_tree.Solution();
-        return solution.sortedListToBST(ListNode.createListByVal(nums));
+        return solution.sortedListToBST(ListNode.make(nums));
     }
 
     private boolean balancedBinaryTree(int[] nums) {
@@ -2370,6 +2380,20 @@ public class Main {
         cn.idear.algorithm.compare_version_numbers.Solution solution =
                 new cn.idear.algorithm.compare_version_numbers.Solution();
         return solution.compareVersion(version1, version2);
+    }
+
+    private int sumRootToLeafNumbers(int[] nums) {
+        cn.idear.algorithm.sum_root_to_leaf_numbers.Solution solution =
+                new cn.idear.algorithm.sum_root_to_leaf_numbers.Solution();
+        return solution.sumNumbers(TreeNode.createTree(nums));
+    }
+
+    private ListNode reorderList(int[] nums) {
+        ListNode head = ListNode.make(nums);
+        cn.idear.algorithm.reorder_list.Solution solution =
+                new cn.idear.algorithm.reorder_list.Solution();
+        solution.reorderList(head);
+        return head;
     }
 
 }
