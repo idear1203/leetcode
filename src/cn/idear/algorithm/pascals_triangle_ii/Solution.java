@@ -5,9 +5,33 @@ import java.util.*;
 /**
  * Created by wangdongwei on 9/26/15.
  */
-//TODO:
 public class Solution {
-    public List<Integer> getRow(int rowIndex){
+
+    /**
+     * 动态规划
+     * @param rowIndex
+     * @return
+     */
+    public List<Integer> getRow(int rowIndex) {
+        Integer[] nums = new Integer[rowIndex + 1];
+        Arrays.fill(nums, 1);
+        for(int i = 1; i < rowIndex; i++){
+            /**
+             * 细节。注意j的旗帜位置的确定。以及为何倒序。
+             */
+            for(int j = i; j >= 1; j--){
+                nums[j] = nums[j] + nums[j - 1];
+            }
+        }
+        return Arrays.asList(nums);
+    }
+
+    /**
+     * 数学方法
+     * @param rowIndex
+     * @return
+     */
+    public List<Integer> getRow1(int rowIndex){
         Integer[] rst = new Integer[rowIndex + 1];
         boolean isEven = (rowIndex & 0x01) == 0;
         int times = rowIndex / 2 + 1;
@@ -22,7 +46,7 @@ public class Solution {
     }
 
     /**
-     * 动态规划
+     * 递归
      * @param rowIndex
      * @return
      */
