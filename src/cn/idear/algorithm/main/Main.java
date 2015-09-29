@@ -15,6 +15,19 @@ import java.util.*;
  * Test Suite.
  */
 public class Main {
+
+    @Test
+    public void testExcelSheetColumnTitle(){
+        Assert.assertEquals("AA", excelSheetColumnTitle(27));
+        Assert.assertEquals("AB", excelSheetColumnTitle(28));
+    }
+
+    private String excelSheetColumnTitle(int n) {
+        cn.idear.algorithm.excel_sheet_column_title.Solution solution =
+                new cn.idear.algorithm.excel_sheet_column_title.Solution();
+        return solution.convertToTitle(n);
+    }
+
     @Test
     public void testKthLargestElementInAnArray(){
         Assert.assertEquals(1, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 6));
