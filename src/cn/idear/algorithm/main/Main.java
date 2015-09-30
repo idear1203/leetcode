@@ -20,6 +20,7 @@ public class Main {
     public void testExcelSheetColumnTitle(){
         Assert.assertEquals("AA", excelSheetColumnTitle(27));
         Assert.assertEquals("AB", excelSheetColumnTitle(28));
+        Assert.assertEquals("ZZ", excelSheetColumnTitle(702));
     }
 
     private String excelSheetColumnTitle(int n) {
