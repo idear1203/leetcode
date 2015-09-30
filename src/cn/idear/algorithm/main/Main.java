@@ -17,16 +17,15 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBestTimeToBuyAndSellStock(){
+        Assert.assertEquals(3, bestTimeToBuyAndSellStock(new int[]{0, 1, 2, 3}));
+    }
+
+    @Test
     public void testExcelSheetColumnTitle(){
         Assert.assertEquals("AA", excelSheetColumnTitle(27));
         Assert.assertEquals("AB", excelSheetColumnTitle(28));
         Assert.assertEquals("ZZ", excelSheetColumnTitle(702));
-    }
-
-    private String excelSheetColumnTitle(int n) {
-        cn.idear.algorithm.excel_sheet_column_title.Solution solution =
-                new cn.idear.algorithm.excel_sheet_column_title.Solution();
-        return solution.convertToTitle(n);
     }
 
     @Test
@@ -2424,6 +2423,18 @@ public class Main {
         cn.idear.algorithm.kth_largest_element_in_an_array.Solution solution =
                 new cn.idear.algorithm.kth_largest_element_in_an_array.Solution();
         return solution.findKthLargest(nums, k);
+    }
+
+    private String excelSheetColumnTitle(int n) {
+        cn.idear.algorithm.excel_sheet_column_title.Solution solution =
+                new cn.idear.algorithm.excel_sheet_column_title.Solution();
+        return solution.convertToTitle(n);
+    }
+
+    private int bestTimeToBuyAndSellStock(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution();
+        return solution.maxProfit(nums);
     }
 
 }
