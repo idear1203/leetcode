@@ -17,6 +17,17 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBestTimeToBuyAndSellStockIII(){
+        Assert.assertEquals(0, bestTimeToBuyAndSellStockIII(new int[0]));
+        Assert.assertEquals(2, bestTimeToBuyAndSellStockIII(new int[]{2, 1, 2, 0, 1}));
+    }
+
+    @Test
+    public void testBestTimeToBuyAndSellStockII(){
+        Assert.assertEquals(5, bestTimeToBuyAndSellStockII(new int[]{0, 1, 2, 3, 5, 4}));
+    }
+
+    @Test
     public void testBestTimeToBuyAndSellStock(){
         Assert.assertEquals(3, bestTimeToBuyAndSellStock(new int[]{0, 1, 2, 3}));
     }
@@ -2434,6 +2445,18 @@ public class Main {
     private int bestTimeToBuyAndSellStock(int[] nums) {
         cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution solution =
                 new cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution();
+        return solution.maxProfit(nums);
+    }
+
+    private int bestTimeToBuyAndSellStockII(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock_ii.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock_ii.Solution();
+        return solution.maxProfit(nums);
+    }
+
+    private int bestTimeToBuyAndSellStockIII(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution();
         return solution.maxProfit(nums);
     }
 
