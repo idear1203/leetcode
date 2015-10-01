@@ -17,6 +17,38 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testSurroundedRegions(){
+        String[] expect, actual;
+        expect = new String[]{
+                "XXXX",
+                "XXXX",
+                "XXXX",
+                "XOXX"
+        };
+        actual = surroundedRegions(new String[]{
+                "XXXX",
+                "XOOX",
+                "XXOX",
+                "XOXX"
+        });
+        for(int i = 0; i < expect.length; i++)
+            Assert.assertEquals(expect[i], actual[i]);
+    }
+
+    private String[] surroundedRegions(String[] boards) {
+        int m = boards.length;
+        char[][] board = new char[m][];
+        for(int i = 0; i < m; i++)
+            board[i] = boards[i].toCharArray();
+        cn.idear.algorithm.surrounded_regions.Solution solution =
+                new cn.idear.algorithm.surrounded_regions.Solution();
+        solution.solve(board);
+        for(int i = 0; i < m; i++)
+            boards[i] = String.valueOf(board[i]);
+        return boards;
+    }
+
+    @Test
     public void testFirstBadVersion(){
         Assert.assertEquals(4, firstBadVersion(6, 4));
         Assert.assertEquals(1, firstBadVersion(3, 1));
