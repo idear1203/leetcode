@@ -17,6 +17,22 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testNumberOfIslands(){
+        Assert.assertEquals(1, numberofIslands(new String[]{
+                "11110",
+                "11010",
+                "11000",
+                "00000"
+        }));
+        Assert.assertEquals(3, numberofIslands(new String[]{
+                "11000",
+                "11000",
+                "00100",
+                "00011"
+        }));
+    }
+
+    @Test
     public void testSurroundedRegions(){
         String[] expect, actual;
         expect = new String[]{
@@ -2527,6 +2543,15 @@ public class Main {
                 new cn.idear.algorithm.first_bad_version.Solution();
         solution.setFirstBadVersion(firstBadVersion);
         return solution.firstBadVersion(n);
+    }
+
+    private int numberofIslands(String[] strings) {
+        char[][] grid = new char[strings.length][];
+        for(int i = 0; i < strings.length; i++)
+            grid[i] = strings[i].toCharArray();
+        cn.idear.algorithm.number_of_islands.Solution solution =
+                new cn.idear.algorithm.number_of_islands.Solution();
+        return solution.numIslands(grid);
     }
 
 }

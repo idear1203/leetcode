@@ -49,9 +49,8 @@ public class Solution {
                 int j = point.y;
                 if(isPointO(board, i, j)){
                     board[i][j] = 'W';
-                    for (Point p : new Point[]{new Point(i, j + 1), new Point(i, j - 1),
-                            new Point(i + 1, j), new Point(i - 1, j)})
-                        stack.push(p);
+                    for(int[] ij: new int[][]{{i, j + 1}, {i, j - 1}, {i + 1, j}, {i - 1, j}})
+                        stack.push(new Point(ij[0], ij[1]));
                 }
             }
         }
@@ -99,9 +98,8 @@ public class Solution {
                  * 学习这种trick。将元素改为某个不可能的值，既作为标记，又用于去除重复路径
                  */
                 board[i][j] = 'W';
-                for (Point p : new Point[]{new Point(i, j + 1), new Point(i, j - 1),
-                        new Point(i + 1, j), new Point(i - 1, j)})
-                    queue.add(p);
+                for(int[] ij: new int[][]{{i, j + 1}, {i, j - 1}, {i + 1, j}, {i - 1, j}})
+                    queue.add(new Point(ij[0], ij[1]));
             }
         }
     }
