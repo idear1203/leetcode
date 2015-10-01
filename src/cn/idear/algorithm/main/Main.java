@@ -14,6 +14,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMajorityElement(){
+        Assert.assertEquals(3, majorityElement(new int[]{4, 2, 1, 2, 3, 3, 3, 3, 3, 3, 5}));
+    }
+
+    @Test
     public void testIntersectionOfTwoLinkedLists(){
         ListNode expect, actual;
         expect = ListNode.make(new int[]{4, 5, 6});
@@ -2635,6 +2640,12 @@ public class Main {
             cur.next = laterHead;
         }
         return head;
+    }
+
+    private int majorityElement(int[] nums) {
+        cn.idear.algorithm.majority_element.Solution solution =
+                new cn.idear.algorithm.majority_element.Solution();
+        return solution.majorityElement(nums);
     }
 
 }
