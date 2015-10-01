@@ -8,6 +8,8 @@ import cn.idear.algorithm.util.TreeNode;
 public class Solution {
     int max = 0;
     public int maxPathSum(TreeNode root) {
+        if(root == null) return 0;
+        max = root.val;
         maxPathSumHelper(root);
         return max;
     }
@@ -15,7 +17,7 @@ public class Solution {
     private int maxPathSumHelper(TreeNode root) {
         if(root == null)
             return 0;
-        int leftValue = maxPathSumHelper(root);
+        int leftValue = maxPathSumHelper(root.left);
         int rightValue = maxPathSumHelper(root.right);
         int result = root.val;
         if(leftValue > 0) result += leftValue;
