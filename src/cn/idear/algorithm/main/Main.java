@@ -12,9 +12,14 @@ import java.util.*;
 
 /**
  * Created by wangdongwei on 8/23/15.
- * Test Suite.
+ * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testSingleNumber(){
+        Assert.assertEquals(4, singleNumber(new int[]{1, 2, 3, 4, 2, 3, 1}));
+    }
 
     @Test
     public void testNumberOfIslands(){
@@ -2553,5 +2558,12 @@ public class Main {
                 new cn.idear.algorithm.number_of_islands.Solution();
         return solution.numIslands(grid);
     }
+
+    private int singleNumber(int[] nums) {
+        cn.idear.algorithm.single_number.Solution solution =
+                new cn.idear.algorithm.single_number.Solution();
+        return solution.singleNumber(nums);
+    }
+
 
 }
