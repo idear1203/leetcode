@@ -1,10 +1,7 @@
 package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
-import cn.idear.algorithm.util.Interval;
-import cn.idear.algorithm.util.ListNode;
-import cn.idear.algorithm.util.TreeNode;
-import cn.idear.algorithm.util.TwoLevelList;
+import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,6 +12,30 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testCloneGraph(){
+        UndirectedGraphNode expect, actual;
+        int[] nums = new int[]{0, 0, 0};
+        expect = UndirectedGraphNode.make(nums);
+        actual = cloneGraph(UndirectedGraphNode.make(nums));
+        Assert.assertEquals(expect, actual);
+        nums = new int[]{0, 1, 5, -1, 1, 2, 5, -1, 2, 3, -1, 3, 4, 4, -1, 4, 5, 5, -1, 5};
+        expect = UndirectedGraphNode.make(nums);
+        actual = cloneGraph( UndirectedGraphNode.make(nums));
+        Assert.assertEquals(expect, actual);
+    }
+
+    private UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        cn.idear.algorithm.clone_graph.Solution solution =
+                new cn.idear.algorithm.clone_graph.Solution();
+        return solution.cloneGraph(node);
+    }
+
+    @Test
+    public void testWordLadder(){
+        Assert.assertEquals(5, wordLadder("hit", "cog", new String[]{"hot","dot","dog","lot","log"}));
+    }
 
     @Test
     public void testSingleNumberII(){
@@ -2575,6 +2596,15 @@ public class Main {
         cn.idear.algorithm.single_number_ii.Solution solution =
                 new cn.idear.algorithm.single_number_ii.Solution();
         return solution.singleNumber(nums);
+    }
+
+    private int wordLadder(String startWord, String endWord, String[] wordList) {
+        HashSet<String> set = new HashSet<>();
+        for(String s : wordList)
+            set.add(s);
+        cn.idear.algorithm.word_ladder.Solution solution =
+                new cn.idear.algorithm.word_ladder.Solution();
+        return solution.ladderLength(startWord, endWord, set);
     }
 
 }
