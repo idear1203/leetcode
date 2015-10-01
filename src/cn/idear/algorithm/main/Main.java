@@ -17,6 +17,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBinaryTreeMaximumPathSum(){
+        Assert.assertEquals(6, binaryTreeMaximumPathSum(new int[]{1, 2, 3}));
+    }
+
+    @Test
     public void testBestTimeToBuyAndSellStockIII(){
         Assert.assertEquals(0, bestTimeToBuyAndSellStockIII(new int[0]));
         Assert.assertEquals(2, bestTimeToBuyAndSellStockIII(new int[]{2, 1, 2, 0, 1}));
@@ -2458,6 +2463,12 @@ public class Main {
         cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution solution =
                 new cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution();
         return solution.maxProfit(nums);
+    }
+
+    private int binaryTreeMaximumPathSum(int[] nums) {
+        cn.idear.algorithm.binary_tree_maximum_path_sum.Solution solution =
+                new cn.idear.algorithm.binary_tree_maximum_path_sum.Solution();
+        return solution.maxPathSum(TreeNode.createTree(nums));
     }
 
 }
