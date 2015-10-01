@@ -14,6 +14,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testIntersectionOfTwoLinkedLists(){
+        ListNode expect, actual;
+        expect = ListNode.make(new int[]{4, 5, 6});
+        actual = intersectionOfTwoLinkedLists(new int[]{1, 2}, new int[]{7, 8, 9}, expect);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testCloneGraph(){
         UndirectedGraphNode expect, actual;
         int[] nums = new int[]{0, 0, 0};
@@ -24,12 +32,6 @@ public class Main {
         expect = UndirectedGraphNode.make(nums);
         actual = cloneGraph( UndirectedGraphNode.make(nums));
         Assert.assertEquals(expect, actual);
-    }
-
-    private UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-        cn.idear.algorithm.clone_graph.Solution solution =
-                new cn.idear.algorithm.clone_graph.Solution();
-        return solution.cloneGraph(node);
     }
 
     @Test
@@ -2605,6 +2607,34 @@ public class Main {
         cn.idear.algorithm.word_ladder.Solution solution =
                 new cn.idear.algorithm.word_ladder.Solution();
         return solution.ladderLength(startWord, endWord, set);
+    }
+
+    private UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        cn.idear.algorithm.clone_graph.Solution solution =
+                new cn.idear.algorithm.clone_graph.Solution();
+        return solution.cloneGraph(node);
+    }
+
+    private ListNode intersectionOfTwoLinkedLists(int[] numsA, int[] numsB, ListNode headC) {
+        ListNode headA, headB;
+        headA = mergeNode4IntersectionProblem(numsA, headC);
+        headB = mergeNode4IntersectionProblem(numsB, headC);
+        cn.idear.algorithm.intersection_of_two_linked_lists.Solution solution =
+                new cn.idear.algorithm.intersection_of_two_linked_lists.Solution();
+        return solution.getIntersectionNode(headA, headB);
+    }
+
+    private ListNode mergeNode4IntersectionProblem(int nums[], ListNode laterHead){
+        ListNode head;
+        if(nums.length == 0)
+            head = laterHead;
+        else{
+            head = ListNode.make(nums);
+            ListNode cur;
+            for(cur = head; cur.next != null; cur = cur.next);
+            cur.next = laterHead;
+        }
+        return head;
     }
 
 }
