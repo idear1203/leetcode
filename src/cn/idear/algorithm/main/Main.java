@@ -17,6 +17,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testLongestConsecutiveSequence(){
+        Assert.assertEquals(4, longestConsecutiveSequence(new int[]{100, 4, 200, 1, 3, 2}));
+    }
+
+    @Test
     public void testBinaryTreeMaximumPathSum(){
         Assert.assertEquals(6, binaryTreeMaximumPathSum(new int[]{1, 2, 3}));
     }
@@ -2469,6 +2474,12 @@ public class Main {
         cn.idear.algorithm.binary_tree_maximum_path_sum.Solution solution =
                 new cn.idear.algorithm.binary_tree_maximum_path_sum.Solution();
         return solution.maxPathSum(TreeNode.createTree(nums));
+    }
+
+    private int longestConsecutiveSequence(int[] nums) {
+        cn.idear.algorithm.longest_consecutive_sequence.Solution solution =
+                new cn.idear.algorithm.longest_consecutive_sequence.Solution();
+        return solution.longestConsecutive(nums);
     }
 
 }
