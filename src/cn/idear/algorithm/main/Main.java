@@ -17,6 +17,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testFirstBadVersion(){
+        Assert.assertEquals(4, firstBadVersion(6, 4));
+        Assert.assertEquals(1, firstBadVersion(3, 1));
+        Assert.assertEquals(2, firstBadVersion(3, 2));
+        Assert.assertEquals(3, firstBadVersion(3, 3));
+    }
+
+    @Test
     public void testLongestConsecutiveSequence(){
         Assert.assertEquals(4, longestConsecutiveSequence(new int[]{100, 4, 200, 1, 3, 2}));
     }
@@ -2480,6 +2488,13 @@ public class Main {
         cn.idear.algorithm.longest_consecutive_sequence.Solution solution =
                 new cn.idear.algorithm.longest_consecutive_sequence.Solution();
         return solution.longestConsecutive(nums);
+    }
+
+    private int firstBadVersion(int n, int firstBadVersion) {
+        cn.idear.algorithm.first_bad_version.Solution solution =
+                new cn.idear.algorithm.first_bad_version.Solution();
+        solution.setFirstBadVersion(firstBadVersion);
+        return solution.firstBadVersion(n);
     }
 
 }
