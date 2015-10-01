@@ -17,6 +17,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testSingleNumberII(){
+        Assert.assertEquals(5, singleNumberII(new int[]{0, 0, 0, 5}));
+    }
+
+    @Test
     public void testSingleNumber(){
         Assert.assertEquals(4, singleNumber(new int[]{1, 2, 3, 4, 2, 3, 1}));
     }
@@ -2565,5 +2570,11 @@ public class Main {
         return solution.singleNumber(nums);
     }
 
+
+    private int singleNumberII(int[] nums) {
+        cn.idear.algorithm.single_number_ii.Solution solution =
+                new cn.idear.algorithm.single_number_ii.Solution();
+        return solution.singleNumber(nums);
+    }
 
 }
