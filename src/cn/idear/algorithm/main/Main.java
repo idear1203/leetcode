@@ -14,6 +14,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testCandy(){
+        Assert.assertEquals(3, candy(new int[]{1, 1, 1}));
+        Assert.assertEquals(4, candy(new int[]{1, 2, 1}));
+    }
+
+    @Test
     public void testGasStation(){
         Assert.assertEquals(0, gasStation(new int[]{1, 2, 3}, new int[]{1, 2, 3}));
         Assert.assertEquals(-1, gasStation(new int[]{1, 2, 3}, new int[]{2, 3, 4}));
@@ -2673,6 +2679,12 @@ public class Main {
         cn.idear.algorithm.gas_station.Solution solution =
                 new cn.idear.algorithm.gas_station.Solution();
         return solution.canCompleteCircuit(gas, cost);
+    }
+
+    private int candy(int[] nums) {
+        cn.idear.algorithm.candy.Solution solution =
+                new cn.idear.algorithm.candy.Solution();
+        return solution.candy(nums);
     }
 
 }
