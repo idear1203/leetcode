@@ -16,6 +16,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testFactorialTrailingZeros(){
+        Assert.assertEquals(536870902, factorialTrailingZeros(Integer.MAX_VALUE));
+    }
+
+    @Test
     public void testFindPeakElement(){
         Assert.assertEquals(2, findPeakElement(new int[]{1, 2, 3, 1}));
     }
@@ -2755,6 +2760,12 @@ public class Main {
         cn.idear.algorithm.find_peak_element.Solution solution =
                 new cn.idear.algorithm.find_peak_element.Solution();
         return solution.findPeakElement(nums);
+    }
+
+    private int factorialTrailingZeros(int n) {
+        cn.idear.algorithm.factorial_trailing_zeroes.Solution solution =
+                new cn.idear.algorithm.factorial_trailing_zeroes.Solution();
+        return solution.trailingZeroes(n);
     }
 
 }
