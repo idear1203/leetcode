@@ -14,6 +14,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testRandomListNode(){
+
+    }
+
+    @Test
     public void testCandy(){
         Assert.assertEquals(3, candy(new int[]{1, 1, 1}));
         Assert.assertEquals(4, candy(new int[]{1, 2, 1}));
