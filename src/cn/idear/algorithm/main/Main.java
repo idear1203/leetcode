@@ -2,6 +2,7 @@ package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.lru_cache.LRUCache;
+import cn.idear.algorithm.min_stack.MinStack;
 import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,6 +14,31 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testExcelSheetColumnNumber(){
+        Assert.assertEquals(1, excelSheetColumnNumber("A"));
+        Assert.assertEquals(2, excelSheetColumnNumber("B"));
+        Assert.assertEquals(3, excelSheetColumnNumber("C"));
+        Assert.assertEquals(27, excelSheetColumnNumber("AA"));
+        Assert.assertEquals(28, excelSheetColumnNumber("AB"));
+    }
+
+    @Test
+    public void testMinStack(){
+        MinStack stack = new MinStack();
+        stack.push(2);
+        stack.push(0);
+        stack.push(3);
+        stack.push(0);
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(2, stack.getMin());
+    }
 
     @Test
     public void testMaximumProductSubarray(){
@@ -2712,6 +2738,12 @@ public class Main {
         cn.idear.algorithm.maximum_product_subarray.Solution solution =
                 new cn.idear.algorithm.maximum_product_subarray.Solution();
         return solution.maxProduct(nums);
+    }
+
+    private int excelSheetColumnNumber(String s) {
+        cn.idear.algorithm.excel_sheet_column_number.Solution solution =
+                new cn.idear.algorithm.excel_sheet_column_number.Solution();
+        return solution.titleToNumber(s);
     }
 
 }
