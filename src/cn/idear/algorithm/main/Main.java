@@ -14,6 +14,15 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMajorityElementII(){
+        Assert.assertEquals(Collections.singletonList(1), majorityElementII(new int[]{1}));
+        Assert.assertEquals(Arrays.asList(1, 2), majorityElementII(new int[]{1, 2}));
+        Assert.assertEquals(Collections.emptyList(), majorityElementII(new int[]{1, 2, 3}));
+        Assert.assertEquals(Collections.emptyList(), majorityElementII(new int[0]));
+        Assert.assertEquals(Collections.singletonList(2), majorityElementII(new int[]{2, 2, 1, 3}));
+    }
+
+    @Test
     public void testMajorityElement(){
         Assert.assertEquals(3, majorityElement(new int[]{4, 2, 1, 2, 3, 3, 3, 3, 3, 3, 5}));
     }
@@ -2645,6 +2654,12 @@ public class Main {
     private int majorityElement(int[] nums) {
         cn.idear.algorithm.majority_element.Solution solution =
                 new cn.idear.algorithm.majority_element.Solution();
+        return solution.majorityElement(nums);
+    }
+
+    private List<Integer> majorityElementII(int[] nums) {
+        cn.idear.algorithm.majority_element_ii.Solution solution =
+                new cn.idear.algorithm.majority_element_ii.Solution();
         return solution.majorityElement(nums);
     }
 
