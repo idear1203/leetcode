@@ -14,6 +14,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testGasStation(){
+        Assert.assertEquals(0, gasStation(new int[]{1, 2, 3}, new int[]{1, 2, 3}));
+        Assert.assertEquals(-1, gasStation(new int[]{1, 2, 3}, new int[]{2, 3, 4}));
+    }
+
+    @Test
     public void testMajorityElementII(){
         Assert.assertEquals(Collections.singletonList(1), majorityElementII(new int[]{1}));
         Assert.assertEquals(Arrays.asList(1, 2), majorityElementII(new int[]{1, 2}));
@@ -2661,6 +2667,12 @@ public class Main {
         cn.idear.algorithm.majority_element_ii.Solution solution =
                 new cn.idear.algorithm.majority_element_ii.Solution();
         return solution.majorityElement(nums);
+    }
+
+    private int gasStation(int[] gas, int[] cost) {
+        cn.idear.algorithm.gas_station.Solution solution =
+                new cn.idear.algorithm.gas_station.Solution();
+        return solution.canCompleteCircuit(gas, cost);
     }
 
 }
