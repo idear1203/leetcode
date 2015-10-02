@@ -1,6 +1,7 @@
 package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.happy_number.Solution;
+import cn.idear.algorithm.lru_cache.LRUCache;
 import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,6 +13,21 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testMaximumProductSubarray(){
+        Assert.assertEquals(6, maximumProductSubarray(new int[]{2, 3, -2, 4}));
+    }
+
+    @Test
+    public void testLRUCache(){
+        LRUCache cache = new LRUCache(1);
+        cache.set(2, 1);
+        Assert.assertEquals(1, cache.get(2));
+        cache.set(3, 2);
+        Assert.assertEquals(1, cache.get(2));
+        Assert.assertEquals(2, cache.get(3));
+    }
 
     @Test
     public void testRandomListNode(){
@@ -2690,6 +2706,12 @@ public class Main {
         cn.idear.algorithm.candy.Solution solution =
                 new cn.idear.algorithm.candy.Solution();
         return solution.candy(nums);
+    }
+
+    private int maximumProductSubarray(int[] nums) {
+        cn.idear.algorithm.maximum_product_subarray.Solution solution =
+                new cn.idear.algorithm.maximum_product_subarray.Solution();
+        return solution.maxProduct(nums);
     }
 
 }
