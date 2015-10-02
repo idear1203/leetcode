@@ -16,6 +16,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testFindPeakElement(){
+        Assert.assertEquals(2, findPeakElement(new int[]{1, 2, 3, 1}));
+    }
+
+    @Test
     public void testExcelSheetColumnNumber(){
         Assert.assertEquals(1, excelSheetColumnNumber("A"));
         Assert.assertEquals(2, excelSheetColumnNumber("B"));
@@ -2744,6 +2749,12 @@ public class Main {
         cn.idear.algorithm.excel_sheet_column_number.Solution solution =
                 new cn.idear.algorithm.excel_sheet_column_number.Solution();
         return solution.titleToNumber(s);
+    }
+
+    private int findPeakElement(int[] nums) {
+        cn.idear.algorithm.find_peak_element.Solution solution =
+                new cn.idear.algorithm.find_peak_element.Solution();
+        return solution.findPeakElement(nums);
     }
 
 }
