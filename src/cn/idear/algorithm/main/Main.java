@@ -71,8 +71,16 @@ public class Main {
         cache.set(2, 1);
         Assert.assertEquals(1, cache.get(2));
         cache.set(3, 2);
-        Assert.assertEquals(1, cache.get(2));
+        Assert.assertEquals(-1, cache.get(2));
         Assert.assertEquals(2, cache.get(3));
+
+        cache = new LRUCache(2);
+        cache.set(2,1);
+        cache.set(1,1);
+        cache.set(2,3);
+        cache.set(4,1);
+        Assert.assertEquals(-1, cache.get(1));
+        Assert.assertEquals(3, cache.get(2));
     }
 
     @Test
