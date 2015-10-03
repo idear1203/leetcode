@@ -1,5 +1,6 @@
 package cn.idear.algorithm.main;
 
+import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.lru_cache.LRUCache;
 import cn.idear.algorithm.min_stack.MinStack;
@@ -14,6 +15,14 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testBinarySearchTreeIterator(){
+        TreeNode root = TreeNode.createTree(new int[]{8, 2, 9, 1, 6, 0, 0, 0, 0, 4, 7, 3, 5});
+        BSTIterator i = new BSTIterator(root);
+        int num = 1;
+        while (i.hasNext()) Assert.assertEquals(num++, i.next());
+    }
 
     @Test
     public void testFractionToRecurringDecimal(){
