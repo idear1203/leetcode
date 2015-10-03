@@ -16,6 +16,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMaximumGap(){
+        Assert.assertEquals(4, maximumGap(new int[]{4, 2, 1, 7, 11}));
+    }
+
+    @Test
     public void testNumberOfDigitOne(){
         Assert.assertEquals(0, numberOfDigitOne(0));
         Assert.assertEquals(1, numberOfDigitOne(1));
@@ -2790,6 +2795,12 @@ public class Main {
         cn.idear.algorithm.number_of_digit_one.Solution solution =
                 new cn.idear.algorithm.number_of_digit_one.Solution();
         return solution.countDigitOne(n);
+    }
+
+    private int maximumGap(int[] nums) {
+        cn.idear.algorithm.maximum_gap.Solution solution =
+                new cn.idear.algorithm.maximum_gap.Solution();
+        return solution.maximumGap(nums);
     }
 
 }
