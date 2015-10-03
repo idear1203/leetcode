@@ -4,6 +4,7 @@ import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.lru_cache.LRUCache;
 import cn.idear.algorithm.min_stack.MinStack;
+import cn.idear.algorithm.peeking_iterator.PeekingIterator;
 import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,6 +16,26 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testPeekingIterator(){
+        PeekingIterator iterator = new PeekingIterator(Arrays.asList(1, 2, 3).iterator());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.next().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(2, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(2, iterator.next().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(3, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(3, iterator.next().intValue());
+        Assert.assertFalse(iterator.hasNext());
+    }
 
     @Test
     public void testBinarySearchTreeIterator(){
