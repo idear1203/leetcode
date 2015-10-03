@@ -16,6 +16,16 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testNumberOfDigitOne(){
+        Assert.assertEquals(0, numberOfDigitOne(0));
+        Assert.assertEquals(1, numberOfDigitOne(1));
+        Assert.assertEquals(1, numberOfDigitOne(2));
+        Assert.assertEquals(4, numberOfDigitOne(11));
+        Assert.assertEquals(36, numberOfDigitOne(111));
+        Assert.assertEquals(1737167499, numberOfDigitOne(1410065408));
+    }
+
+    @Test
     public void testFactorialTrailingZeros(){
         Assert.assertEquals(536870902, factorialTrailingZeros(Integer.MAX_VALUE));
     }
@@ -2766,6 +2776,12 @@ public class Main {
         cn.idear.algorithm.factorial_trailing_zeroes.Solution solution =
                 new cn.idear.algorithm.factorial_trailing_zeroes.Solution();
         return solution.trailingZeroes(n);
+    }
+
+    private int numberOfDigitOne(int n) {
+        cn.idear.algorithm.number_of_digit_one.Solution solution =
+                new cn.idear.algorithm.number_of_digit_one.Solution();
+        return solution.countDigitOne(n);
     }
 
 }
