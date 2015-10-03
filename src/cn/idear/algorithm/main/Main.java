@@ -16,6 +16,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testFractionToRecurringDecimal(){
+        Assert.assertEquals("0.5", fractionToRecurringDecimal(1, 2));
+        Assert.assertEquals("2", fractionToRecurringDecimal(2, 1));
+        Assert.assertEquals("0.(6)", fractionToRecurringDecimal(2, 3));
+        Assert.assertEquals("0.0000000004656612873077392578125", fractionToRecurringDecimal(-1, Integer.MIN_VALUE));
+    }
+
+    @Test
     public void testMaximumGap(){
         Assert.assertEquals(4, maximumGap(new int[]{4, 2, 1, 7, 11}));
     }
@@ -2801,6 +2809,12 @@ public class Main {
         cn.idear.algorithm.maximum_gap.Solution solution =
                 new cn.idear.algorithm.maximum_gap.Solution();
         return solution.maximumGap(nums);
+    }
+
+    private String fractionToRecurringDecimal(int numerator, int donominator) {
+        cn.idear.algorithm.fraction_to_recurring_decimal.Solution solution =
+                new cn.idear.algorithm.fraction_to_recurring_decimal.Solution();
+        return solution.fractionToDecimal(numerator, donominator);
     }
 
 }
