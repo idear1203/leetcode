@@ -18,6 +18,19 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testReverseBits(){
+        Assert.assertEquals(Integer.MIN_VALUE, reverseBits(1));
+        Assert.assertEquals(1, reverseBits(Integer.MIN_VALUE));
+        Assert.assertEquals(-1, reverseBits(-1));
+    }
+
+    @Test
+    public void testLargestNumber(){
+        Assert.assertEquals("9534330", largestNumber(new int[]{3, 30, 34, 5, 9}));
+        Assert.assertEquals("12121", largestNumber(new int[]{121, 12}));
+    }
+
+    @Test
     public void testPeekingIterator(){
         PeekingIterator iterator = new PeekingIterator(Arrays.asList(1, 2, 3).iterator());
         Assert.assertTrue(iterator.hasNext());
@@ -2845,6 +2858,18 @@ public class Main {
         cn.idear.algorithm.fraction_to_recurring_decimal.Solution solution =
                 new cn.idear.algorithm.fraction_to_recurring_decimal.Solution();
         return solution.fractionToDecimal(numerator, donominator);
+    }
+
+    private String largestNumber(int[] nums) {
+        cn.idear.algorithm.largest_number.Solution solution =
+                new cn.idear.algorithm.largest_number.Solution();
+        return solution.largestNumber(nums);
+    }
+
+    private int reverseBits(int n) {
+        cn.idear.algorithm.reverse_bits.Solution solution =
+                new cn.idear.algorithm.reverse_bits.Solution();
+        return solution.reverseBits(n);
     }
 
 }
