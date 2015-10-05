@@ -18,6 +18,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testNumberOf1Bits(){
+        Assert.assertEquals(1, numberOf1Bits(Integer.MIN_VALUE));
+    }
+
+    @Test
     public void testReverseBits(){
         Assert.assertEquals(Integer.MIN_VALUE, reverseBits(1));
         Assert.assertEquals(1, reverseBits(Integer.MIN_VALUE));
@@ -2870,6 +2875,12 @@ public class Main {
         cn.idear.algorithm.reverse_bits.Solution solution =
                 new cn.idear.algorithm.reverse_bits.Solution();
         return solution.reverseBits(n);
+    }
+
+    private int numberOf1Bits(int n) {
+        cn.idear.algorithm.number_of_1_bits.Solution solution =
+                new cn.idear.algorithm.number_of_1_bits.Solution();
+        return solution.hammingWeight(n);
     }
 
 }
