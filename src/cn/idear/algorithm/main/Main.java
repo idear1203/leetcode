@@ -18,6 +18,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testHouseRobberII(){
+        Assert.assertEquals(1, houseRobberII(new int[]{1, 1, 1}));
+        Assert.assertEquals(1, houseRobberII(new int[]{1}));
+    }
+
+    @Test
     public void testHouseRobber(){
         Assert.assertEquals(3, houseRobber(new int[]{1, 3, 1}));
     }
@@ -2891,6 +2897,12 @@ public class Main {
     private int houseRobber(int[] nums) {
         cn.idear.algorithm.house_robber.Solution solution =
                 new cn.idear.algorithm.house_robber.Solution();
+        return solution.rob(nums);
+    }
+
+    private int houseRobberII(int[] nums) {
+        cn.idear.algorithm.house_robber_ii.Solution solution =
+                new cn.idear.algorithm.house_robber_ii.Solution();
         return solution.rob(nums);
     }
 
