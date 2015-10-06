@@ -18,6 +18,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBinaryTreeRightSideView(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(1, 3, 4, 6);
+        actual = binaryTreeRightSideView(new int[]{1, 2, 3, 0, 5, 0, 4, 6});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testIsomorphicStrings(){
         Assert.assertFalse(isomorphicStrings("ab", "aa"));
         Assert.assertTrue(isomorphicStrings("egg", "add"));
@@ -2959,6 +2967,12 @@ public class Main {
         cn.idear.algorithm.isomorphic_strings.Solution solution =
                 new cn.idear.algorithm.isomorphic_strings.Solution();
         return solution.isIsomorphic(s, t);
+    }
+
+    private List<Integer> binaryTreeRightSideView(int[] nums) {
+        cn.idear.algorithm.binary_tree_right_side_view.Solution solution =
+                new cn.idear.algorithm.binary_tree_right_side_view.Solution();
+        return solution.rightSideView(TreeNode.createTree(nums));
     }
 
 }
