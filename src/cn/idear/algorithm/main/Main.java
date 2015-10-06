@@ -18,6 +18,20 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testCountPrimes(){
+        Assert.assertEquals(2, countPrimes(5));
+    }
+
+    @Test
+    public void testHIndex(){
+        Assert.assertEquals(0, hIndex(new int[]{0}));
+        Assert.assertEquals(1, hIndex(new int[]{100}));
+        Assert.assertEquals(2, hIndex(new int[]{100, 100}));
+        Assert.assertEquals(0, hIndex(new int[]{0, 0}));
+        Assert.assertEquals(1, hIndex(new int[]{0, 1}));
+    }
+
+    @Test
     public void testDungleGame(){
         Assert.assertEquals(7, dungleGame(new int[][]{
                 {-2, -3, 3},
@@ -2919,6 +2933,18 @@ public class Main {
         cn.idear.algorithm.dungeon_game.Solution solution =
                 new cn.idear.algorithm.dungeon_game.Solution();
         return solution.calculateMinimumHP(nums);
+    }
+
+    private int hIndex(int[] nums) {
+        cn.idear.algorithm.h_index.Solution solution =
+                new cn.idear.algorithm.h_index.Solution();
+        return solution.hIndex(nums);
+    }
+
+    private int countPrimes(int n) {
+        cn.idear.algorithm.count_primes.Solution solution =
+                new cn.idear.algorithm.count_primes.Solution();
+        return solution.countPrimes(n);
     }
 
 }
