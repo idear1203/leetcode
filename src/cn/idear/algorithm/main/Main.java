@@ -18,6 +18,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testHouseRobber(){
+        Assert.assertEquals(3, houseRobber(new int[]{1, 3, 1}));
+    }
+
+    @Test
     public void testNumberOf1Bits(){
         Assert.assertEquals(1, numberOf1Bits(Integer.MIN_VALUE));
     }
@@ -2881,6 +2886,12 @@ public class Main {
         cn.idear.algorithm.number_of_1_bits.Solution solution =
                 new cn.idear.algorithm.number_of_1_bits.Solution();
         return solution.hammingWeight(n);
+    }
+
+    private int houseRobber(int[] nums) {
+        cn.idear.algorithm.house_robber.Solution solution =
+                new cn.idear.algorithm.house_robber.Solution();
+        return solution.rob(nums);
     }
 
 }
