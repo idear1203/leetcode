@@ -18,6 +18,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testIsomorphicStrings(){
+        Assert.assertFalse(isomorphicStrings("ab", "aa"));
+        Assert.assertTrue(isomorphicStrings("egg", "add"));
+        Assert.assertFalse(isomorphicStrings("foo", "bar"));
+        Assert.assertTrue(isomorphicStrings("paper", "title"));
+    }
+
+    @Test
     public void testCountPrimes(){
         Assert.assertEquals(2, countPrimes(5));
     }
@@ -2945,6 +2953,12 @@ public class Main {
         cn.idear.algorithm.count_primes.Solution solution =
                 new cn.idear.algorithm.count_primes.Solution();
         return solution.countPrimes(n);
+    }
+
+    private boolean isomorphicStrings(String s, String t) {
+        cn.idear.algorithm.isomorphic_strings.Solution solution =
+                new cn.idear.algorithm.isomorphic_strings.Solution();
+        return solution.isIsomorphic(s, t);
     }
 
 }
