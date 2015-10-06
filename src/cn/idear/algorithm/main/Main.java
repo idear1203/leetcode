@@ -18,6 +18,15 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testDungleGame(){
+        Assert.assertEquals(7, dungleGame(new int[][]{
+                {-2, -3, 3},
+                {-5, -10, 1},
+                {10, 30, -5}
+        }));
+    }
+
+    @Test
     public void testHouseRobberII(){
         Assert.assertEquals(1, houseRobberII(new int[]{1, 1, 1}));
         Assert.assertEquals(1, houseRobberII(new int[]{1}));
@@ -2904,6 +2913,12 @@ public class Main {
         cn.idear.algorithm.house_robber_ii.Solution solution =
                 new cn.idear.algorithm.house_robber_ii.Solution();
         return solution.rob(nums);
+    }
+
+    private int dungleGame(int[][] nums) {
+        cn.idear.algorithm.dungeon_game.Solution solution =
+                new cn.idear.algorithm.dungeon_game.Solution();
+        return solution.calculateMinimumHP(nums);
     }
 
 }
