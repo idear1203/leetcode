@@ -4,6 +4,12 @@ package cn.idear.algorithm.bitwise_and_of_numbers_range;
  * Created by idear on 15-10-8.
  */
 public class Solution {
+    /**
+     * 当思路明确的时候，但是wa的时候不要纠结，想一种更直接明确的办法。
+     * @param m
+     * @param n
+     * @return
+     */
     public int rangeBitwiseAnd(int m, int n) {
         int diffBits = 0;
         for(; m != n ; m >>= 1, n >>= 1)
