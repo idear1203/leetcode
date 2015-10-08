@@ -1,10 +1,11 @@
 package cn.idear.algorithm.main;
 
+import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
-import cn.idear.algorithm.util.Interval;
-import cn.idear.algorithm.util.ListNode;
-import cn.idear.algorithm.util.TreeNode;
-import cn.idear.algorithm.util.TwoLevelList;
+import cn.idear.algorithm.lru_cache.LRUCache;
+import cn.idear.algorithm.min_stack.MinStack;
+import cn.idear.algorithm.peeking_iterator.PeekingIterator;
+import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,9 +13,343 @@ import java.util.*;
 
 /**
  * Created by wangdongwei on 8/23/15.
- * Test Suite.
+ * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testBinaryTreeRightSideView(){
+        List<Integer> expect, actual;
+        expect = Arrays.asList(1, 3, 4, 6);
+        actual = binaryTreeRightSideView(new int[]{1, 2, 3, 0, 5, 0, 4, 6});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testIsomorphicStrings(){
+        Assert.assertFalse(isomorphicStrings("ab", "aa"));
+        Assert.assertTrue(isomorphicStrings("egg", "add"));
+        Assert.assertFalse(isomorphicStrings("foo", "bar"));
+        Assert.assertTrue(isomorphicStrings("paper", "title"));
+    }
+
+    @Test
+    public void testCountPrimes(){
+        Assert.assertEquals(2, countPrimes(5));
+    }
+
+    @Test
+    public void testHIndex(){
+        Assert.assertEquals(0, hIndex(new int[]{0}));
+        Assert.assertEquals(1, hIndex(new int[]{100}));
+        Assert.assertEquals(2, hIndex(new int[]{100, 100}));
+        Assert.assertEquals(0, hIndex(new int[]{0, 0}));
+        Assert.assertEquals(1, hIndex(new int[]{0, 1}));
+    }
+
+    @Test
+    public void testDungleGame(){
+        Assert.assertEquals(7, dungleGame(new int[][]{
+                {-2, -3, 3},
+                {-5, -10, 1},
+                {10, 30, -5}
+        }));
+    }
+
+    @Test
+    public void testHouseRobberII(){
+        Assert.assertEquals(1, houseRobberII(new int[]{1, 1, 1}));
+        Assert.assertEquals(1, houseRobberII(new int[]{1}));
+    }
+
+    @Test
+    public void testHouseRobber(){
+        Assert.assertEquals(3, houseRobber(new int[]{1, 3, 1}));
+    }
+
+    @Test
+    public void testNumberOf1Bits(){
+        Assert.assertEquals(1, numberOf1Bits(Integer.MIN_VALUE));
+    }
+
+    @Test
+    public void testReverseBits(){
+        Assert.assertEquals(Integer.MIN_VALUE, reverseBits(1));
+        Assert.assertEquals(1, reverseBits(Integer.MIN_VALUE));
+        Assert.assertEquals(-1, reverseBits(-1));
+    }
+
+    @Test
+    public void testLargestNumber(){
+        Assert.assertEquals("9534330", largestNumber(new int[]{3, 30, 34, 5, 9}));
+        Assert.assertEquals("12121", largestNumber(new int[]{121, 12}));
+    }
+
+    @Test
+    public void testPeekingIterator(){
+        PeekingIterator iterator = new PeekingIterator(Arrays.asList(1, 2, 3).iterator());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(1, iterator.next().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(2, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(2, iterator.next().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(3, iterator.peek().intValue());
+        Assert.assertTrue(iterator.hasNext());
+        Assert.assertEquals(3, iterator.next().intValue());
+        Assert.assertFalse(iterator.hasNext());
+    }
+
+    @Test
+    public void testBinarySearchTreeIterator(){
+        TreeNode root = TreeNode.createTree(new int[]{8, 2, 9, 1, 6, 0, 0, 0, 0, 4, 7, 3, 5});
+        BSTIterator i = new BSTIterator(root);
+        int num = 1;
+        while (i.hasNext()) Assert.assertEquals(num++, i.next());
+    }
+
+    @Test
+    public void testFractionToRecurringDecimal(){
+        Assert.assertEquals("0.5", fractionToRecurringDecimal(1, 2));
+        Assert.assertEquals("2", fractionToRecurringDecimal(2, 1));
+        Assert.assertEquals("0.(6)", fractionToRecurringDecimal(2, 3));
+        Assert.assertEquals("0.0000000004656612873077392578125", fractionToRecurringDecimal(-1, Integer.MIN_VALUE));
+    }
+
+    @Test
+    public void testMaximumGap(){
+        Assert.assertEquals(4, maximumGap(new int[]{4, 2, 1, 7, 11}));
+    }
+
+    @Test
+    public void testNumberOfDigitOne(){
+        Assert.assertEquals(0, numberOfDigitOne(0));
+        Assert.assertEquals(1, numberOfDigitOne(1));
+        Assert.assertEquals(1, numberOfDigitOne(2));
+        Assert.assertEquals(4, numberOfDigitOne(11));
+        Assert.assertEquals(36, numberOfDigitOne(111));
+        Assert.assertEquals(1737167499, numberOfDigitOne(1410065408));
+    }
+
+    @Test
+    public void testFactorialTrailingZeros(){
+        Assert.assertEquals(536870902, factorialTrailingZeros(Integer.MAX_VALUE));
+    }
+
+    @Test
+    public void testFindPeakElement(){
+        Assert.assertEquals(2, findPeakElement(new int[]{1, 2, 3, 1}));
+    }
+
+    @Test
+    public void testExcelSheetColumnNumber(){
+        Assert.assertEquals(1, excelSheetColumnNumber("A"));
+        Assert.assertEquals(2, excelSheetColumnNumber("B"));
+        Assert.assertEquals(3, excelSheetColumnNumber("C"));
+        Assert.assertEquals(27, excelSheetColumnNumber("AA"));
+        Assert.assertEquals(28, excelSheetColumnNumber("AB"));
+    }
+
+    @Test
+    public void testMinStack(){
+        MinStack stack = new MinStack();
+        stack.push(2);
+        stack.push(0);
+        stack.push(3);
+        stack.push(0);
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(0, stack.getMin());
+        stack.pop();
+        Assert.assertEquals(2, stack.getMin());
+    }
+
+    @Test
+    public void testMaximumProductSubarray(){
+        Assert.assertEquals(6, maximumProductSubarray(new int[]{2, 3, -2, 4}));
+    }
+
+    @Test
+    public void testLRUCache(){
+        LRUCache cache = new LRUCache(1);
+        cache.set(2, 1);
+        Assert.assertEquals(1, cache.get(2));
+        cache.set(3, 2);
+        Assert.assertEquals(-1, cache.get(2));
+        Assert.assertEquals(2, cache.get(3));
+
+        cache = new LRUCache(2);
+        cache.set(2,1);
+        cache.set(1,1);
+        cache.set(2,3);
+        cache.set(4,1);
+        Assert.assertEquals(-1, cache.get(1));
+        Assert.assertEquals(3, cache.get(2));
+    }
+
+    @Test
+    public void testRandomListNode(){
+
+    }
+
+    @Test
+    public void testCandy(){
+        Assert.assertEquals(3, candy(new int[]{1, 1, 1}));
+        Assert.assertEquals(4, candy(new int[]{1, 2, 1}));
+    }
+
+    @Test
+    public void testGasStation(){
+        Assert.assertEquals(0, gasStation(new int[]{1, 2, 3}, new int[]{1, 2, 3}));
+        Assert.assertEquals(-1, gasStation(new int[]{1, 2, 3}, new int[]{2, 3, 4}));
+    }
+
+    @Test
+    public void testMajorityElementII(){
+        Assert.assertEquals(Collections.singletonList(1), majorityElementII(new int[]{1}));
+        Assert.assertEquals(Arrays.asList(1, 2), majorityElementII(new int[]{1, 2}));
+        Assert.assertEquals(Collections.emptyList(), majorityElementII(new int[]{1, 2, 3}));
+        Assert.assertEquals(Collections.emptyList(), majorityElementII(new int[0]));
+        Assert.assertEquals(Collections.singletonList(2), majorityElementII(new int[]{2, 2, 1, 3}));
+    }
+
+    @Test
+    public void testMajorityElement(){
+        Assert.assertEquals(3, majorityElement(new int[]{4, 2, 1, 2, 3, 3, 3, 3, 3, 3, 5}));
+    }
+
+    @Test
+    public void testIntersectionOfTwoLinkedLists(){
+        ListNode expect, actual;
+        expect = ListNode.make(new int[]{4, 5, 6});
+        actual = intersectionOfTwoLinkedLists(new int[]{1, 2}, new int[]{7, 8, 9}, expect);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testCloneGraph(){
+        UndirectedGraphNode expect, actual;
+        int[] nums = new int[]{0, 0, 0};
+        expect = UndirectedGraphNode.make(nums);
+        actual = cloneGraph(UndirectedGraphNode.make(nums));
+        Assert.assertEquals(expect, actual);
+        nums = new int[]{0, 1, 5, -1, 1, 2, 5, -1, 2, 3, -1, 3, 4, 4, -1, 4, 5, 5, -1, 5};
+        expect = UndirectedGraphNode.make(nums);
+        actual = cloneGraph( UndirectedGraphNode.make(nums));
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testWordLadder(){
+        Assert.assertEquals(5, wordLadder("hit", "cog", new String[]{"hot","dot","dog","lot","log"}));
+    }
+
+    @Test
+    public void testSingleNumberII(){
+        Assert.assertEquals(5, singleNumberII(new int[]{0, 0, 0, 5}));
+    }
+
+    @Test
+    public void testSingleNumber(){
+        Assert.assertEquals(4, singleNumber(new int[]{1, 2, 3, 4, 2, 3, 1}));
+    }
+
+    @Test
+    public void testNumberOfIslands(){
+        Assert.assertEquals(1, numberofIslands(new String[]{
+                "11110",
+                "11010",
+                "11000",
+                "00000"
+        }));
+        Assert.assertEquals(3, numberofIslands(new String[]{
+                "11000",
+                "11000",
+                "00100",
+                "00011"
+        }));
+    }
+
+    @Test
+    public void testSurroundedRegions(){
+        String[] expect, actual;
+        expect = new String[]{
+                "XXXX",
+                "XXXX",
+                "XXXX",
+                "XOXX"
+        };
+        actual = surroundedRegions(new String[]{
+                "XXXX",
+                "XOOX",
+                "XXOX",
+                "XOXX"
+        });
+        for(int i = 0; i < expect.length; i++)
+            Assert.assertEquals(expect[i], actual[i]);
+    }
+
+    private String[] surroundedRegions(String[] boards) {
+        int m = boards.length;
+        char[][] board = new char[m][];
+        for(int i = 0; i < m; i++)
+            board[i] = boards[i].toCharArray();
+        cn.idear.algorithm.surrounded_regions.Solution solution =
+                new cn.idear.algorithm.surrounded_regions.Solution();
+        solution.solve(board);
+        for(int i = 0; i < m; i++)
+            boards[i] = String.valueOf(board[i]);
+        return boards;
+    }
+
+    @Test
+    public void testFirstBadVersion(){
+        Assert.assertEquals(4, firstBadVersion(6, 4));
+        Assert.assertEquals(1, firstBadVersion(3, 1));
+        Assert.assertEquals(2, firstBadVersion(3, 2));
+        Assert.assertEquals(3, firstBadVersion(3, 3));
+    }
+
+    @Test
+    public void testLongestConsecutiveSequence(){
+        Assert.assertEquals(4, longestConsecutiveSequence(new int[]{100, 4, 200, 1, 3, 2}));
+    }
+
+    @Test
+    public void testBinaryTreeMaximumPathSum(){
+        Assert.assertEquals(6, binaryTreeMaximumPathSum(new int[]{1, 2, 3}));
+    }
+
+    @Test
+    public void testBestTimeToBuyAndSellStockIII(){
+        Assert.assertEquals(0, bestTimeToBuyAndSellStockIII(new int[0]));
+        Assert.assertEquals(2, bestTimeToBuyAndSellStockIII(new int[]{2, 1, 2, 0, 1}));
+    }
+
+    @Test
+    public void testBestTimeToBuyAndSellStockII(){
+        Assert.assertEquals(5, bestTimeToBuyAndSellStockII(new int[]{0, 1, 2, 3, 5, 4}));
+    }
+
+    @Test
+    public void testBestTimeToBuyAndSellStock(){
+        Assert.assertEquals(3, bestTimeToBuyAndSellStock(new int[]{0, 1, 2, 3}));
+    }
+
+    @Test
+    public void testExcelSheetColumnTitle(){
+        Assert.assertEquals("AA", excelSheetColumnTitle(27));
+        Assert.assertEquals("AB", excelSheetColumnTitle(28));
+        Assert.assertEquals("ZZ", excelSheetColumnTitle(702));
+    }
+
     @Test
     public void testBitwiseAndOfNumbersRange(){
         Assert.assertEquals(2, bitwiseAndOfNumbersRange(2, 3));
@@ -2423,10 +2758,239 @@ public class Main {
         return solution.findKthLargest(nums, k);
     }
 
+<<<<<<< HEAD
     private int bitwiseAndOfNumbersRange(int m, int n) {
         cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
                 new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
         return solution.rangeBitwiseAnd(m, n);
+=======
+    private String excelSheetColumnTitle(int n) {
+        cn.idear.algorithm.excel_sheet_column_title.Solution solution =
+                new cn.idear.algorithm.excel_sheet_column_title.Solution();
+        return solution.convertToTitle(n);
+    }
+
+    private int bestTimeToBuyAndSellStock(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock.Solution();
+        return solution.maxProfit(nums);
+    }
+
+    private int bestTimeToBuyAndSellStockII(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock_ii.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock_ii.Solution();
+        return solution.maxProfit(nums);
+    }
+
+    private int bestTimeToBuyAndSellStockIII(int[] nums) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock_iii.Solution();
+        return solution.maxProfit(nums);
+    }
+
+    private int binaryTreeMaximumPathSum(int[] nums) {
+        cn.idear.algorithm.binary_tree_maximum_path_sum.Solution solution =
+                new cn.idear.algorithm.binary_tree_maximum_path_sum.Solution();
+        return solution.maxPathSum(TreeNode.createTree(nums));
+    }
+
+    private int longestConsecutiveSequence(int[] nums) {
+        cn.idear.algorithm.longest_consecutive_sequence.Solution solution =
+                new cn.idear.algorithm.longest_consecutive_sequence.Solution();
+        return solution.longestConsecutive(nums);
+    }
+
+    private int firstBadVersion(int n, int firstBadVersion) {
+        cn.idear.algorithm.first_bad_version.Solution solution =
+                new cn.idear.algorithm.first_bad_version.Solution();
+        solution.setFirstBadVersion(firstBadVersion);
+        return solution.firstBadVersion(n);
+    }
+
+    private int numberofIslands(String[] strings) {
+        char[][] grid = new char[strings.length][];
+        for(int i = 0; i < strings.length; i++)
+            grid[i] = strings[i].toCharArray();
+        cn.idear.algorithm.number_of_islands.Solution solution =
+                new cn.idear.algorithm.number_of_islands.Solution();
+        return solution.numIslands(grid);
+    }
+
+    private int singleNumber(int[] nums) {
+        cn.idear.algorithm.single_number.Solution solution =
+                new cn.idear.algorithm.single_number.Solution();
+        return solution.singleNumber(nums);
+    }
+
+
+    private int singleNumberII(int[] nums) {
+        cn.idear.algorithm.single_number_ii.Solution solution =
+                new cn.idear.algorithm.single_number_ii.Solution();
+        return solution.singleNumber(nums);
+    }
+
+    private int wordLadder(String startWord, String endWord, String[] wordList) {
+        HashSet<String> set = new HashSet<>();
+        for(String s : wordList)
+            set.add(s);
+        cn.idear.algorithm.word_ladder.Solution solution =
+                new cn.idear.algorithm.word_ladder.Solution();
+        return solution.ladderLength(startWord, endWord, set);
+    }
+
+    private UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        cn.idear.algorithm.clone_graph.Solution solution =
+                new cn.idear.algorithm.clone_graph.Solution();
+        return solution.cloneGraph(node);
+    }
+
+    private ListNode intersectionOfTwoLinkedLists(int[] numsA, int[] numsB, ListNode headC) {
+        ListNode headA, headB;
+        headA = mergeNode4IntersectionProblem(numsA, headC);
+        headB = mergeNode4IntersectionProblem(numsB, headC);
+        cn.idear.algorithm.intersection_of_two_linked_lists.Solution solution =
+                new cn.idear.algorithm.intersection_of_two_linked_lists.Solution();
+        return solution.getIntersectionNode(headA, headB);
+    }
+
+    private ListNode mergeNode4IntersectionProblem(int nums[], ListNode laterHead){
+        ListNode head;
+        if(nums.length == 0)
+            head = laterHead;
+        else{
+            head = ListNode.make(nums);
+            ListNode cur;
+            for(cur = head; cur.next != null; cur = cur.next);
+            cur.next = laterHead;
+        }
+        return head;
+    }
+
+    private int majorityElement(int[] nums) {
+        cn.idear.algorithm.majority_element.Solution solution =
+                new cn.idear.algorithm.majority_element.Solution();
+        return solution.majorityElement(nums);
+    }
+
+    private List<Integer> majorityElementII(int[] nums) {
+        cn.idear.algorithm.majority_element_ii.Solution solution =
+                new cn.idear.algorithm.majority_element_ii.Solution();
+        return solution.majorityElement(nums);
+    }
+
+    private int gasStation(int[] gas, int[] cost) {
+        cn.idear.algorithm.gas_station.Solution solution =
+                new cn.idear.algorithm.gas_station.Solution();
+        return solution.canCompleteCircuit(gas, cost);
+    }
+
+    private int candy(int[] nums) {
+        cn.idear.algorithm.candy.Solution solution =
+                new cn.idear.algorithm.candy.Solution();
+        return solution.candy(nums);
+    }
+
+    private int maximumProductSubarray(int[] nums) {
+        cn.idear.algorithm.maximum_product_subarray.Solution solution =
+                new cn.idear.algorithm.maximum_product_subarray.Solution();
+        return solution.maxProduct(nums);
+    }
+
+    private int excelSheetColumnNumber(String s) {
+        cn.idear.algorithm.excel_sheet_column_number.Solution solution =
+                new cn.idear.algorithm.excel_sheet_column_number.Solution();
+        return solution.titleToNumber(s);
+    }
+
+    private int findPeakElement(int[] nums) {
+        cn.idear.algorithm.find_peak_element.Solution solution =
+                new cn.idear.algorithm.find_peak_element.Solution();
+        return solution.findPeakElement(nums);
+    }
+
+    private int factorialTrailingZeros(int n) {
+        cn.idear.algorithm.factorial_trailing_zeroes.Solution solution =
+                new cn.idear.algorithm.factorial_trailing_zeroes.Solution();
+        return solution.trailingZeroes(n);
+    }
+
+    private int numberOfDigitOne(int n) {
+        cn.idear.algorithm.number_of_digit_one.Solution solution =
+                new cn.idear.algorithm.number_of_digit_one.Solution();
+        return solution.countDigitOne(n);
+    }
+
+    private int maximumGap(int[] nums) {
+        cn.idear.algorithm.maximum_gap.Solution solution =
+                new cn.idear.algorithm.maximum_gap.Solution();
+        return solution.maximumGap(nums);
+    }
+
+    private String fractionToRecurringDecimal(int numerator, int donominator) {
+        cn.idear.algorithm.fraction_to_recurring_decimal.Solution solution =
+                new cn.idear.algorithm.fraction_to_recurring_decimal.Solution();
+        return solution.fractionToDecimal(numerator, donominator);
+    }
+
+    private String largestNumber(int[] nums) {
+        cn.idear.algorithm.largest_number.Solution solution =
+                new cn.idear.algorithm.largest_number.Solution();
+        return solution.largestNumber(nums);
+    }
+
+    private int reverseBits(int n) {
+        cn.idear.algorithm.reverse_bits.Solution solution =
+                new cn.idear.algorithm.reverse_bits.Solution();
+        return solution.reverseBits(n);
+    }
+
+    private int numberOf1Bits(int n) {
+        cn.idear.algorithm.number_of_1_bits.Solution solution =
+                new cn.idear.algorithm.number_of_1_bits.Solution();
+        return solution.hammingWeight(n);
+    }
+
+    private int houseRobber(int[] nums) {
+        cn.idear.algorithm.house_robber.Solution solution =
+                new cn.idear.algorithm.house_robber.Solution();
+        return solution.rob(nums);
+    }
+
+    private int houseRobberII(int[] nums) {
+        cn.idear.algorithm.house_robber_ii.Solution solution =
+                new cn.idear.algorithm.house_robber_ii.Solution();
+        return solution.rob(nums);
+    }
+
+    private int dungleGame(int[][] nums) {
+        cn.idear.algorithm.dungeon_game.Solution solution =
+                new cn.idear.algorithm.dungeon_game.Solution();
+        return solution.calculateMinimumHP(nums);
+    }
+
+    private int hIndex(int[] nums) {
+        cn.idear.algorithm.h_index.Solution solution =
+                new cn.idear.algorithm.h_index.Solution();
+        return solution.hIndex(nums);
+    }
+
+    private int countPrimes(int n) {
+        cn.idear.algorithm.count_primes.Solution solution =
+                new cn.idear.algorithm.count_primes.Solution();
+        return solution.countPrimes(n);
+    }
+
+    private boolean isomorphicStrings(String s, String t) {
+        cn.idear.algorithm.isomorphic_strings.Solution solution =
+                new cn.idear.algorithm.isomorphic_strings.Solution();
+        return solution.isIsomorphic(s, t);
+    }
+
+    private List<Integer> binaryTreeRightSideView(int[] nums) {
+        cn.idear.algorithm.binary_tree_right_side_view.Solution solution =
+                new cn.idear.algorithm.binary_tree_right_side_view.Solution();
+        return solution.rightSideView(TreeNode.createTree(nums));
+>>>>>>> origin/master
     }
 
 }
