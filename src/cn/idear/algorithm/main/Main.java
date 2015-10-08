@@ -16,6 +16,17 @@ import java.util.*;
  */
 public class Main {
     @Test
+    public void testBitwiseAndOfNumbersRange(){
+        Assert.assertEquals(2, bitwiseAndOfNumbersRange(2, 3));
+        Assert.assertEquals(4, bitwiseAndOfNumbersRange(5, 6));
+        Assert.assertEquals(4, bitwiseAndOfNumbersRange(5, 7));
+        Assert.assertEquals(0, bitwiseAndOfNumbersRange(0, 2147483647));
+        Assert.assertEquals(0, bitwiseAndOfNumbersRange(1, 2147483647));
+        Assert.assertEquals(0, bitwiseAndOfNumbersRange(16, 48));
+        Assert.assertEquals(2147483584, bitwiseAndOfNumbersRange(2147483600, 2147483647));
+    }
+
+    @Test
     public void testKthLargestElementInAnArray(){
         Assert.assertEquals(1, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 6));
         Assert.assertEquals(2, kthLargestElementInAnArray(new int[]{3, 2, 1, 5, 6, 4}, 5));
@@ -2410,6 +2421,12 @@ public class Main {
         cn.idear.algorithm.kth_largest_element_in_an_array.Solution solution =
                 new cn.idear.algorithm.kth_largest_element_in_an_array.Solution();
         return solution.findKthLargest(nums, k);
+    }
+
+    private int bitwiseAndOfNumbersRange(int m, int n) {
+        cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
+                new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
+        return solution.rangeBitwiseAnd(m, n);
     }
 
 }
