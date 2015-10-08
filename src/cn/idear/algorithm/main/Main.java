@@ -17,6 +17,12 @@ import java.util.*;
  */
 public class Main {
 
+    private int bitwiseAndOfNumbersRange(int m, int n) {
+        cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
+                new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
+        return solution.rangeBitwiseAnd(m, n);
+    }
+
     @Test
     public void testBinaryTreeRightSideView(){
         List<Integer> expect, actual;
@@ -2758,12 +2764,6 @@ public class Main {
         return solution.findKthLargest(nums, k);
     }
 
-<<<<<<< HEAD
-    private int bitwiseAndOfNumbersRange(int m, int n) {
-        cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
-                new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
-        return solution.rangeBitwiseAnd(m, n);
-=======
     private String excelSheetColumnTitle(int n) {
         cn.idear.algorithm.excel_sheet_column_title.Solution solution =
                 new cn.idear.algorithm.excel_sheet_column_title.Solution();
@@ -2990,7 +2990,6 @@ public class Main {
         cn.idear.algorithm.binary_tree_right_side_view.Solution solution =
                 new cn.idear.algorithm.binary_tree_right_side_view.Solution();
         return solution.rightSideView(TreeNode.createTree(nums));
->>>>>>> origin/master
     }
 
 }
