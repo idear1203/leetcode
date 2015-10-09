@@ -18,7 +18,13 @@ import java.util.*;
 public class Main {
 
     @Test
-    public void testCourseSchdule(){
+    public void testCourseScheduleII(){
+        Assert.assertTrue(Arrays.equals(new int[]{0}, courseScheduleII(1, new int[][]{})));
+        Assert.assertTrue(Arrays.equals(new int[]{0, 1}, courseScheduleII(2, new int[][]{{1, 0}})));
+    }
+
+    @Test
+    public void testCourseSchedule(){
         Assert.assertTrue(courseSchedule(2, new int[][]{{1, 0}}));
         Assert.assertFalse(courseSchedule(2, new int[][]{{1, 0}, {0, 1}}));
     }
@@ -3002,6 +3008,12 @@ public class Main {
         cn.idear.algorithm.course_schedule.Solution solution =
                 new cn.idear.algorithm.course_schedule.Solution();
         return solution.canFinish(numCourses, prerequisites);
+    }
+
+    private int[] courseScheduleII(int numCourses, int[][] prerequisites) {
+        cn.idear.algorithm.course_schedule_ii.Solution solution =
+                new cn.idear.algorithm.course_schedule_ii.Solution();
+        return solution.findOrder(numCourses, prerequisites);
     }
 
 }
