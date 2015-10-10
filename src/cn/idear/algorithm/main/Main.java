@@ -17,10 +17,11 @@ import java.util.*;
  */
 public class Main {
 
-    private int bitwiseAndOfNumbersRange(int m, int n) {
-        cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
-                new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
-        return solution.rangeBitwiseAnd(m, n);
+    @Test
+    public void testContainsDuplicate(){
+        Assert.assertFalse(containsDuplicate(new int[]{1, 2}));
+        Assert.assertTrue(containsDuplicate(new int[]{1, 1}));
+        Assert.assertFalse(containsDuplicate(new int[0]));
     }
 
     @Test
@@ -968,6 +969,7 @@ public class Main {
                 "Don't","go","around","saying","the","world","owes","you","a","living;","the","world","owes",
                 "you","nothing;","it","was","here","first."
         }, 30);
+        Assert.assertEquals(expect, actual);
     }
 
     @Test
@@ -2426,8 +2428,7 @@ public class Main {
         cn.idear.algorithm.unique_paths_ii.Solution solution =
                 new cn.idear.algorithm.unique_paths_ii.Solution();
         int rst = solution.uniquePathsWithObstacles(nums);
-        for(int i = 0; i < nums.length; i++)
-            System.out.println(Arrays.toString(nums[i]));
+        for (int[] num : nums) System.out.println(Arrays.toString(num));
         return rst;
     }
 
@@ -2435,8 +2436,7 @@ public class Main {
         cn.idear.algorithm.minimum_path_sum.Solution solution =
                 new cn.idear.algorithm.minimum_path_sum.Solution();
         int rst = solution.minPathSum(grid);
-        for(int i = 0; i < grid.length; i++)
-            System.out.println(Arrays.toString(grid[i]));
+        for (int[] aGrid : grid) System.out.println(Arrays.toString(aGrid));
         return rst;
     }
 
@@ -2725,8 +2725,7 @@ public class Main {
 
     private int triangle(Integer[][] nums) {
         List<List<Integer>> triangle = new ArrayList<>();
-        for(int i = 0; i < nums.length; i++)
-            triangle.add(Arrays.asList(nums[i]));
+        for (Integer[] num : nums) triangle.add(Arrays.asList(num));
         cn.idear.algorithm.triangle.Solution solution =
                 new cn.idear.algorithm.triangle.Solution();
         return solution.minimumTotal(triangle);
@@ -2990,6 +2989,18 @@ public class Main {
         cn.idear.algorithm.binary_tree_right_side_view.Solution solution =
                 new cn.idear.algorithm.binary_tree_right_side_view.Solution();
         return solution.rightSideView(TreeNode.createTree(nums));
+    }
+
+    private int bitwiseAndOfNumbersRange(int m, int n) {
+        cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
+                new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
+        return solution.rangeBitwiseAnd(m, n);
+    }
+
+    private boolean containsDuplicate(int[] nums) {
+        cn.idear.algorithm.contains_duplicate.Solution solution =
+                new cn.idear.algorithm.contains_duplicate.Solution();
+        return solution.containsDuplicate(nums);
     }
 
 }
