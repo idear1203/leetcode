@@ -18,6 +18,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMinimumWindowString(){
+        Assert.assertEquals("BANC", minimumWindowString("ADOBECODEBANC", "ABC"));
+        Assert.assertEquals("a", minimumWindowString("a", "a"));
+    }
+
+    @Test
     public void testMinimumSizeSubarraySum(){
         Assert.assertEquals(2, minimumSizeSubarraySum(7, new int[]{2, 3, 1, 2, 4, 3}));
         Assert.assertEquals(0, minimumSizeSubarraySum(100, new int[]{2, 3, 1, 2, 4, 3}));
@@ -53,8 +59,8 @@ public class Main {
 
     @Test
     public void testCourseScheduleII(){
-        Assert.assertTrue(Arrays.equals(new int[]{0}, courseScheduleII(1, new int[][]{})));
-        Assert.assertTrue(Arrays.equals(new int[]{0, 1}, courseScheduleII(2, new int[][]{{1, 0}})));
+        Assert.assertArrayEquals(new int[]{0}, courseScheduleII(1, new int[][]{}));
+        Assert.assertArrayEquals(new int[]{0, 1}, courseScheduleII(2, new int[][]{{1, 0}}));
     }
 
     @Test
@@ -3070,6 +3076,12 @@ public class Main {
         cn.idear.algorithm.minimum_size_subarray_sum.Solution solution =
                 new cn.idear.algorithm.minimum_size_subarray_sum.Solution();
         return solution.minSubArrayLen(s, nums);
+    }
+
+    private String minimumWindowString(String s, String t) {
+        cn.idear.algorithm.minimum_window_substring.Solution solution =
+                new cn.idear.algorithm.minimum_window_substring.Solution();
+        return solution.minWindow(s, t);
     }
 
 }
