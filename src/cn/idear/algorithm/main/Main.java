@@ -18,10 +18,41 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testPerfectSquare(){
+        Assert.assertEquals(1, perfectSquare(1));
+        Assert.assertEquals(2, perfectSquare(2));
+        Assert.assertEquals(3, perfectSquare(3));
+        Assert.assertEquals(1, perfectSquare(4));
+        Assert.assertEquals(2, perfectSquare(5));
+        Assert.assertEquals(3, perfectSquare(6));
+        Assert.assertEquals(4, perfectSquare(7));
+        Assert.assertEquals(2, perfectSquare(8));
+        Assert.assertEquals(3, perfectSquare(12));
+    @Test
     public void testContainsDuplicate(){
         Assert.assertFalse(containsDuplicate(new int[]{1, 2}));
         Assert.assertTrue(containsDuplicate(new int[]{1, 1}));
         Assert.assertFalse(containsDuplicate(new int[0]));
+    }
+
+    @Test
+    public void testWordPattern(){
+        Assert.assertTrue(wordPattern("abba", "dog cat cat dog"));
+        Assert.assertFalse(wordPattern("abba", "dog cat cat fish"));
+        Assert.assertFalse(wordPattern("aaaa", "dog cat cat dog"));
+        Assert.assertFalse(wordPattern("abba", "dog dog dog dog"));
+    }
+
+    @Test
+    public void testCourseScheduleII(){
+        Assert.assertTrue(Arrays.equals(new int[]{0}, courseScheduleII(1, new int[][]{})));
+        Assert.assertTrue(Arrays.equals(new int[]{0, 1}, courseScheduleII(2, new int[][]{{1, 0}})));
+    }
+
+    @Test
+    public void testCourseSchedule(){
+        Assert.assertTrue(courseSchedule(2, new int[][]{{1, 0}}));
+        Assert.assertFalse(courseSchedule(2, new int[][]{{1, 0}, {0, 1}}));
     }
 
     @Test
@@ -2995,6 +3026,30 @@ public class Main {
         cn.idear.algorithm.bitwise_and_of_numbers_range.Solution solution =
                 new cn.idear.algorithm.bitwise_and_of_numbers_range.Solution();
         return solution.rangeBitwiseAnd(m, n);
+    }
+
+    private boolean courseSchedule(int numCourses, int[][] prerequisites) {
+        cn.idear.algorithm.course_schedule.Solution solution =
+                new cn.idear.algorithm.course_schedule.Solution();
+        return solution.canFinish(numCourses, prerequisites);
+    }
+
+    private int[] courseScheduleII(int numCourses, int[][] prerequisites) {
+        cn.idear.algorithm.course_schedule_ii.Solution solution =
+                new cn.idear.algorithm.course_schedule_ii.Solution();
+        return solution.findOrder(numCourses, prerequisites);
+    }
+
+    private boolean wordPattern(String pattern, String str) {
+        cn.idear.algorithm.word_pattern.Solution solution =
+                new cn.idear.algorithm.word_pattern.Solution();
+        return solution.wordPattern(pattern, str);
+    }
+
+    private int perfectSquare(int n) {
+        cn.idear.algorithm.perfect_squares.Solution solution =
+                new cn.idear.algorithm.perfect_squares.Solution();
+        return solution.numSquares(n);
     }
 
     private boolean containsDuplicate(int[] nums) {
