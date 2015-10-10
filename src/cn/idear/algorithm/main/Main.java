@@ -18,7 +18,13 @@ import java.util.*;
 public class Main {
 
     @Test
-    public void testPerfectSquare(){
+    public void testMinimumSizeSubarraySum(){
+        Assert.assertEquals(2, minimumSizeSubarraySum(7, new int[]{2, 3, 1, 2, 4, 3}));
+        Assert.assertEquals(0, minimumSizeSubarraySum(100, new int[]{2, 3, 1, 2, 4, 3}));
+    }
+
+    @Test
+    public void testPerfectSquare() {
         Assert.assertEquals(1, perfectSquare(1));
         Assert.assertEquals(2, perfectSquare(2));
         Assert.assertEquals(3, perfectSquare(3));
@@ -28,6 +34,8 @@ public class Main {
         Assert.assertEquals(4, perfectSquare(7));
         Assert.assertEquals(2, perfectSquare(8));
         Assert.assertEquals(3, perfectSquare(12));
+    }
+
     @Test
     public void testContainsDuplicate(){
         Assert.assertFalse(containsDuplicate(new int[]{1, 2}));
@@ -3056,6 +3064,12 @@ public class Main {
         cn.idear.algorithm.contains_duplicate.Solution solution =
                 new cn.idear.algorithm.contains_duplicate.Solution();
         return solution.containsDuplicate(nums);
+    }
+
+    private int minimumSizeSubarraySum(int s, int[] nums) {
+        cn.idear.algorithm.minimum_size_subarray_sum.Solution solution =
+                new cn.idear.algorithm.minimum_size_subarray_sum.Solution();
+        return solution.minSubArrayLen(s, nums);
     }
 
 }
