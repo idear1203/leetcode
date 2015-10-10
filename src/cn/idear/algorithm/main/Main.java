@@ -18,6 +18,15 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testContainsDuplicateII(){
+        Assert.assertFalse(containsDuplicateII(new int[]{1, 2}, 2));
+        Assert.assertFalse(containsDuplicateII(new int[]{1, 2, 1}, 0));
+        Assert.assertFalse(containsDuplicateII(new int[]{1, 2, 1}, 1));
+        Assert.assertTrue(containsDuplicateII(new int[]{1, 0, 1, 1}, 1));
+        Assert.assertTrue(containsDuplicateII(new int[]{-1, -1}, 1));
+    }
+
+    @Test
     public void testMinimumWindowString(){
         Assert.assertEquals("BANC", minimumWindowString("ADOBECODEBANC", "ABC"));
         Assert.assertEquals("a", minimumWindowString("a", "a"));
@@ -3082,6 +3091,12 @@ public class Main {
         cn.idear.algorithm.minimum_window_substring.Solution solution =
                 new cn.idear.algorithm.minimum_window_substring.Solution();
         return solution.minWindow(s, t);
+    }
+
+    private boolean containsDuplicateII(int[] nums, int k) {
+        cn.idear.algorithm.contains_duplicate_ii.Solution solution =
+                new cn.idear.algorithm.contains_duplicate_ii.Solution();
+        return solution.containsNearbyDuplicate(nums, k);
     }
 
 }
