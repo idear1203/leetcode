@@ -18,6 +18,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testContainsDuplicateIII(){
+        Assert.assertFalse(containsDuplicateIII(new int[]{-1, Integer.MAX_VALUE}, 1, Integer.MAX_VALUE));
+    }
+
+    @Test
     public void testContainsDuplicateII(){
         Assert.assertFalse(containsDuplicateII(new int[]{1, 2}, 2));
         Assert.assertFalse(containsDuplicateII(new int[]{1, 2, 1}, 0));
@@ -3097,6 +3102,12 @@ public class Main {
         cn.idear.algorithm.contains_duplicate_ii.Solution solution =
                 new cn.idear.algorithm.contains_duplicate_ii.Solution();
         return solution.containsNearbyDuplicate(nums, k);
+    }
+
+    private boolean containsDuplicateIII(int[] nums, int t, int k) {
+        cn.idear.algorithm.contains_duplicate_iii.Solution solution =
+                new cn.idear.algorithm.contains_duplicate_iii.Solution();
+        return solution.containsNearbyAlmostDuplicate(nums, t, k);
     }
 
 }
