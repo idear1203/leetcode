@@ -18,6 +18,18 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testCombinationSumIII(){
+        TwoLevelList<Integer> expect, actual;
+        expect = TwoLevelList.make(new Integer[][]{{1, 2, 4}});
+        actual = combinationSumIII(3, 7);
+        Assert.assertEquals(expect, actual);
+
+        expect = TwoLevelList.make(new Integer[][]{{1, 2, 6}, {1, 3, 5}, {2, 3, 4}});
+        actual = combinationSumIII(3, 9);
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testRepeatedDNASequences(){
         List<String> expect = Arrays.asList("AAAAACCCCC", "CCCCCAAAAA");
         Assert.assertEquals(expect, repeatedDNASequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"));
@@ -3131,6 +3143,12 @@ public class Main {
         cn.idear.algorithm.repeated_dna_sequences.Solution solution =
                 new cn.idear.algorithm.repeated_dna_sequences.Solution();
         return solution.findRepeatedDnaSequences(s);
+    }
+
+    private TwoLevelList<Integer> combinationSumIII(int k, int n) {
+        cn.idear.algorithm.combination_sum_iii.Solution solution =
+                new cn.idear.algorithm.combination_sum_iii.Solution();
+        return TwoLevelList.make(solution.combinationSum3(k, n));
     }
 
 }
