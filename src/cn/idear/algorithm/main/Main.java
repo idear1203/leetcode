@@ -18,6 +18,17 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testRepeatedDNASequences(){
+        List<String> expect = Arrays.asList("AAAAACCCCC", "CCCCCAAAAA");
+        Assert.assertEquals(expect, repeatedDNASequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"));
+    }
+
+    @Test
+    public void testBestTimeToBuyAndSellStockIV(){
+        Assert.assertEquals(1, bestTimeToBuyAndSellStockIV(1, new int[]{1, 2}));
+    }
+
+    @Test
     public void testContainsDuplicateIII(){
         Assert.assertFalse(containsDuplicateIII(new int[]{-1, Integer.MAX_VALUE}, 1, Integer.MAX_VALUE));
     }
@@ -3108,6 +3119,18 @@ public class Main {
         cn.idear.algorithm.contains_duplicate_iii.Solution solution =
                 new cn.idear.algorithm.contains_duplicate_iii.Solution();
         return solution.containsNearbyAlmostDuplicate(nums, t, k);
+    }
+
+    private int bestTimeToBuyAndSellStockIV(int k, int[] prices) {
+        cn.idear.algorithm.best_time_to_buy_and_sell_stock_iv.Solution solution =
+                new cn.idear.algorithm.best_time_to_buy_and_sell_stock_iv.Solution();
+        return solution.maxProfit(k, prices);
+    }
+
+    private List<String> repeatedDNASequences(String s) {
+        cn.idear.algorithm.repeated_dna_sequences.Solution solution =
+                new cn.idear.algorithm.repeated_dna_sequences.Solution();
+        return solution.findRepeatedDnaSequences(s);
     }
 
 }
