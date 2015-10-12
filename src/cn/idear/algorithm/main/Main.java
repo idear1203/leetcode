@@ -18,6 +18,13 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testIntegerToEnglishWords(){
+        Assert.assertEquals("One Hundred Twenty Three", integerToEnglishWords(123));
+        Assert.assertEquals("Twelve Thousand Three Hundred Forty Five", integerToEnglishWords(12345));
+        Assert.assertEquals("One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven", integerToEnglishWords(1234567));
+    }
+
+    @Test
     public void testNimGame(){
         Assert.assertFalse(ninGame(0));
         Assert.assertTrue(ninGame(1));
@@ -3166,6 +3173,12 @@ public class Main {
         cn.idear.algorithm.nim_game.Solution solution =
                 new cn.idear.algorithm.nim_game.Solution();
         return solution.canWinNim(n);
+    }
+
+    private String integerToEnglishWords(int num) {
+        cn.idear.algorithm.integer_to_english_words.Solution solution =
+                new cn.idear.algorithm.integer_to_english_words.Solution();
+        return solution.numberToWords(num);
     }
 
 }
