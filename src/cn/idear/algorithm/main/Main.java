@@ -18,6 +18,17 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testNimGame(){
+        Assert.assertFalse(ninGame(0));
+        Assert.assertTrue(ninGame(1));
+        Assert.assertTrue(ninGame(2));
+        Assert.assertTrue(ninGame(3));
+        Assert.assertFalse(ninGame(4));
+        Assert.assertTrue(ninGame(5));
+        Assert.assertTrue(ninGame(6));
+    }
+
+    @Test
     public void testCombinationSumIII(){
         TwoLevelList<Integer> expect, actual;
         expect = TwoLevelList.make(new Integer[][]{{1, 2, 4}});
@@ -3149,6 +3160,12 @@ public class Main {
         cn.idear.algorithm.combination_sum_iii.Solution solution =
                 new cn.idear.algorithm.combination_sum_iii.Solution();
         return TwoLevelList.make(solution.combinationSum3(k, n));
+    }
+
+    private boolean ninGame(int n) {
+        cn.idear.algorithm.nim_game.Solution solution =
+                new cn.idear.algorithm.nim_game.Solution();
+        return solution.canWinNim(n);
     }
 
 }
