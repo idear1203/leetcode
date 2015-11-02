@@ -21,6 +21,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testRectangleArea(){
+        Assert.assertEquals(17, rectangleArea(-2, -2, 2, 2, 3, 3, 4, 4));
+        Assert.assertEquals(2, rectangleArea(-1500000001, 0, -1500000000, 1, 1500000000, 0, 1500000001, 1));
+    }
+
+    @Test
     public void testCountCompleteTreeNodes(){
         Assert.assertEquals(0, countCompleteTreeNodes(new int[]{}));
         Assert.assertEquals(1, countCompleteTreeNodes(new int[]{1}));
@@ -3262,6 +3268,12 @@ public class Main {
         cn.idear.algorithm.count_complete_tree_nodes.Solution solution =
                 new cn.idear.algorithm.count_complete_tree_nodes.Solution();
         return solution.countNodes(root);
+    }
+
+    private int rectangleArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        cn.idear.algorithm.rectangle_area.Solution solution =
+                new cn.idear.algorithm.rectangle_area.Solution();
+        return solution.computeArea(A, B, C, D, E, F, G, H);
     }
 
 }
