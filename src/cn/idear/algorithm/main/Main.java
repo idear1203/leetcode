@@ -8,6 +8,7 @@ import cn.idear.algorithm.peeking_iterator.PeekingIterator;
 import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
@@ -16,6 +17,11 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testBinaryTreePaths(){
+        Assert.assertEquals(Arrays.asList("1->2->5", "1->3"), binaryTreePaths(new int[]{1, 2, 3, 0, 5}));
+    }
 
     @Test
     public void testBullsAndCows(){
@@ -3191,6 +3197,12 @@ public class Main {
         cn.idear.algorithm.bulls_and_cows.Solution solution =
                 new cn.idear.algorithm.bulls_and_cows.Solution();
         return solution.getHint(secret, guess);
+    }
+
+    private List<String> binaryTreePaths(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.binary_tree_paths.Solution solution = new cn.idear.algorithm.binary_tree_paths.Solution();
+        return solution.binaryTreePaths(root);
     }
 
 }
