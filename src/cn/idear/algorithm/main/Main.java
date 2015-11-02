@@ -1,5 +1,6 @@
 package cn.idear.algorithm.main;
 
+import cn.idear.algorithm.add_and_search_word_data_structure_design.WordDictionary;
 import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
 import cn.idear.algorithm.implement_trie_prefix_tree.Trie;
@@ -18,6 +19,47 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testCountCompleteTreeNodes(){
+        Assert.assertEquals(0, countCompleteTreeNodes(new int[]{}));
+        Assert.assertEquals(1, countCompleteTreeNodes(new int[]{1}));
+        Assert.assertEquals(2, countCompleteTreeNodes(new int[]{1, 2}));
+        Assert.assertEquals(3, countCompleteTreeNodes(new int[]{1, 2, 3}));
+        Assert.assertEquals(4, countCompleteTreeNodes(new int[]{1, 2, 3, 4}));
+        Assert.assertEquals(5, countCompleteTreeNodes(new int[]{1, 2, 3, 4, 5}));
+    }
+
+    @Test
+    public void testWordSearchII(){
+        String[] board = {"oaan","etae","ihkr","iflv"};
+        String[] words = {"oath","pea","eat","rain"};
+        Assert.assertEquals(2, wordSearchII(board, words).size());
+    }
+
+    private List<String> wordSearchII(String[] board, String[] words) {
+        char[][] boards = new char[board.length][];
+        for(int i = 0; i < board.length; i++)
+            boards[i] = board[i].toCharArray();
+        cn.idear.algorithm.word_search_ii.Solution solution = new cn.idear.algorithm.word_search_ii.Solution();
+        return solution.findWords(boards, words);
+    }
+
+    @Test
+    public void testWordDictionary(){
+        WordDictionary wordDictionary;
+        wordDictionary = new WordDictionary();
+        wordDictionary.addWord("a");
+        Assert.assertTrue(wordDictionary.search("a"));
+
+        wordDictionary = new WordDictionary();
+        wordDictionary.addWord("bad");
+        wordDictionary.addWord("dad");
+        wordDictionary.addWord("mad");
+        Assert.assertFalse(wordDictionary.search("pad"));
+        Assert.assertTrue(wordDictionary.search(".ad"));
+        Assert.assertTrue(wordDictionary.search("b.."));
+    }
 
     @Test
     public void testImplementTriePrefixTree(){
@@ -3213,6 +3255,13 @@ public class Main {
         TreeNode root = TreeNode.createTree(nums);
         cn.idear.algorithm.binary_tree_paths.Solution solution = new cn.idear.algorithm.binary_tree_paths.Solution();
         return solution.binaryTreePaths(root);
+    }
+
+    private int countCompleteTreeNodes(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.count_complete_tree_nodes.Solution solution =
+                new cn.idear.algorithm.count_complete_tree_nodes.Solution();
+        return solution.countNodes(root);
     }
 
 }
