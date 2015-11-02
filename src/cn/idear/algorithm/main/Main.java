@@ -2,6 +2,7 @@ package cn.idear.algorithm.main;
 
 import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
+import cn.idear.algorithm.implement_trie_prefix_tree.Trie;
 import cn.idear.algorithm.lru_cache.LRUCache;
 import cn.idear.algorithm.min_stack.MinStack;
 import cn.idear.algorithm.peeking_iterator.PeekingIterator;
@@ -17,6 +18,15 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testImplementTriePrefixTree(){
+        Trie trie;
+        trie = new Trie();
+        trie.insert("a");
+        Assert.assertTrue(trie.search("a"));
+        Assert.assertTrue(trie.startsWith("a"));
+    }
 
     @Test
     public void testBinaryTreePaths(){
