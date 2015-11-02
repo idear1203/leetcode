@@ -18,6 +18,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBullsAndCows(){
+        Assert.assertEquals("1A3B", bullsAndCows("1807", "7810"));
+        Assert.assertEquals("1A1B", bullsAndCows("1123", "0111"));
+    }
+
+    @Test
     public void testIntegerToEnglishWords(){
         Assert.assertEquals("One Hundred Twenty Three", integerToEnglishWords(123));
         Assert.assertEquals("Twelve Thousand Three Hundred Forty Five", integerToEnglishWords(12345));
@@ -3179,6 +3185,12 @@ public class Main {
         cn.idear.algorithm.integer_to_english_words.Solution solution =
                 new cn.idear.algorithm.integer_to_english_words.Solution();
         return solution.numberToWords(num);
+    }
+
+    private String bullsAndCows(String secret, String guess) {
+        cn.idear.algorithm.bulls_and_cows.Solution solution =
+                new cn.idear.algorithm.bulls_and_cows.Solution();
+        return solution.getHint(secret, guess);
     }
 
 }
