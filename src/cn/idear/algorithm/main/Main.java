@@ -21,6 +21,13 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBasicCalculator(){
+        Assert.assertEquals(2, basicCalculator("1 + 1"));
+        Assert.assertEquals(3, basicCalculator(" 2-1 + 2 "));
+        Assert.assertEquals(23, basicCalculator("(1+(4+5+2)-3)+(6+8)"));
+    }
+
+    @Test
     public void testMaximalSquare(){
         char[][] board;
         board = new char[][]{
@@ -3344,6 +3351,11 @@ public class Main {
         cn.idear.algorithm.maximal_square.Solution solution =
                 new cn.idear.algorithm.maximal_square.Solution();
         return solution.maximalSquare(board);
+    }
+
+    private int basicCalculator(String s) {
+        cn.idear.algorithm.basic_calculator.Solution solution = new cn.idear.algorithm.basic_calculator.Solution();
+        return solution.calculate(s);
     }
 
 }
