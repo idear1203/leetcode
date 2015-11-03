@@ -22,6 +22,13 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testLowestCommonAncestorOfABinarySearchTree(){
+        TreeNode root = TreeNode.createTree(new int[]{2, 1, 3});
+        Assert.assertEquals(root, lowestCommonAncestorOfABinarySearchTree(root, root.right, root.left));
+        Assert.assertEquals(root, lowestCommonAncestorOfABinarySearchTree(root, root.left, root.right));
+    }
+
+    @Test
     public void testImplementQueueUsingStacks(){
         MyQueue myQueue = new MyQueue();
         myQueue.push(1);
@@ -3417,6 +3424,12 @@ public class Main {
         cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution solution =
                 new cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution();
         return solution.kthSmallest(root, k);
+    }
+
+    private TreeNode lowestCommonAncestorOfABinarySearchTree(TreeNode root, TreeNode p, TreeNode q) {
+        cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution();
+        return solution.lowestCommonAncestor(root, p, q);
     }
 
 }
