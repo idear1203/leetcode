@@ -21,6 +21,14 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testKthSmallestElementInABST(){
+        TreeNode root = TreeNode.createTree(new int[]{2, 1, 3});
+        Assert.assertEquals(1, kthSmallestElementInABST(root, 1));
+        Assert.assertEquals(2, kthSmallestElementInABST(root, 2));
+        Assert.assertEquals(3, kthSmallestElementInABST(root, 3));
+    }
+
+    @Test
     public void testSummaryRanges(){
         List<String> expect, actual;
         expect = Collections.singletonList("1");
@@ -3395,6 +3403,12 @@ public class Main {
         cn.idear.algorithm.summary_ranges.Solution solution =
                 new cn.idear.algorithm.summary_ranges.Solution();
         return solution.summaryRanges(nums);
+    }
+
+    private int kthSmallestElementInABST(TreeNode root, int k) {
+        cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution solution =
+                new cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution();
+        return solution.kthSmallest(root, k);
     }
 
 }
