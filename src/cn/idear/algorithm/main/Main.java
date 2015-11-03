@@ -3,6 +3,7 @@ package cn.idear.algorithm.main;
 import cn.idear.algorithm.add_and_search_word_data_structure_design.WordDictionary;
 import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
+import cn.idear.algorithm.implement_queue_using_stacks.MyQueue;
 import cn.idear.algorithm.implement_stack_using_queues.MyStack;
 import cn.idear.algorithm.implement_trie_prefix_tree.Trie;
 import cn.idear.algorithm.lru_cache.LRUCache;
@@ -19,6 +20,13 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testImplementQueueUsingStacks(){
+        MyQueue myQueue = new MyQueue();
+        myQueue.push(1);
+        Assert.assertEquals(1, myQueue.peek());
+    }
 
     @Test
     public void testKthSmallestElementInABST(){
