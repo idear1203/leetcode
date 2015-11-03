@@ -21,6 +21,23 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testSummaryRanges(){
+        List<String> expect, actual;
+        expect = Collections.singletonList("1");
+        actual = summaryRanges(new int[]{1});
+        Assert.assertEquals(expect, actual);
+        expect = Collections.singletonList("0->1");
+        actual = summaryRanges(new int[]{0, 1});
+        Assert.assertEquals(expect, actual);
+        expect = Collections.singletonList("0->2");
+        actual = summaryRanges(new int[]{0, 1, 2});
+        Assert.assertEquals(expect, actual);
+        expect = Arrays.asList("0->2", "4->5", "7");
+        actual = summaryRanges(new int[]{0, 1, 2, 4, 5, 7});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
     public void testBasicCalculatorII(){
         Assert.assertEquals(2, basicCalculatorII("1 + 1"));
         Assert.assertEquals(3, basicCalculatorII(" 2-1 + 2 "));
@@ -3372,6 +3389,12 @@ public class Main {
         cn.idear.algorithm.basic_calculator_ii.Solution solution =
                 new cn.idear.algorithm.basic_calculator_ii.Solution();
         return solution.calculate(s);
+    }
+
+    private List<String> summaryRanges(int[] nums) {
+        cn.idear.algorithm.summary_ranges.Solution solution =
+                new cn.idear.algorithm.summary_ranges.Solution();
+        return solution.summaryRanges(nums);
     }
 
 }
