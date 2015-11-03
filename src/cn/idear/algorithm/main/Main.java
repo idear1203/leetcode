@@ -21,6 +21,16 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testBasicCalculatorII(){
+        Assert.assertEquals(2, basicCalculatorII("1 + 1"));
+        Assert.assertEquals(3, basicCalculatorII(" 2-1 + 2 "));
+        Assert.assertEquals(23, basicCalculatorII("(1+(4+5+2)-3)+(6+8)"));
+        Assert.assertEquals(7, basicCalculatorII("3+2*2"));
+        Assert.assertEquals(1, basicCalculatorII(" 3/2 "));
+        Assert.assertEquals(5, basicCalculatorII(" 3+5 / 2 "));
+    }
+
+    @Test
     public void testBasicCalculator(){
         Assert.assertEquals(2, basicCalculator("1 + 1"));
         Assert.assertEquals(3, basicCalculator(" 2-1 + 2 "));
@@ -3355,6 +3365,12 @@ public class Main {
 
     private int basicCalculator(String s) {
         cn.idear.algorithm.basic_calculator.Solution solution = new cn.idear.algorithm.basic_calculator.Solution();
+        return solution.calculate(s);
+    }
+
+    private int basicCalculatorII(String s) {
+        cn.idear.algorithm.basic_calculator_ii.Solution solution =
+                new cn.idear.algorithm.basic_calculator_ii.Solution();
         return solution.calculate(s);
     }
 
