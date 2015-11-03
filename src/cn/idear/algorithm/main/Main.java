@@ -11,7 +11,6 @@ import cn.idear.algorithm.peeking_iterator.PeekingIterator;
 import cn.idear.algorithm.util.*;
 import org.junit.Assert;
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
@@ -20,6 +19,21 @@ import java.util.*;
  * Unit Test.
  */
 public class Main {
+
+    @Test
+    public void testInvertBinaryTree(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{4, 7, 2, 9, 6, 3, 1});
+        actual = invertBinaryTree(new int[]{4, 2, 7, 1, 3, 6, 9});
+        Assert.assertEquals(expect, actual);
+    }
+
+    private TreeNode invertBinaryTree(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.invert_binary_tree.Solution solution =
+                new cn.idear.algorithm.invert_binary_tree.Solution();
+        return solution.invertTree(root);
+    }
 
     @Test
     public void testImplementStackUsingQueues(){
