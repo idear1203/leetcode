@@ -22,6 +22,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testValidAnagram(){
+        Assert.assertTrue(validAnagram("anagram", "nagaram"));
+        Assert.assertFalse(validAnagram("rat", "cat"));
+    }
+
+    @Test
     public void testProductOfArrayExceptSelf(){
         Assert.assertArrayEquals(new int[]{24, 12, 8, 6}, productOfArrayExceptSelf(new int[]{1, 2, 3, 4}));
     }
@@ -3465,6 +3471,12 @@ public class Main {
         cn.idear.algorithm.product_of_array_except_self.Solution solution =
                 new cn.idear.algorithm.product_of_array_except_self.Solution();
         return solution.productExceptSelf(nums);
+    }
+
+    private boolean validAnagram(String s, String t) {
+        cn.idear.algorithm.valid_anagram.Solution solution =
+                new cn.idear.algorithm.valid_anagram.Solution();
+        return solution.isAnagram(s, t);
     }
 
 }
