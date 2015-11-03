@@ -21,6 +21,19 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testPowerOfTwo(){
+        Assert.assertFalse(powerOfTwo(-2));
+        Assert.assertFalse(powerOfTwo(-1));
+        Assert.assertFalse(powerOfTwo(0));
+        Assert.assertTrue(powerOfTwo(1));
+        Assert.assertTrue(powerOfTwo(2));
+        Assert.assertFalse(powerOfTwo(3));
+        Assert.assertTrue(powerOfTwo(4));
+        Assert.assertFalse(powerOfTwo(5));
+        Assert.assertFalse(powerOfTwo(6));
+    }
+
+    @Test
     public void testInvertBinaryTree(){
         TreeNode expect, actual;
         expect = TreeNode.createTree(new int[]{4, 7, 2, 9, 6, 3, 1});
@@ -3305,6 +3318,12 @@ public class Main {
         cn.idear.algorithm.rectangle_area.Solution solution =
                 new cn.idear.algorithm.rectangle_area.Solution();
         return solution.computeArea(A, B, C, D, E, F, G, H);
+    }
+
+    private boolean powerOfTwo(int n) {
+        cn.idear.algorithm.power_of_two.Solution solution =
+                new cn.idear.algorithm.power_of_two.Solution();
+        return solution.isPowerOfTwo(n);
     }
 
 }
