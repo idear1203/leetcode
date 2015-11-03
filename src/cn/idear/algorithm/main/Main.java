@@ -21,6 +21,20 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testMaximalSquare(){
+        char[][] board;
+        board = new char[][]{
+                "10100".toCharArray(),
+                "10111".toCharArray(),
+                "11111".toCharArray(),
+                "10010".toCharArray()
+        };
+        Assert.assertEquals(4, maximalSquare(board));
+        board = new char[0][0];
+        Assert.assertEquals(0, maximalSquare(board));
+    }
+
+    @Test
     public void testPowerOfTwo(){
         Assert.assertFalse(powerOfTwo(-2));
         Assert.assertFalse(powerOfTwo(-1));
@@ -3324,6 +3338,12 @@ public class Main {
         cn.idear.algorithm.power_of_two.Solution solution =
                 new cn.idear.algorithm.power_of_two.Solution();
         return solution.isPowerOfTwo(n);
+    }
+
+    private int maximalSquare(char[][] board) {
+        cn.idear.algorithm.maximal_square.Solution solution =
+                new cn.idear.algorithm.maximal_square.Solution();
+        return solution.maximalSquare(board);
     }
 
 }
