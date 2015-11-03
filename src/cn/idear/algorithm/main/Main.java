@@ -22,6 +22,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testProductOfArrayExceptSelf(){
+        Assert.assertArrayEquals(new int[]{24, 12, 8, 6}, productOfArrayExceptSelf(new int[]{1, 2, 3, 4}));
+    }
+
+    @Test
     public void testLowestCommonAncestorOfABinaryTree(){
         TreeNode root;
         root = TreeNode.createTree(new int[]{-1, 0, 3, -2, 4, 100, 100, 8}, 100);
@@ -3454,6 +3459,12 @@ public class Main {
         cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution solution =
                 new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution();
         return solution.lowestCommonAncestor(root, findNodeByVal(root, pVal), findNodeByVal(root, qVal));
+    }
+
+    private int[] productOfArrayExceptSelf(int[] nums) {
+        cn.idear.algorithm.product_of_array_except_self.Solution solution =
+                new cn.idear.algorithm.product_of_array_except_self.Solution();
+        return solution.productExceptSelf(nums);
     }
 
 }
