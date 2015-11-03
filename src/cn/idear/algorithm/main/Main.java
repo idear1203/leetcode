@@ -22,6 +22,24 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testLowestCommonAncestorOfABinaryTree(){
+        TreeNode root;
+        root = TreeNode.createTree(new int[]{-1, 0, 3, -2, 4, 100, 100, 8}, 100);
+        Assert.assertEquals(findNodeByVal(root, 0), lowestCommonAncestorOfABinaryTree(root, 8, 4));
+    }
+
+    private TreeNode findNodeByVal(TreeNode root, int val) {
+        if(root == null)
+            return null;
+        if(root.val == val)
+            return root;
+        TreeNode rst = findNodeByVal(root.left, val);
+        if(rst == null)
+            rst = findNodeByVal(root.right, val);
+        return rst;
+    }
+
+    @Test
     public void testLowestCommonAncestorOfABinarySearchTree(){
         TreeNode root = TreeNode.createTree(new int[]{2, 1, 3});
         Assert.assertEquals(root, lowestCommonAncestorOfABinarySearchTree(root, root.right, root.left));
@@ -3429,6 +3447,14 @@ public class Main {
     private TreeNode lowestCommonAncestorOfABinarySearchTree(TreeNode root, TreeNode p, TreeNode q) {
         cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution solution =
                 new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution();
+        return solution.lowestCommonAncestor(root, p, q);
+    }
+
+    private TreeNode lowestCommonAncestorOfABinaryTree(TreeNode root, int pVal, int qVal) {
+        TreeNode p = findNodeByVal(root, pVal);
+        TreeNode q = findNodeByVal(root, qVal);
+        cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution solution =
+                new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution();
         return solution.lowestCommonAncestor(root, p, q);
     }
 
