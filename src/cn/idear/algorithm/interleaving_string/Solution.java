@@ -16,7 +16,7 @@ public class Solution {
         f[0][0] = true;
         for(int i = 0; i <= ss1.length; i++){
             for(int j = 0; j <= ss2.length; j++){
-                if(i + j > 0){
+                if(i + j > 0){ //之所以要有这个判断是为了防止对f[0][0]重新赋值
                     f[i][j] = (i > 0 && ss1[i - 1] == ss3[i + j - 1] && f[i - 1][j])
                             || (j > 0 && ss2[j - 1] == ss3[i + j - 1] && f[i][j - 1]);
                 }
