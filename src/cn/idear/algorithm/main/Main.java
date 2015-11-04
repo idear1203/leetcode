@@ -22,6 +22,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testInterleavingString(){
+        Assert.assertTrue(interleavingString("aabcc", "dbbca", "aadbbcbcac"));
+        Assert.assertFalse(interleavingString("aabcc", "dbbca", "aadbbbaccc"));
+    }
+
+    @Test
     public void testValidAnagram(){
         Assert.assertTrue(validAnagram("anagram", "nagaram"));
         Assert.assertFalse(validAnagram("rat", "cat"));
@@ -3477,6 +3483,11 @@ public class Main {
         cn.idear.algorithm.valid_anagram.Solution solution =
                 new cn.idear.algorithm.valid_anagram.Solution();
         return solution.isAnagram(s, t);
+    }
+
+    private boolean interleavingString(String s1, String s2, String s3) {
+        cn.idear.algorithm.interleaving_string.Solution solution = new cn.idear.algorithm.interleaving_string.Solution();
+        return solution.isInterleave(s1, s2, s3);
     }
 
 }
