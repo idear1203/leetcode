@@ -22,6 +22,16 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testScrambleString(){
+        Assert.assertTrue(scrambleString("",""));
+        Assert.assertTrue(scrambleString("a","a"));
+        Assert.assertTrue(scrambleString("aa","aa"));
+        Assert.assertTrue(scrambleString("great","rgtae"));
+        Assert.assertTrue(scrambleString("great","rgeat"));
+        Assert.assertFalse(scrambleString("ccabcbabcbabbbbcbb","bbbbabccccbbbabcba"));
+    }
+
+    @Test
     public void testInterleavingString(){
         Assert.assertTrue(interleavingString("aabcc", "dbbca", "aadbbcbcac"));
         Assert.assertFalse(interleavingString("aabcc", "dbbca", "aadbbbaccc"));
@@ -3488,6 +3498,12 @@ public class Main {
     private boolean interleavingString(String s1, String s2, String s3) {
         cn.idear.algorithm.interleaving_string.Solution solution = new cn.idear.algorithm.interleaving_string.Solution();
         return solution.isInterleave(s1, s2, s3);
+    }
+
+    private boolean scrambleString(String s1, String s2) {
+        cn.idear.algorithm.scramble_string.Solution solution =
+                new cn.idear.algorithm.scramble_string.Solution();
+        return solution.isScramble(s1, s2);
     }
 
 }
