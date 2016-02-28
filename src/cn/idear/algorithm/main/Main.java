@@ -18,6 +18,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testUglyNumberII(){
+        Assert.assertEquals(1399680000, uglyNumberII(1600));
+        Assert.assertEquals(1, 1);
+    }
+
+    @Test
     public void testIntegerToEnglishWords(){
         Assert.assertEquals("One Hundred Twenty Three", integerToEnglishWords(123));
         Assert.assertEquals("Twelve Thousand Three Hundred Forty Five", integerToEnglishWords(12345));
@@ -3179,6 +3185,11 @@ public class Main {
         cn.idear.algorithm.integer_to_english_words.Solution solution =
                 new cn.idear.algorithm.integer_to_english_words.Solution();
         return solution.numberToWords(num);
+    }
+
+    private int uglyNumberII(int n) {
+        cn.idear.algorithm.ugly_number_ii.Solution solution = new cn.idear.algorithm.ugly_number_ii.Solution();
+        return solution.nthUglyNumber(n);
     }
 
 }
