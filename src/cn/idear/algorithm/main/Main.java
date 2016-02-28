@@ -20,7 +20,8 @@ public class Main {
     @Test
     public void testUglyNumberII(){
         Assert.assertEquals(1399680000, uglyNumberII(1600));
-        Assert.assertEquals(1, 1);
+        Assert.assertEquals(1, uglyNumberII(1));
+        Assert.assertEquals(12, uglyNumberII(10));
     }
 
     @Test
