@@ -1,7 +1,11 @@
 package cn.idear.algorithm.main;
 
+import cn.idear.algorithm.add_and_search_word_data_structure_design.WordDictionary;
 import cn.idear.algorithm.binary_search_tree_iterator.BSTIterator;
 import cn.idear.algorithm.happy_number.Solution;
+import cn.idear.algorithm.implement_queue_using_stacks.MyQueue;
+import cn.idear.algorithm.implement_stack_using_queues.MyStack;
+import cn.idear.algorithm.implement_trie_prefix_tree.Trie;
 import cn.idear.algorithm.lru_cache.LRUCache;
 import cn.idear.algorithm.min_stack.MinStack;
 import cn.idear.algorithm.peeking_iterator.PeekingIterator;
@@ -22,6 +26,232 @@ public class Main {
         Assert.assertEquals(1399680000, uglyNumberII(1600));
         Assert.assertEquals(1, uglyNumberII(1));
         Assert.assertEquals(12, uglyNumberII(10));
+    }
+
+    @Test
+    public void testScrambleString(){
+        Assert.assertTrue(scrambleString("",""));
+        Assert.assertTrue(scrambleString("a","a"));
+        Assert.assertTrue(scrambleString("aa","aa"));
+        Assert.assertTrue(scrambleString("great","rgtae"));
+        Assert.assertTrue(scrambleString("great","rgeat"));
+        Assert.assertFalse(scrambleString("ccabcbabcbabbbbcbb","bbbbabccccbbbabcba"));
+    }
+
+    @Test
+    public void testInterleavingString(){
+        Assert.assertTrue(interleavingString("aabcc", "dbbca", "aadbbcbcac"));
+        Assert.assertFalse(interleavingString("aabcc", "dbbca", "aadbbbaccc"));
+    }
+
+    @Test
+    public void testValidAnagram(){
+        Assert.assertTrue(validAnagram("anagram", "nagaram"));
+        Assert.assertFalse(validAnagram("rat", "cat"));
+    }
+
+    @Test
+    public void testProductOfArrayExceptSelf(){
+        Assert.assertArrayEquals(new int[]{24, 12, 8, 6}, productOfArrayExceptSelf(new int[]{1, 2, 3, 4}));
+    }
+
+    @Test
+    public void testLowestCommonAncestorOfABinaryTree(){
+        TreeNode root;
+        root = TreeNode.createTree(new int[]{-1, 0, 3, -2, 4, 100, 100, 8}, 100);
+        Assert.assertEquals(findNodeByVal(root, 0), lowestCommonAncestorOfABinaryTree(root, 8, 4));
+    }
+
+    private TreeNode findNodeByVal(TreeNode root, int val) {
+        if(root == null)
+            return null;
+        if(root.val == val)
+            return root;
+        TreeNode rst = findNodeByVal(root.left, val);
+        if(rst == null)
+            rst = findNodeByVal(root.right, val);
+        return rst;
+    }
+
+    @Test
+    public void testLowestCommonAncestorOfABinarySearchTree(){
+        TreeNode root = TreeNode.createTree(new int[]{2, 1, 3});
+        Assert.assertEquals(root, lowestCommonAncestorOfABinarySearchTree(root, 3, 1));
+        Assert.assertEquals(root, lowestCommonAncestorOfABinarySearchTree(root, 1, 3));
+    }
+
+    @Test
+    public void testImplementQueueUsingStacks(){
+        MyQueue myQueue = new MyQueue();
+        myQueue.push(1);
+        Assert.assertEquals(1, myQueue.peek());
+    }
+
+    @Test
+    public void testKthSmallestElementInABST(){
+        TreeNode root = TreeNode.createTree(new int[]{2, 1, 3});
+        Assert.assertEquals(1, kthSmallestElementInABST(root, 1));
+        Assert.assertEquals(2, kthSmallestElementInABST(root, 2));
+        Assert.assertEquals(3, kthSmallestElementInABST(root, 3));
+    }
+
+    @Test
+    public void testSummaryRanges(){
+        List<String> expect, actual;
+        expect = Collections.singletonList("1");
+        actual = summaryRanges(new int[]{1});
+        Assert.assertEquals(expect, actual);
+        expect = Collections.singletonList("0->1");
+        actual = summaryRanges(new int[]{0, 1});
+        Assert.assertEquals(expect, actual);
+        expect = Collections.singletonList("0->2");
+        actual = summaryRanges(new int[]{0, 1, 2});
+        Assert.assertEquals(expect, actual);
+        expect = Arrays.asList("0->2", "4->5", "7");
+        actual = summaryRanges(new int[]{0, 1, 2, 4, 5, 7});
+        Assert.assertEquals(expect, actual);
+    }
+
+    @Test
+    public void testBasicCalculatorII(){
+        Assert.assertEquals(2, basicCalculatorII("1 + 1"));
+        Assert.assertEquals(3, basicCalculatorII(" 2-1 + 2 "));
+        Assert.assertEquals(23, basicCalculatorII("(1+(4+5+2)-3)+(6+8)"));
+        Assert.assertEquals(7, basicCalculatorII("3+2*2"));
+        Assert.assertEquals(1, basicCalculatorII(" 3/2 "));
+        Assert.assertEquals(5, basicCalculatorII(" 3+5 / 2 "));
+    }
+
+    @Test
+    public void testBasicCalculator(){
+        Assert.assertEquals(2, basicCalculator("1 + 1"));
+        Assert.assertEquals(3, basicCalculator(" 2-1 + 2 "));
+        Assert.assertEquals(23, basicCalculator("(1+(4+5+2)-3)+(6+8)"));
+    }
+
+    @Test
+    public void testMaximalSquare(){
+        char[][] board;
+        board = new char[][]{
+                "10100".toCharArray(),
+                "10111".toCharArray(),
+                "11111".toCharArray(),
+                "10010".toCharArray()
+        };
+        Assert.assertEquals(4, maximalSquare(board));
+        board = new char[0][0];
+        Assert.assertEquals(0, maximalSquare(board));
+    }
+
+    @Test
+    public void testPowerOfTwo(){
+        Assert.assertFalse(powerOfTwo(-2));
+        Assert.assertFalse(powerOfTwo(-1));
+        Assert.assertFalse(powerOfTwo(0));
+        Assert.assertTrue(powerOfTwo(1));
+        Assert.assertTrue(powerOfTwo(2));
+        Assert.assertFalse(powerOfTwo(3));
+        Assert.assertTrue(powerOfTwo(4));
+        Assert.assertFalse(powerOfTwo(5));
+        Assert.assertFalse(powerOfTwo(6));
+    }
+
+    @Test
+    public void testInvertBinaryTree(){
+        TreeNode expect, actual;
+        expect = TreeNode.createTree(new int[]{4, 7, 2, 9, 6, 3, 1});
+        actual = invertBinaryTree(new int[]{4, 2, 7, 1, 3, 6, 9});
+        Assert.assertEquals(expect, actual);
+    }
+
+    private TreeNode invertBinaryTree(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.invert_binary_tree.Solution solution =
+                new cn.idear.algorithm.invert_binary_tree.Solution();
+        return solution.invertTree(root);
+    }
+
+    @Test
+    public void testImplementStackUsingQueues(){
+        MyStack stack = new MyStack();
+        stack.push(1);stack.push(2);stack.push(3);
+        Assert.assertEquals(3, stack.top());
+        Assert.assertFalse(stack.empty());
+        stack.pop();
+        Assert.assertEquals(2, stack.top());
+        Assert.assertFalse(stack.empty());
+        stack.pop();
+        Assert.assertEquals(1, stack.top());
+        Assert.assertFalse(stack.empty());
+        stack.pop();
+        Assert.assertTrue(stack.empty());
+    }
+
+    @Test
+    public void testRectangleArea(){
+        Assert.assertEquals(17, rectangleArea(-2, -2, 2, 2, 3, 3, 4, 4));
+        Assert.assertEquals(2, rectangleArea(-1500000001, 0, -1500000000, 1, 1500000000, 0, 1500000001, 1));
+    }
+
+    @Test
+    public void testCountCompleteTreeNodes(){
+        Assert.assertEquals(0, countCompleteTreeNodes(new int[]{}));
+        Assert.assertEquals(1, countCompleteTreeNodes(new int[]{1}));
+        Assert.assertEquals(2, countCompleteTreeNodes(new int[]{1, 2}));
+        Assert.assertEquals(3, countCompleteTreeNodes(new int[]{1, 2, 3}));
+        Assert.assertEquals(4, countCompleteTreeNodes(new int[]{1, 2, 3, 4}));
+        Assert.assertEquals(5, countCompleteTreeNodes(new int[]{1, 2, 3, 4, 5}));
+    }
+
+    @Test
+    public void testWordSearchII(){
+        String[] board = {"oaan","etae","ihkr","iflv"};
+        String[] words = {"oath","pea","eat","rain"};
+        Assert.assertEquals(2, wordSearchII(board, words).size());
+    }
+
+    private List<String> wordSearchII(String[] board, String[] words) {
+        char[][] boards = new char[board.length][];
+        for(int i = 0; i < board.length; i++)
+            boards[i] = board[i].toCharArray();
+        cn.idear.algorithm.word_search_ii.Solution solution = new cn.idear.algorithm.word_search_ii.Solution();
+        return solution.findWords(boards, words);
+    }
+
+    @Test
+    public void testWordDictionary(){
+        WordDictionary wordDictionary;
+        wordDictionary = new WordDictionary();
+        wordDictionary.addWord("a");
+        Assert.assertTrue(wordDictionary.search("a"));
+
+        wordDictionary = new WordDictionary();
+        wordDictionary.addWord("bad");
+        wordDictionary.addWord("dad");
+        wordDictionary.addWord("mad");
+        Assert.assertFalse(wordDictionary.search("pad"));
+        Assert.assertTrue(wordDictionary.search(".ad"));
+        Assert.assertTrue(wordDictionary.search("b.."));
+    }
+
+    @Test
+    public void testImplementTriePrefixTree(){
+        Trie trie;
+        trie = new Trie();
+        trie.insert("a");
+        Assert.assertTrue(trie.search("a"));
+        Assert.assertTrue(trie.startsWith("a"));
+    }
+
+    @Test
+    public void testBinaryTreePaths(){
+        Assert.assertEquals(Arrays.asList("1->2->5", "1->3"), binaryTreePaths(new int[]{1, 2, 3, 0, 5}));
+    }
+
+    @Test
+    public void testBullsAndCows(){
+        Assert.assertEquals("1A3B", bullsAndCows("1807", "7810"));
+        Assert.assertEquals("1A1B", bullsAndCows("1123", "0111"));
     }
 
     @Test
@@ -3186,6 +3416,101 @@ public class Main {
         cn.idear.algorithm.integer_to_english_words.Solution solution =
                 new cn.idear.algorithm.integer_to_english_words.Solution();
         return solution.numberToWords(num);
+    }
+
+    private String bullsAndCows(String secret, String guess) {
+        cn.idear.algorithm.bulls_and_cows.Solution solution =
+                new cn.idear.algorithm.bulls_and_cows.Solution();
+        return solution.getHint(secret, guess);
+    }
+
+    private List<String> binaryTreePaths(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.binary_tree_paths.Solution solution = new cn.idear.algorithm.binary_tree_paths.Solution();
+        return solution.binaryTreePaths(root);
+    }
+
+    private int countCompleteTreeNodes(int[] nums) {
+        TreeNode root = TreeNode.createTree(nums);
+        cn.idear.algorithm.count_complete_tree_nodes.Solution solution =
+                new cn.idear.algorithm.count_complete_tree_nodes.Solution();
+        return solution.countNodes(root);
+    }
+
+    private int rectangleArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        cn.idear.algorithm.rectangle_area.Solution solution =
+                new cn.idear.algorithm.rectangle_area.Solution();
+        return solution.computeArea(A, B, C, D, E, F, G, H);
+    }
+
+    private boolean powerOfTwo(int n) {
+        cn.idear.algorithm.power_of_two.Solution solution =
+                new cn.idear.algorithm.power_of_two.Solution();
+        return solution.isPowerOfTwo(n);
+    }
+
+    private int maximalSquare(char[][] board) {
+        cn.idear.algorithm.maximal_square.Solution solution =
+                new cn.idear.algorithm.maximal_square.Solution();
+        return solution.maximalSquare(board);
+    }
+
+    private int basicCalculator(String s) {
+        cn.idear.algorithm.basic_calculator.Solution solution = new cn.idear.algorithm.basic_calculator.Solution();
+        return solution.calculate(s);
+    }
+
+    private int basicCalculatorII(String s) {
+        cn.idear.algorithm.basic_calculator_ii.Solution solution =
+                new cn.idear.algorithm.basic_calculator_ii.Solution();
+        return solution.calculate(s);
+    }
+
+    private List<String> summaryRanges(int[] nums) {
+        cn.idear.algorithm.summary_ranges.Solution solution =
+                new cn.idear.algorithm.summary_ranges.Solution();
+        return solution.summaryRanges(nums);
+    }
+
+    private int kthSmallestElementInABST(TreeNode root, int k) {
+        cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution solution =
+                new cn.idear.algorithm.kth_smallest_element_in_a_bst.Solution();
+        return solution.kthSmallest(root, k);
+    }
+
+    private TreeNode lowestCommonAncestorOfABinarySearchTree(TreeNode root, int pVal, int qVal) {
+        cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution solution =
+                new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_search_tree.Solution();
+        return solution.lowestCommonAncestor(root, findNodeByVal(root, pVal), findNodeByVal(root, qVal));
+    }
+
+    private TreeNode lowestCommonAncestorOfABinaryTree(TreeNode root, int pVal, int qVal) {
+        cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution solution =
+                new cn.idear.algorithm.lowest_common_ancestor_of_a_binary_tree.Solution();
+        return solution.lowestCommonAncestor(root, findNodeByVal(root, pVal), findNodeByVal(root, qVal));
+    }
+
+    private int[] productOfArrayExceptSelf(int[] nums) {
+        cn.idear.algorithm.product_of_array_except_self.Solution solution =
+                new cn.idear.algorithm.product_of_array_except_self.Solution();
+        return solution.productExceptSelf(nums);
+    }
+
+    private boolean validAnagram(String s, String t) {
+        cn.idear.algorithm.valid_anagram.Solution solution =
+                new cn.idear.algorithm.valid_anagram.Solution();
+        return solution.isAnagram(s, t);
+    }
+
+    private boolean interleavingString(String s1, String s2, String s3) {
+        cn.idear.algorithm.interleaving_string.Solution solution = new cn.idear.algorithm.interleaving_string.Solution();
+        return solution.isInterleave(s1, s2, s3);
+    }
+
+    private boolean scrambleString(String s1, String s2) {
+        cn.idear.algorithm.scramble_string.Solution solution =
+                new cn.idear.algorithm.scramble_string.Solution();
+        return solution.isScramble(s1, s2);
     }
 
     private int uglyNumberII(int n) {
