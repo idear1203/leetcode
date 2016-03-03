@@ -22,6 +22,13 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testUglyNumberII(){
+        Assert.assertEquals(1399680000, uglyNumberII(1600));
+        Assert.assertEquals(1, uglyNumberII(1));
+        Assert.assertEquals(12, uglyNumberII(10));
+    }
+
+    @Test
     public void testScrambleString(){
         Assert.assertTrue(scrambleString("",""));
         Assert.assertTrue(scrambleString("a","a"));
@@ -3504,6 +3511,11 @@ public class Main {
         cn.idear.algorithm.scramble_string.Solution solution =
                 new cn.idear.algorithm.scramble_string.Solution();
         return solution.isScramble(s1, s2);
+    }
+
+    private int uglyNumberII(int n) {
+        cn.idear.algorithm.ugly_number_ii.Solution solution = new cn.idear.algorithm.ugly_number_ii.Solution();
+        return solution.nthUglyNumber(n);
     }
 
 }
