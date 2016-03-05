@@ -22,6 +22,12 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testLongestIncreasingSequence(){
+        Assert.assertEquals(4, longestIncreasingSequence(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+        Assert.assertEquals(6, longestIncreasingSequence(new int[]{1,3,6,7,9,4,10,5,6}));
+    }
+
+    @Test
     public void testCoinChange(){
         Assert.assertEquals(3, coinChange(new int[]{1, 2, 5}, 11));
     }
@@ -3526,6 +3532,12 @@ public class Main {
     private int coinChange(int[] nums, int n) {
         cn.idear.algorithm.coin_change.Solution solution = new cn.idear.algorithm.coin_change.Solution();
         return solution.coinChange(nums, n);
+    }
+
+    private int longestIncreasingSequence(int[] nums) {
+        cn.idear.algorithm.longest_increasing_sequence.Solution solution =
+                new cn.idear.algorithm.longest_increasing_sequence.Solution();
+        return solution.lengthOfLIS(nums);
     }
 
 }
