@@ -22,6 +22,11 @@ import java.util.*;
 public class Main {
 
     @Test
+    public void testCoinChange(){
+        Assert.assertEquals(3, coinChange(new int[]{1, 2, 5}, 11));
+    }
+
+    @Test
     public void testUglyNumberII(){
         Assert.assertEquals(1399680000, uglyNumberII(1600));
         Assert.assertEquals(1, uglyNumberII(1));
@@ -3516,6 +3521,11 @@ public class Main {
     private int uglyNumberII(int n) {
         cn.idear.algorithm.ugly_number_ii.Solution solution = new cn.idear.algorithm.ugly_number_ii.Solution();
         return solution.nthUglyNumber(n);
+    }
+
+    private int coinChange(int[] nums, int n) {
+        cn.idear.algorithm.coin_change.Solution solution = new cn.idear.algorithm.coin_change.Solution();
+        return solution.coinChange(nums, n);
     }
 
 }
