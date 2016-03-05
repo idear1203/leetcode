@@ -23,7 +23,7 @@ public class Main {
 
     @Test
     public void testCoinChange(){
-        Assert.assertEquals(20, coinChange(new int[]{186,419,83,408}, 6249));
+        Assert.assertEquals(3, coinChange(new int[]{1, 2, 5}, 11));
     }
 
     @Test
@@ -3523,10 +3523,9 @@ public class Main {
         return solution.nthUglyNumber(n);
     }
 
-    private int coinChange(int[] coins, int amount) {
+    private int coinChange(int[] nums, int n) {
         cn.idear.algorithm.coin_change.Solution solution = new cn.idear.algorithm.coin_change.Solution();
-        return solution.coinChange(coins, amount);
+        return solution.coinChange(nums, n);
     }
-
 
 }
